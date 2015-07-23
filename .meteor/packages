@@ -1,0 +1,33 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+insecure
+coffeescript
+jquery
+fourseven:scss
+msavin:mongol
+iron:router
+email
+accounts-base
+accounts-password
+accounts-facebook
+accounts-twitter
+accounts-google
+momentjs:moment
+mquandalle:jade
+dburles:collection-helpers
+copleykj:autolinker
+service-configuration
+lookback:entypo
+linto:jquery-ui
+mizzao:user-status
+matb33:collection-hooks
+percolate:velocityjs
+wolves:bourbon
+raix:handlebar-helpers
+seriousm:emoji-continued
+copleykj:jquery-autosize

@@ -1,0 +1,46 @@
+template(name="chat")
+  section.chat
+    .emoji-window
+      +emoji
+
+        .emoji-category {{> entypo "user"}} <br> Personen
+        each emojis.people
+          .emoji-tag(title= this) :{{this}}:
+        .emoji-category {{> entypo "flower"}} <br> Natur
+        each emojis.nature
+          .emoji-tag(title= this) :{{this}}:
+        .emoji-category {{> entypo "box"}} <br> Objekte
+        each emojis.objects
+          .emoji-tag(title= this) :{{this}}:
+        .emoji-category {{> entypo "aircraft-take-off"}} <br> Reise
+        each emojis.trip
+          .emoji-tag(title= this) :{{this}}:
+        .emoji-category {{> entypo "language"}} <br> Symbole
+        each emojis.symbols
+          .emoji-tag(title= this) :{{this}}:
+        .emoji-category {{> entypo "star"}} <br> Spezial
+        each emojis.special
+          .emoji-tag(title= this) :{{this}}:
+            
+    .emoji-close-button(title="Schließen") {{> entypo "circle-with-cross"}}
+
+    each Messages
+      unless other
+        .message
+          img.profileimage(src="{{creator.profile.image}}" title="Du\n{{moment}}")
+          .bubble {{#autolink}} {{#emoji}} {{text}} {{/emoji}} {{/autolink}}
+      else
+        .message.other
+          img.profileimage(src="{{creator.profile.image}}" title="{{creator.profile.name}} • {{onlineStatusName creator }}\n{{moment}}")
+          .online-status(class="{{onlineStatusIndicator creator}}")
+          .bubble {{#autolink}} {{#emoji}} {{text}} {{/emoji}} {{/autolink}}
+
+    each Users
+      if other
+        if isTyping
+          .message.other
+            img.profileimage(src="{{this.profile.image}}" title="{{this.profile.name}} • {{onlineStatusName this }}")
+            img.isTyping(src="images/is-typing.gif")
+          
+    textarea#chat-textarea(rows="1" placeholder="Schreibe eine Nachricht ...")
+    .emoji-button(title="Emojis") {{> entypo "emoji-flirt"}}

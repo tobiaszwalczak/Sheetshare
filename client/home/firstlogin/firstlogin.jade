@@ -1,0 +1,74 @@
+template(name="firstlogin")
+  .popup.first-login-popup
+
+    .hirni
+      img(src="/images/hirni.png")
+
+    svg.triangle
+      polygon(points="30,0 30,50 0,25")
+
+
+    .bubble
+      .content-slider
+        .content
+          .heading Hallöle
+          .i-am Ich bin <i class="blue">Hirni</i>
+          p Wie’s aussieht bist du zum<br>
+            | ersten Mal hier …<br><br>
+            | Kein Sorge! {{> emoji ":wink:"}}<br><br>
+            | Ich helf dir bei deinen ersten<br>
+            | Schritten und wenn du mal Probleme<br>
+            | mit der Seite hast.
+          
+        .content
+          .heading Suche ein Packet aus
+          .subheading Für einen Döner im Monat gibt's Premium
+          
+          .package.light
+            .header Light
+              .cost 0.00€ / Monat
+            .row 1 Gruppe erstellen
+            .row Mitlied in 2 Gruppen
+            .row Immer gratis
+            .check {{> entypo "check"}}
+            
+          .package.premium
+            .header Premium
+              .cost 3.00€ / Monat
+            .row So viele du willst
+            .row Unbegrenzt
+            .row Probemonat frei
+            .check {{> entypo "check"}}
+          
+        .content
+          .heading Erstelle eine Gruppe
+          .subheading Hier und jetzt entsteht deine erste Gruppe
+          
+          form#create-first-group
+            input(type="text" placeholder="Name der Gruppe")
+            .invite-people
+              | Leute einladen: <br>
+              .invite {{> entypo "add-user"}}
+            button(type="submit") Erstellen
+            
+          
+        .content
+          .heading Das war's schon
+          .subheading Alles klar, du kannst loslegen {{> emoji ":ok_hand:"}}
+          p Wie’s aussieht bist du zum<br>
+            | ersten Mal hier …<br><br>
+            | Kein Sorge! {{> emoji ":wink:"}}<br><br>
+            | Ich helf dir bei deinen ersten<br>
+            | Schritten und wenn du mal Probleme<br>
+            | mit der Seite hast.
+          
+
+      .step-indicator(data-step="{{firstLoginStep}}")
+        .step
+        .step
+        .step
+        .step
+
+      .button.prev-step(title="Zurück") {{> entypo "chevron-left"}}
+      .button.next-step(title="Weiter") {{> entypo "chevron-right"}}
+      .button.done(title="Fertig") {{> entypo "check"}}

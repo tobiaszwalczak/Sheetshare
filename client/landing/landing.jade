@@ -1,0 +1,47 @@
+template(name="landing")
+  header
+    .top-menu
+      button.login-button {{> entypo "user"}} Login
+      
+    h1 Sheetshare
+      .beta ßeta
+    hr
+    p Hey du. Ja du! <br> Du musst deine Hausaufgaben in einer Gruppe machen? <br>
+      | Dann ist Sheetshare das perfekte Werkzeug für dich.
+    a(href="#")
+      button.join-button Jetzt beitreten
+    .or-login
+      .or oder
+      a einloggen
+  
+  .dark-background
+    
+  .popup.login-popup
+    .popup-header Login
+      .popup-close(title="Schließen") {{> entypo "circle-with-cross"}}
+    .popup-content
+      form#login-form
+        input#email(type="email" placeholder="Email")
+        input#password(type="password" placeholder="Passwort")
+        button.login-button.login(type="submit") {{> entypo "chevron-thin-right"}}
+      .login-with Anmelden mit:
+      button.login-button.facebook Facebook
+      button.login-button.twitter Twitter
+      button.login-button.google Google
+
+  .popup.join-popup
+    .popup-header Beitreten
+      .popup-close(title="Schließen") {{> entypo "circle-with-cross"}}
+    .popup-content
+      form#signup-form
+        input#name(type="text" placeholder="Name")
+        input#email(type="email" placeholder="Email")
+        input#password(type="password" placeholder="Passwort")
+        button.login-button.signup(type="submit") {{> entypo "chevron-thin-right"}}
+      .login-with Anmelden mit:
+      button.login-button.facebook Facebook
+      button.login-button.twitter Twitter
+      button.login-button.google Google
+        
+      
+      

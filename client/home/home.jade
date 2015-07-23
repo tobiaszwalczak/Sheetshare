@@ -1,0 +1,49 @@
+template(name="home")
+  .top-bar
+    .logo
+      .symbol
+      .sheetshare Sheetshare
+      .beta ßeta
+    .top-menu
+      .button(title="Meine Gruppen")
+        .text Meine Gruppen 
+        .symbol {{> entypo "grid"}}
+      .button(title="Neue Gruppe")
+        .text Neue Gruppe 
+        .symbol {{> entypo "squared-plus"}}
+      .button(title="Mitteilungen")
+        .text Mitteilungen 
+        .symbol {{> entypo "flash"}}
+      .button.profile-button
+        | {{> entypo "chevron-down"}}
+        .name {{currentUser.profile.name}}
+        img.profileimage(src="{{currentUser.profile.image}}" title= currentUser.profile.name)
+  
+  .toolbar
+    .tool(title="Vergrößern") {{> entypo "circle-with-plus"}}
+    .tool(title="Verkleinern") {{> entypo "circle-with-minus"}}
+    hr
+    .tool(title="Text") {{> entypo "text"}}
+    .tool(title="Rechteck") {{> entypo "popup"}}
+    .tool(title="Stift") {{> entypo "pencil"}}
+    .tool(title="Rückgängig") {{> entypo "back"}}
+    hr
+    .tool(title="Alle Sheets") {{> entypo "grid"}}
+    
+  .sheet-window
+    
+  .group-window
+    .group-header
+      .group-name Analysis I
+      .group-menu
+        .button.selected(title="Chat") {{> entypo "typing"}}
+        .button(title="Checkliste") {{> entypo "list"}}
+        .button(title="Mitglieder") {{> entypo "users"}}
+        .button(title="Archiv") {{> entypo "archive"}}
+        .button(title="Einstellungen") {{> entypo "cog"}}
+    
+    +chat
+    
+  .dark-background(title="Fenster schließen")
+    
+  +firstlogin

@@ -1,0 +1,132 @@
+$green: #6affbe
+
+section.chat
+  padding: 5px 10px 45px
+  overflow-y: scroll
+
+  .emoji-window
+    position: fixed
+    right: -256px
+    margin: -5px 0 0 -10px
+    width: 256px
+    height: calc(100% - 140px)
+    background-color: #fff
+    text-align: center
+    overflow-y: scroll
+    border: solid 10px #fff
+    border-bottom-width: 45px
+    z-index: 3
+
+    .emoji-category
+      margin: 20px 0 7px
+      padding-bottom: 5px
+      color: #888
+      font-size: 14px
+      border-bottom: solid 1px #ddd
+      &:first-of-type
+        margin-top: 0px
+
+      svg.icon
+        color: #ddd
+
+    .emoji-tag
+      display: inline-block
+      margin: -2px 0px
+      font-size: 20px
+      cursor: pointer
+      &:hover
+        opacity: 0.6
+
+  .emoji-close-button
+    display: none
+    z-index: 4
+
+  .message
+    position: relative
+    margin: 10px 0
+
+    img.profileimage
+      position: absolute
+      width: 35px
+      height: 35px
+      border-radius: 50%
+
+    .online-status
+      position: absolute
+      top: -3px
+      right: -3px
+      width: 13px
+      height: 13px
+      border: solid 2px #f5f5f5
+      border-radius: 50%
+
+      &.online
+        background-color: #0c7
+      &.offline
+        background-color: #f66
+      &.idle
+        background-color: #f90
+
+    .bubble
+      display: inline-block
+      margin-left: 45px
+      padding: 10px
+      width: calc(100% - 45px)
+      height: auto
+      background: linear-gradient(#09f 0%, #0cf 100%)
+      color: rgba(0, 0, 0, 0.4)
+      line-height: 16px
+      font-weight: 400
+      border-radius: 10px
+      word-wrap: break-word
+
+      a
+        text-decoration: underline
+        &:hover
+          opacity: 0.7
+
+    &.other
+      img.profileimage
+        right: 0
+
+      .bubble
+        margin-left: 0 !important
+        background: linear-gradient(#0c7 0%, #0f7 100%)
+        text-align: right
+
+      .isTyping
+        margin-left: 160px
+        height: 35px
+        color: #aaa
+        font-size: 20px
+        line-height: 35px
+
+  textarea
+    box-sizing: content-box
+    position: fixed
+    bottom: 0
+    margin-left: -10px
+    padding: 12px 55px 12px 10px
+    width: 200px
+    max-height: 120px
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1)
+
+.emoji-button, .emoji-close-button
+  position: fixed
+  bottom: 7px
+  right: 7px
+  width: 30px
+  height: 30px
+  background: linear-gradient(#09f 0%, #0cf 100%)
+  color: #fff
+  line-height: 30px
+  border-radius: 50%
+  cursor: pointer
+  transition: all 0.3s
+  &:hover
+    opacity: 0.8
+
+  svg.icon
+    margin: 5.5px 0 0 5px
+    width: 20px
+    height: 20px
