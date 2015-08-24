@@ -29,38 +29,40 @@ template(name="firstlogin")
               .cost 0.00€ / Monat
             .row 1 Gruppe erstellen
             .row Mitlied in 2 Gruppen
-            .row Immer gratis
+            .row Nicht so viel ...
             .check {{> entypo "check"}}
+            .package-info Immer gratis
             
           .package.premium
             .header Premium
               .cost 3.00€ / Monat
             .row So viele du willst
             .row Unbegrenzt
-            .row Probemonat frei
+            .row Personalisierung
             .check {{> entypo "check"}}
+            .package-info 1. Monat gratis
           
         .content
           .heading Erstelle eine Gruppe
           .subheading Hier und jetzt entsteht deine erste Gruppe
           
           form#create-first-group
-            input(type="text" placeholder="Name der Gruppe")
+            input#name(type="text" placeholder="Name der Gruppe")
             .invite-people
               | Leute einladen: <br>
-              .invite {{> entypo "add-user"}}
+              .invite-button {{> entypo "add-user"}}
+              input#email(type="email" placeholder="Email des Mitglieds")
             button(type="submit") Erstellen
             
           
         .content
           .heading Das war's schon
-          .subheading Alles klar, du kannst loslegen {{> emoji ":ok_hand:"}}
-          p Wie’s aussieht bist du zum<br>
-            | ersten Mal hier …<br><br>
-            | Kein Sorge! {{> emoji ":wink:"}}<br><br>
-            | Ich helf dir bei deinen ersten<br>
-            | Schritten und wenn du mal Probleme<br>
-            | mit der Seite hast.
+          .subheading Alles klar, du kannst loslegen {{> emoji ":rocket:"}}
+          br
+          p Wenn du Lust hast kannst du dein Profil noch ein wenig <a href="#">personalisieren</a>.<br><br>
+            | Da du das <span class="blue">Premium</span> Packet ausgesucht hast, ist dein erster Monat bei uns
+            | gratis. {{> emoji ":smile:"}}
+          .big-emoji {{> emoji ":v:"}} <br><br> Viel Spaß!
           
 
       .step-indicator(data-step="{{firstLoginStep}}")

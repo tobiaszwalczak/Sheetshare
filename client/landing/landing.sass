@@ -18,6 +18,22 @@ header
     padding: 15px
     width: 100%
 
+    nav
+      float: right
+      display: inline-block
+      margin: 8px 10px
+      text-align: right
+
+      a
+        margin: 0 10px
+        color: #fff
+        text-decoration: none
+        font-weight: 400
+        opacity: 0.8
+        transition: all 0.3s
+        &:hover
+          opacity: 1
+
     button.login-button
       float: right
       padding: 5px 10px
@@ -94,10 +110,13 @@ header
       opacity: 0.9
 
     a
+      color: #fff
       font-weight: 500
+      text-decoration: underline
       cursor: pointer
+      transition: all 0.3s
       &:hover
-        text-decoration: underline
+        opacity: 0.8
 
 .popup
   &.login-popup, &.join-popup

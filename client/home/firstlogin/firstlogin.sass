@@ -100,7 +100,7 @@
               border-bottom: none
 
           .check
-            margin: 10px auto 0
+            margin: 5px auto 0
             width: 25px
             height: 25px
             color: #0d7
@@ -114,11 +114,21 @@
               opacity: 0
               transition: all 0.4s
 
+          .package-info
+            margin-top: 5px
+            font-size: 11px
+            color: #ccc
+            transition: all 0.4s
+
           &.slcd
             .check
               border-color: #0d7
               svg.icon
                 opacity: 1
+
+            .package-info
+              color: #0d7
+
 
         form#create-first-group
           text-align: center
@@ -127,7 +137,7 @@
             margin: 30px 0 20px
 
           .invite-people
-            .invite
+            .invite-button
               display: inline-block
               margin-top: 10px
               padding: 5px 0 0 2px
@@ -141,6 +151,10 @@
               transition: all 0.3s
               &:hover
                 opacity: 0.8
+
+          input#email
+            display: none
+            transition: none
 
           button
             display: inline-block
@@ -157,6 +171,10 @@
             transition: all 0.3s
             &:hover
               opacity: 0.8
+
+        .big-emoji
+          img.emoji
+            font-size: 40px
 
     .step-indicator
       position: absolute

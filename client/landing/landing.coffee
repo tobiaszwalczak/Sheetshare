@@ -1,17 +1,3 @@
-animationEnd = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend"
-buttonAnimations = ["shake", "swing", "tada", "wobble"]
-
-Template.landing.rendered = ->
-  setInterval( ->
-    random = Math.floor(Math.random() * buttonAnimations.length)
-    animation = buttonAnimations[random]
-
-    $("header .join-button").addClass("animated "+ animation).one(animationEnd, ->
-      $(this).removeClass("animated "+ animation)
-    )
-  , 10000)
-
-
 Template.landing.events {
   "click .top-menu .login-button, click header .or-login a": ->
     $(".dark-background").fadeIn(300, ->
