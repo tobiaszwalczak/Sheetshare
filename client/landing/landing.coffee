@@ -1,4 +1,7 @@
 Template.landing.events {
+  "click .top-menu .symbol": ->
+    $("html, body").animate({ scrollTop: 0 }, 300)
+
   "click .top-menu .login-button, click header .or-login a": ->
     $(".dark-background").fadeIn(300, ->
       $(".login-popup").delay(100).fadeIn(300, ->
