@@ -3,9 +3,11 @@ template(name="landing")
     .top-menu
       .symbol
         img(src="/images/symbol.png" title="Sheetshare")
+        span.symbol-tag Sheetshare
       button.login-button {{> entypo "user"}} Login
       nav
         a(href="#") Features
+        a(href="#") Preise
         a(href="#") Blog
         a(href="#") Kontakt
       
@@ -20,6 +22,22 @@ template(name="landing")
       .or oder
       a einloggen
   
+  .content
+    section(id="about")
+      h2 Was ist Sheetshare überhaupt?
+      
+    section(id="features")
+      h2 Features
+        
+    section(id="pricing")
+      h2 Preise
+        
+    section(id="contact")
+      h2 Kontakt
+
+
+  footer
+    
   .dark-background
     
   .popup.login-popup

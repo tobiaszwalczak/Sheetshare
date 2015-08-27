@@ -16,15 +16,32 @@ header
     position: fixed
     padding: 15px
     width: 100%
+    background-color: rgba(0, 0, 0, 0.2)
+    transition: all 0.3s
 
     .symbol
       display: inline-block
       float: left
       margin: 5px
+      cursor: pointer
 
       img
+        float: left
         height: 25px
-        cursor: pointer
+
+      .symbol-tag
+        opacity: 0
+        margin-left: 15px
+        line-height: 27px
+        font-size: 18px
+        transition: all 0.3s
+
+    &.tinted
+      background-color: rgba(0, 175, 255, 0.9)
+
+      .symbol-tag
+        opacity: 1
+
 
     nav
       float: right
@@ -63,7 +80,7 @@ header
 
   h1
     display: inline-block
-    margin: 110px 0 0 0
+    margin: 130px 0 0 0
     font-size: 64px
     font-weight: 100
     @media screen and (max-width: 500px)
@@ -125,6 +142,24 @@ header
       transition: all 0.3s
       &:hover
         opacity: 0.8
+.content
+  section
+    width: 100%
+    padding: 30px
+    text-align: center
+
+    h2
+      color: #777
+      font-weight: 300
+      letter-spacing: 5px
+
+
+footer
+  margin-top: 50px
+  padding: 50px
+  width: 100%
+  background-color: #343744
+
 
 .popup
   &.login-popup, &.join-popup

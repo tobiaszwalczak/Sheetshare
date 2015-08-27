@@ -1,6 +1,14 @@
+Template.landing.rendered = ->
+  $(window).scroll( ->
+    if $(window).scrollTop() > 480
+      $(".top-menu").addClass("tinted")
+    else
+      $(".top-menu").removeClass("tinted")
+  )
+
 Template.landing.events {
   "click .top-menu .symbol": ->
-    $("html, body").animate({ scrollTop: 0 }, 300)
+    $("html, body").animate({scrollTop: 0}, 300)
 
   "click .top-menu .login-button, click header .or-login a": ->
     $(".dark-background").fadeIn(300, ->
@@ -46,7 +54,6 @@ Template.landing.events {
 
     Accounts.createUser(options)
     return false
-
 
   "click .login-button.facebook": ->
     Meteor.loginWithFacebook()
