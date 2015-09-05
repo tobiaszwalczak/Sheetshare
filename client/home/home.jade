@@ -19,6 +19,8 @@ template(name="home")
         .name {{currentUser.profile.name}}
         img.profileimage(src="{{currentUser.profile.image}}" title= currentUser.profile.name)
   
+  +menus
+  
   .toolbar
     .tool(title="Vergrößern") {{> entypo "circle-with-plus"}}
     .tool(title="Verkleinern") {{> entypo "circle-with-minus"}}

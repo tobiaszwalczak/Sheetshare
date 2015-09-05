@@ -1,0 +1,26 @@
+template(name="menus")
+  .menus
+    .menu.profilemenu
+      img.profileimage(src="{{currentUser.profile.image}}" title= currentUser.profile.name)
+      .name= currentUser.profile.name
+      .button
+        .icon {{> entypo "user"}}
+        .label Profil
+      .button
+        .icon {{> entypo "tools"}}
+        .label Einstellungen
+      .button
+        .icon {{> entypo "line-graph"}}
+        .label Statistiken
+      .button.logout
+        .icon {{> entypo "lock"}}
+        .label Logout
+      .button.upgrade Upgraden
+      hr
+      footer
+        a(href="#") Info
+        a(href="#") Kontakt
+        a(href="#") AGB
+        a(href="#") Privats.
+        a(href="#") Hilfe
+        a(href="#") Blog

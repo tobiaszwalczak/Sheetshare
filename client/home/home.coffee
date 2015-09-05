@@ -15,10 +15,6 @@ Template.home.helpers {
 }
 
 Template.home.events {
-  "click .profile-button": ->
-    Meteor.logout()
-    Router.go("/")
-
   "click #create-group-form .add-user": ->
     $("#create-group-form .add-user").fadeOut(300, ->
       $("#create-group-form input#email").fadeIn(300)
