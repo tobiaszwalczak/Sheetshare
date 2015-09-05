@@ -1,6 +1,7 @@
 template(name="menus")
   .menus
     .menu.profilemenu
+      .share(title="share") {{> entypo "share-alternitive"}}
       img.profileimage(src="{{currentUser.profile.image}}" title= currentUser.profile.name)
       .name= currentUser.profile.name
       .button
@@ -24,3 +25,5 @@ template(name="menus")
         a(href="#") Privats.
         a(href="#") Hilfe
         a(href="#") Blog
+        
+  .anything-else

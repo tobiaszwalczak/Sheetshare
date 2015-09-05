@@ -14,7 +14,7 @@
     border-radius: 10px
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4)
     z-index: 10
-    transition: all 0.5s
+    transition: all 0.4s
     transition-timing-function: ease-out
 
     hr
@@ -28,6 +28,17 @@
 
       &.slcd
         top: 50px
+
+      .share
+        display: inline-block
+        float: right
+        margin-top: -2px
+        color: #09f
+        cursor: pointer
+        transition: all 0.3s
+
+        &:hover
+          color: #0cf
 
       img.profileimage
         margin: 0 auto
@@ -95,3 +106,19 @@
         a
           color: #bbb
           text-decoration: none
+
+.anything-else
+  position: fixed
+  top: 60px
+  width: 100%
+  height: calc(100% - 60px)
+  background-color: rgba(0, 0, 0, 0.4)
+  opacity: 0
+  z-index: 5
+  transition: all 0.3s
+  pointer-events: none
+
+  &.slcd
+    opacity: 1
+    pointer-events: auto
+    cursor: pointer
