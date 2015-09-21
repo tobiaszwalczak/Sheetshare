@@ -1,0 +1,15 @@
+template(name="groupwindow")
+  .group-window
+    .group-header
+      .group-name Analysis I
+      .group-menu
+        .button#chat(title="Chat") {{> entypo "typing"}}
+        .button#checklist(title="Checkliste") {{> entypo "list"}}
+        .button#members(title="Mitglieder") {{> entypo "users"}}
+        .button#archive(title="Archiv") {{> entypo "archive"}}
+        .button#settings(title="Einstellungen") {{> entypo "cog"}}
+    
+    .sections
+      +chat
+      
+      +checklist

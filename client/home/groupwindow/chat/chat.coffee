@@ -3,11 +3,10 @@ Meteor.subscribe("users")
 
 Template.chat.rendered = ->
   UserStatus.startMonitor({threshold: 30000, interval: 1000, idleOnBlur: true})
-  $("textarea").autosize()
+  $("section.chat textarea").autosize()
   $("section.chat").animate({scrollTop: $("section.chat")[0].scrollHeight}, 100)
   Meteor.call("updateIsTyping", false)
   UserStatus.events.on("connectionLogout", -> Meteor.call("updateIsTyping", false))
-
 
 Template.chat.helpers {
   "onlineStatusIndicator": (creator) ->

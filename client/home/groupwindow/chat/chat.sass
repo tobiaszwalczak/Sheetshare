@@ -1,13 +1,17 @@
 $green: #6affbe
 
 section.chat
-  padding: 5px 10px 45px
+  position: absolute
+  top: 0px
+  right: 0px
+  padding: 0px 10px 45px !important
+  border-right: solid 1px #ccc
   overflow-y: scroll
 
   .emoji-window
     position: fixed
     right: -256px
-    margin: -5px 0 0 -10px
+    margin: -10px 0 0 -10px
     width: 256px
     height: calc(100% - 140px)
     background-color: #fff
@@ -75,10 +79,16 @@ section.chat
       height: auto
       background: linear-gradient(#09f 0%, #0cf 100%)
       color: rgba(0, 0, 0, 0.4)
+      font-size: 14px
       line-height: 16px
       font-weight: 400
-      border-radius: 10px
+      box-shadow: 0 3px 2px -1px rgba(0, 0, 0, 0.1)
+      border-radius: 5px
       word-wrap: break-word
+
+      img.emoji
+        width: 1.2em !important
+        height: 1.2em !important
 
       a
         color: #fff
@@ -87,6 +97,18 @@ section.chat
         &:hover
           text-decoration: underline
 
+    .justemojis
+      display: inline-block
+      margin-left: 30px
+      padding: 4px 5px 5px 10px
+      width: calc(100% - 45px)
+      height: auto
+      color: rgba(0, 0, 0, 0.4)
+      font-size: 30px
+      line-height: 16px
+      word-wrap: break-word
+
+
     &.other
       img.profileimage
         right: 0
@@ -94,6 +116,11 @@ section.chat
       .bubble
         margin-left: 0 !important
         background: linear-gradient(#0c7 0%, #0f7 100%)
+        text-align: right
+
+      .justemojis
+        margin-left: 0 !important
+        padding: 4px 0px 5px 5px
         text-align: right
 
       .isTyping
@@ -109,7 +136,7 @@ section.chat
     bottom: 0
     margin-left: -10px
     padding: 12px 55px 12px 10px
-    width: 200px
+    width: 191px
     max-height: 120px
     box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1)
 

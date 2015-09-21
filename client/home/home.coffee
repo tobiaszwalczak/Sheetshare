@@ -1,19 +1,6 @@
 Meteor.subscribe("users")
 Meteor.subscribe("userData")
 
-Template.home.rendered = ->
-  $("section.chat").animate({scrollTop: $("section.chat")[0].scrollHeight}, 100)
-  $("textarea").autosize()
-
-
-Template.home.helpers {
-  "Messages": ->
-    return Messages.find({}, {sort: {createdAt: 1}})
-
-  "emojis": ->
-    return Twemojis
-}
-
 Template.home.events {
   "click #create-group-form .add-user": ->
     $("#create-group-form .add-user").fadeOut(300, ->

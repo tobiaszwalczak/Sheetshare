@@ -5,6 +5,7 @@ accounts-oauth@1.1.5
 accounts-password@1.1.1
 accounts-twitter@1.0.4
 aldeed:template-extension@3.4.3
+amplify@1.0.0
 autoupdate@1.2.1
 babrahams:editable-json@0.4.3
 base64@1.0.3
@@ -79,6 +80,7 @@ reactive-var@1.0.5
 reload@1.1.3
 retry@1.0.3
 routepolicy@1.0.5
+rubaxa:sortable@1.2.1
 seriousm:emoji-continued@1.4.0
 service-configuration@1.0.4
 session@1.1.0
@@ -89,6 +91,7 @@ srp@1.0.3
 templating@1.1.1
 tracker@1.0.7
 twitter@1.1.4
+u2622:persistent-session@0.4.1
 ui@1.0.6
 underscore@1.0.3
 url@1.0.4

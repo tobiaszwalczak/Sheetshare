@@ -1,0 +1,48 @@
+template(name="checklist")
+  section.checklist
+    form#add-task-form
+      input#todo(type="text" placeholder="Aufgabe hinzufügen")
+      button(type="submit" title="Hinzufügen").plus {{> entypo "plus"}}
+      input#file(type="file")  
+      .mediainputs
+        .button.media-emoji(title="Emojis") {{> entypo "emoji-flirt"}}
+        .button.media-image(title="Bild") {{> entypo "image"}}
+        .button.media-code(title="Code") {{> entypo "code"}}
+        .button.media-documents(title="Andere Dateien") {{> entypo "documents"}}
+      
+    .tasks.notdone
+      +sortable items=notDoneTasks group="notDone" options=sortableOptions
+        .task(data-id="{{_id}}")
+          input.check(type="checkbox" id="{{_id}}")
+          label(for="{{_id}}") {{#autolink}} {{#emoji}} {{content}} {{/emoji}} {{/autolink}}
+          .handle {{> entypo "menu"}}
+          .actions(data-id="{{_id}}")
+            .action.info(title="Info") {{> entypo "info-with-circle"}}
+            .action.edit(title="Bearbeiten") {{> entypo "circle-with-minus"}}
+            .action.delete(title="Löschen") {{> entypo "circle-with-cross"}}
+          .infobox
+            .header-icon {{> entypo "info-with-circle"}}
+            .information
+              .row.user {{> entypo "user"}} {{creator}}
+              .row.clock {{> entypo "clock"}} {{moment}}
+              .row.check {{> entypo "check"}} Noch nicht erledigt
+      
+    +if doneTasksExist
+      .seperator Erledigte Aufgaben: {{> entypo "check"}}
+        span.deleteDone(title="Erledigte löschen") {{> entypo "circle-with-cross"}}
+      .tasks.done
+        +sortable items=doneTasks group="done" options=sortableOptions
+          .task(data-id="{{_id}}")
+            input.check(type="checkbox" id="{{_id}}" checked)
+            label(for="{{_id}}") {{#autolink}} {{#emoji}} {{content}} {{/emoji}} {{/autolink}}
+            .handle {{> entypo "menu"}}
+            .actions(data-id="{{_id}}")
+              .action.info(title="Info") {{> entypo "info-with-circle"}}
+              .action.edit(title="Bearbeiten") {{> entypo "circle-with-minus"}}
+              .action.delete(title="Löschen") {{> entypo "circle-with-cross"}}
+            .infobox
+              .header-icon {{> entypo "info-with-circle"}}
+              .information
+                .row.user {{> entypo "user"}} {{creator}}
+                .row.clock {{> entypo "clock"}} {{moment}}
+                .row.check {{> entypo "check"}} {{doneStatus}}

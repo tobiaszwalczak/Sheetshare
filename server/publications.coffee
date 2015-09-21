@@ -12,3 +12,10 @@ Meteor.publish("userData", ->
   else
     this.ready()
 )
+
+Meteor.publish("tasks", ->
+  if this.userId
+    return Tasks.find({})
+  else
+    this.ready()
+)

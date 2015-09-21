@@ -1,0 +1,1 @@
+Sortable.collections = "tasks"

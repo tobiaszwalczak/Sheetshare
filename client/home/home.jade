@@ -34,17 +34,7 @@ template(name="home")
     
   .sheet-window
     
-  .group-window
-    .group-header
-      .group-name Analysis I
-      .group-menu
-        .button.selected(title="Chat") {{> entypo "typing"}}
-        .button(title="Checkliste") {{> entypo "list"}}
-        .button(title="Mitglieder") {{> entypo "users"}}
-        .button(title="Archiv") {{> entypo "archive"}}
-        .button(title="Einstellungen") {{> entypo "cog"}}
-    
-    +chat
+  +groupwindow
     
   .dark-background(title="Fenster schließen")
     

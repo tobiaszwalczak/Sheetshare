@@ -27,13 +27,22 @@ template(name="chat")
     each Messages
       unless other
         .message
-          img.profileimage(src="{{creator.profile.image}}" title="Du\n{{moment}}")
-          .bubble {{#autolink}} {{#emoji}} {{text}} {{/emoji}} {{/autolink}}
+          unless justEmojis
+            img.profileimage(src="{{creator.profile.image}}" title="Du\n{{moment}}")
+            .bubble {{#autolink}} {{#emoji}} {{text}} {{/emoji}} {{/autolink}}
+          else
+            img.profileimage(src="{{creator.profile.image}}" title="Du\n{{moment}}")
+            .justemojis {{#emoji}} {{text}} {{/emoji}}
       else
         .message.other
-          img.profileimage(src="{{creator.profile.image}}" title="{{creator.profile.name}} • {{onlineStatusName creator }}\n{{moment}}")
-          .online-status(class="{{onlineStatusIndicator creator}}")
-          .bubble {{#autolink}} {{#emoji}} {{text}} {{/emoji}} {{/autolink}}
+          unless justEmojis
+            img.profileimage(src="{{creator.profile.image}}" title="{{creator.profile.name}} • {{onlineStatusName creator }}\n{{moment}}")
+            .online-status(class="{{onlineStatusIndicator creator}}")
+            .bubble {{#autolink}} {{#emoji}} {{text}} {{/emoji}} {{/autolink}}
+          else
+            img.profileimage(src="{{creator.profile.image}}" title="{{creator.profile.name}} • {{onlineStatusName creator }}\n{{moment}}")
+            .online-status(class="{{onlineStatusIndicator creator}}")
+            .justemojis {{#emoji}} {{text}} {{/emoji}}
 
     each Users
       if other

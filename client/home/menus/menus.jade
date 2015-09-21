@@ -1,7 +1,7 @@
 template(name="menus")
   .menus
     .menu.profilemenu
-      .share(title="Profil teilen") {{> entypo "share-alternitive"}}
+      .share(title="Profil teilen") {{> entypo "export"}}
       img.profileimage(src="{{currentUser.profile.image}}" title= currentUser.profile.name)
       .name= currentUser.profile.name
       .button
