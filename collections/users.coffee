@@ -24,4 +24,7 @@ Meteor.methods {
 
   "updateIsTyping": (isTyping) ->
     Users.update(Meteor.userId(), {$set: {isTyping: isTyping}})
+
+  "setCurrentGroupTab": (name) ->
+    Users.update(Meteor.userId(), {$set: {group: {tab: name}}})
 }
