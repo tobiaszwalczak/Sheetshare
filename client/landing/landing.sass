@@ -24,6 +24,8 @@ header
       float: left
       margin: 5px
       cursor: pointer
+      @media screen and (max-width: 604px)
+        margin: 5px auto
 
       img
         float: left
@@ -35,6 +37,8 @@ header
         line-height: 27px
         font-size: 18px
         transition: all 0.3s
+        @media screen and (max-width: 604px)
+          display: none
 
     &.tinted
       background-color: rgba(0, 175, 255, 0.9)
@@ -156,9 +160,88 @@ header
 
 footer
   margin-top: 50px
-  padding: 50px
+  padding: 30px
   width: 100%
   background-color: #343744
+  color: rgba(0, 0, 0, 0.4)
+  text-align: center
+
+  .footer-logo
+    width: 25px
+    height: 25px
+    opacity: 0.3
+
+  .links
+    margin: 10px auto
+    max-width: 100%
+    width: 500px
+
+    .links-group
+      display: inline-block
+      margin: 10px 20px
+      width: 150px
+
+      a
+        display: inline-block
+        width: 150px
+        padding: 5px
+        color: rgba(0, 0, 0, 0.4)
+        text-decoration: none
+        transition: all 0.5s
+        &:hover
+          color: rgba(255, 255, 255, 0.5)
+          text-decoration: none
+
+        .icon
+          float: left
+
+      &:nth-of-type(1)
+        a .icon
+          float: right
+        @media screen and (max-width: 600px)
+          a .icon
+            float: left
+
+    hr
+      display: none
+      @media screen and (max-width: 600px)
+        display: inline-block
+        width: 80%
+        height: 1px
+        background-color: rgba(0, 0, 0, 0.2)
+
+  .social-links
+    margin: 20px auto 30px
+    a.link
+      display: inline-block
+      margin: 0 5px
+      width: 30px
+      height: 30px
+      font-size: 13px
+      color: rgba(0, 0, 0, 0.5)
+      text-align: center
+      line-height: 30px
+      border-radius: 50%
+      &.facebook
+        background-color: #3b5998
+      &.twitter
+        background-color: #55acee
+      &.instagram
+        background-color: #3f729b
+      &:hover
+        color: rgba(255, 255, 255, 0.9)
+
+  .made-by
+    font-size: 13px
+
+    .code, .heart
+      display: inline-block
+      margin: 0 5px
+
+    .code
+     color: #09f
+    .heart
+      color: #f66
 
 
 .popup
@@ -166,6 +249,13 @@ footer
     width: 400px !important
     margin-left: -200px !important
     text-align: center
+    @media screen and (max-width: 667px)
+      left: 50% !important
+      margin-left: -50% !important
+      width: 100% !important
+      height: 100% !important
+    @media screen and (max-height: 400px)
+      overflow-y: scroll
   &.login-popup
     margin-top: -186px
     height: 372px
@@ -173,11 +263,19 @@ footer
     margin-top: -208px
     height: 416px
 
+  .popup-content
+    margin: 0 auto
+    width: 400px
+    @media screen and (max-width: 667px)
+      margin-top: 30px
+      width: 80%
+
   input
     display: inline-block
     margin: 2px auto
     padding: 10px 20px
-    width: 250px
+    max-width: 250px
+    width: 80%
     height: 40px
     text-align: center
     border-bottom: solid 1px #ddd !important
@@ -203,7 +301,8 @@ footer
     transition: all 0.3s
     &.signup, &.login
       margin: 20px
-      width: 250px
+      max-width: 250px
+      width: 80%
       background: linear-gradient(#09f 0%, #0cf 100%)
       font-size: 15px
     &.facebook

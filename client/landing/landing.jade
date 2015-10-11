@@ -37,6 +37,31 @@ template(name="landing")
 
 
   footer
+    img.footer-logo(src="/images/symbol.png")
+    .links
+      .links-group
+        a(href="#") {{> entypo "star"}} Features
+        a(href="#") {{> entypo "wallet"}} Preise
+        a(href="#") {{> entypo "news"}} Blog
+        a(href="#") {{> entypo "v-card"}} Kontakt
+      hr
+      .links-group
+        a(href="#") {{> entypo "newsletter"}} Impressum
+        a(href="#") {{> entypo "text-document-inverted"}} AGB
+        a(href="#") {{> entypo "key"}} Privatsphäre
+        a(href="#") {{> entypo "help"}} Hilfe
+    .social-links
+      a(href="http://facebook.com", target="_blank", title="Facebook").link.facebook
+       | {{> entypo "facebook"}}
+      a(href="http://twitter.com", target="_blank", title="Twitter").link.twitter
+        | {{> entypo "twitter"}}
+      a(href="http://instagram.com", target="_blank", title="Instagram").link.instagram
+       | {{> entypo "instagram"}}
+    .made-by
+      .code {{> entypo "code"}}
+      | with
+      .heart {{> entypo "heart"}}
+      | by Tobiasz Walczak in Berlin
     
   .dark-background
     

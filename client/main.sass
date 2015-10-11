@@ -15,7 +15,7 @@ a
   color: #09f
   font-weight: 300
   text-decoration: underline
-  transform: all 0.7s
+  transition: all 0.3s
   &:hover
     opacity: 0.8
     text-decoration: underline
@@ -78,9 +78,10 @@ svg.icon
   box-shadow: 0 0 20px -3px rgba(0, 0, 0, 0.7)
   overflow: hidden
   z-index: 51
-  @media screen and (max-width: 520px)
-    top: 0
-    left: 0
+  @media screen and (max-width: 667px)
+    top: 0px !important
+    left: 50% !important
+    margin-left: -50% !important
     margin: 0 !important
     width: 100% !important
     height: 100% !important
