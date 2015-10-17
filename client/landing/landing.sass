@@ -1,7 +1,7 @@
 header
   margin: 0
   width: 100%
-  height: 550px
+  height: 600px
   background-image: url(/images/header.jpg)
   background-position: center bottom
   background-repeat: no-repeat
@@ -16,42 +16,43 @@ header
     position: fixed
     padding: 15px
     width: 100%
-    background-color: rgba(0, 0, 0, 0.2)
+    background-color: rgba(0, 0, 0, 0.4)
     transition: all 0.3s
+    z-index: 10
 
     .symbol
+      position: fixed
       display: inline-block
-      float: left
-      margin: 5px
+      top: 20px
+      left: 50vw
+      margin-left: -14px
       cursor: pointer
-      @media screen and (max-width: 604px)
-        margin: 5px auto
 
       img
         float: left
         height: 25px
 
-      .symbol-tag
-        opacity: 0
-        margin-left: 15px
-        line-height: 27px
-        font-size: 18px
-        transition: all 0.3s
-        @media screen and (max-width: 604px)
-          display: none
-
     &.tinted
       background-color: rgba(0, 175, 255, 0.9)
 
-      .symbol-tag
-        opacity: 1
 
+    .burger
+      position: fixed
+      display: none
+      top: 17px
+      left: 15px
+      font-size: 25px
+      cursor: pointer
+      @media screen and (max-width: 740px)
+        display: inline-block
 
     nav
-      float: right
+      float: left
       display: inline-block
       margin: 8px 10px
       text-align: right
+      @media screen and (max-width: 740px)
+        display: none
 
       a
         margin: 0 10px
@@ -148,15 +149,111 @@ header
         opacity: 0.8
 .content
   section
-    width: 100%
+    width: 100vw
     padding: 30px
     text-align: center
 
     h2
+      margin: 20 auto 40px 10px
       color: #777
+      font-size: 22px
       font-weight: 300
-      letter-spacing: 5px
+      letter-spacing: 20px
 
+    .browser
+      margin: -100px auto 0
+      width: 915px
+      height: calc(915px / 1.69)
+      background-image: url(/images/browser.png)
+      background-size: cover
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
+      border-radius: 5px
+      @media screen and (max-width: 970px)
+        width: 80vw
+        height: calc(80vw / 1.69)
+
+    &#pricing
+      color: #fff
+      background-color: #0c7
+      h2
+        color: #fff
+      .package
+        display: inline-block
+        margin: 30px 0 10px
+        max-width: 350px
+        width: 80vw
+        height: 400px
+        color: #666
+        border-radius: 5px
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3)
+        overflow: hidden
+
+        &.light
+          margin-right: 20px
+          .header
+            background: rgba(255, 255, 255, 0.4)
+            .cost
+              color: rgba(0, 0, 0, 0.5)
+
+        .header
+          padding: 20px 0 0
+          background: rgba(0, 0, 0, 0.5)
+          color: #fff
+          font-size: 20px
+
+          .cost
+            margin-top: 15px
+            padding: 10px 0
+            width: 100%
+            background: rgba(0, 0, 0, 0.2)
+            color: rgba(255, 255, 255, 0.6)
+            font-size: 13px
+
+        .content
+          padding: 30px 0
+          width: 100%
+          height: calc(400px - 84px)
+          background-color: #fff
+
+          .row
+            margin: 0 auto
+            padding: 5px 0
+            width: 90%
+            font-size: 13px
+            line-height: 30px
+            border-bottom: solid 1px #eee
+            &:nth-of-type(4)
+              border-bottom: none
+
+          .check
+            margin: 5px auto 0
+            width: 25px
+            height: 25px
+            color: #0d7
+            font-size: 15px
+            text-align: center
+            line-height: 25px
+            border: solid 1px #ccc
+            border-radius: 5px
+            transition: all 0.4s
+            svg.icon
+              opacity: 0
+              transition: all 0.4s
+
+          .package-info
+            margin-top: 5px
+            font-size: 11px
+            color: #ccc
+            transition: all 0.4s
+
+        &.slcd
+          .check
+            border-color: #0d7
+            svg.icon
+              opacity: 1
+
+          .package-info
+            color: #0d7
 
 footer
   margin-top: 50px
@@ -178,26 +275,34 @@ footer
 
     .links-group
       display: inline-block
-      margin: 10px 20px
+      margin: 10px 5px
       width: 150px
+      @media screen and (max-width: 600px)
+        margin-left: -25px
 
       a
         display: inline-block
         width: 150px
         padding: 5px
         color: rgba(0, 0, 0, 0.4)
+        text-align: left
         text-decoration: none
         transition: all 0.5s
         &:hover
           color: rgba(255, 255, 255, 0.5)
           text-decoration: none
+        @media screen and (max-width: 600px)
+          text-align: center !important
 
         .icon
           float: left
+          margin: 0 10px
 
       &:nth-of-type(1)
-        a .icon
-          float: right
+        a
+          text-align: right
+          .icon
+            float: right
         @media screen and (max-width: 600px)
           a .icon
             float: left
@@ -208,7 +313,7 @@ footer
         display: inline-block
         width: 80%
         height: 1px
-        background-color: rgba(0, 0, 0, 0.2)
+        background-color: rgba(0, 0, 0, 0.1)
 
   .social-links
     margin: 20px auto 30px
@@ -230,6 +335,7 @@ footer
         background-color: #3f729b
       &:hover
         color: rgba(255, 255, 255, 0.9)
+        opacity: 1
 
   .made-by
     font-size: 13px

@@ -1,15 +1,15 @@
 template(name="landing")
   header
     .top-menu
-      .symbol
-        img(src="/images/symbol.png" title="Sheetshare")
-        span.symbol-tag Sheetshare
-      button.login-button {{> entypo "user"}} Login
+      .burger(title="Menü") {{> entypo "menu"}}
       nav
         a(href="#") Features
         a(href="#") Preise
         a(href="#") Blog
         a(href="#") Kontakt
+      .symbol
+        img(src="/images/symbol.png" title="Sheetshare")
+      button.login-button {{> entypo "user"}} Login
       
     h1 Sheetshare
       .beta ßeta
@@ -24,13 +24,31 @@ template(name="landing")
   
   .content
     section(id="about")
-      h2 Was ist Sheetshare überhaupt?
+      .browser
       
     section(id="features")
       h2 Features
         
     section(id="pricing")
       h2 Preise
+      .package.light
+        .header Light
+          .cost 0.00€ / Monat
+        .content
+          .row 1 Gruppe erstellen
+          .row Mitlied in 2 Gruppen
+          .row Nicht so viel ...
+          .check {{> entypo "check"}}
+          .package-info Immer gratis
+      .package.premium
+        .header Premium
+          .cost 3.00€ / Monat
+        .content
+          .row So viele du willst
+          .row Unbegrenzt
+          .row Personalisierung
+          .check {{> entypo "check"}}
+          .package-info 1. Monat gratis
         
     section(id="contact")
       h2 Kontakt
