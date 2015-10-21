@@ -64,7 +64,7 @@ lookback:entypo@1.1.4
 matb33:collection-hooks@0.8.1
 meteor@1.1.9
 meteor-base@1.0.1
-meteortoys:toykit@2.1.1
+meteortoys:toykit@2.1.2
 minifiers@1.1.7
 minimongo@1.0.10
 mizzao:timesync@0.3.4
@@ -76,7 +76,7 @@ mongo@1.1.2
 mongo-id@1.0.1
 mquandalle:jade@0.4.4
 mquandalle:jade-compiler@0.4.4
-msavin:mongol@1.4.3
+msavin:mongol@1.5.0
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.39_1
 oauth@1.1.6
