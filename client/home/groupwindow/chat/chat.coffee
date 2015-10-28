@@ -58,7 +58,7 @@ Template.chat.events {
   "click .emoji-button": ->
     $(".emoji-window").show()
     $(".emoji-close-button").fadeIn(100)
-    $(".emoji-window").animate({"right":"0px"}, 600, "easeInOutQuart")
+    $(".emoji-window").animate({"right":"10px"}, 600, "easeInOutQuart")
 
   "click .emoji-close-button": ->
     $(".emoji-window").animate({"right":"-256px"}, 600, "easeInOutQuart", ->
