@@ -9,6 +9,13 @@ Template.groupwindow.rendered = ->
   $(".group-window .group-header .group-menu .button##{groupTab}").addClass("slcd")
 
 Template.groupwindow.events {
+  "click .group-window .group-header .group-toggle": (evt) ->
+    $(".group-window").toggleClass("hidden")
+    if ($(evt.target).attr("title") == "Ausblenden")
+      $(evt.target).attr("title", "Einblenden")
+    else
+      $(evt.target).attr("title", "Ausblenden")
+
   "click .group-window .group-header .group-menu .button": (evt) ->
     id = $(evt.target).attr("id")
     changeGroupTab(id)

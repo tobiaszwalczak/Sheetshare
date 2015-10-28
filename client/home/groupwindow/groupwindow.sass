@@ -9,12 +9,37 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
   overflow: hidden
   z-index: 1
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.320, 1.275)
+
+  &.hidden
+    right: -231px
+
+    .group-toggle
+      transform: rotate(180deg)
 
   .group-header
     width: 100%
     height: 80px
     background-color: #fff
     box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1)
+
+    .group-toggle
+      position: absolute
+      width: 25px
+      height: 25px
+      background: linear-gradient(#09f 0%, #0cf 100%)
+      color: #fff
+      font-size: 12px
+      text-align: center
+      line-height: 25px
+      border-bottom-right-radius: 5px
+      cursor: pointer
+      transition: background 0.3s
+      &:hover
+        opacity: 0.8
+
+      svg.icon
+        transition: all 0.3s
 
     .group-name
       width: 100%
