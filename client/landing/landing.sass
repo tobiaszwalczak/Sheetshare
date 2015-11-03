@@ -1,31 +1,31 @@
 header
-  margin: 0
-  width: 100%
+  margin: 20px 20px 0
+  width: calc(100% - 40px)
   height: 600px
   background-image: url(/images/header.jpg)
   background-position: center bottom
-  background-repeat: no-repeat
   background-size: cover
   background-attachment: fixed
   color: #fff
   text-align: center
+  border-radius: 5px
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2)
   @media screen and (max-width: 1080px)
-    background-image: url(/images/header.jpg)
+    background-image: url(/images/header_small.jpg)
 
   .top-menu
-    position: fixed
+    position: absolute
     padding: 15px
-    width: 100%
-    background-color: rgba(0, 0, 0, 0.4)
+    width: calc(100% - 40px)
+    color: #fff
     transition: all 0.3s
     z-index: 10
 
     .symbol
-      position: fixed
+      position: absolute
       display: inline-block
-      top: 20px
-      left: 50vw
-      margin-left: -14px
+      margin-top: 5px
+      left: calc(50vw - 35px)
       cursor: pointer
 
       img
@@ -37,10 +37,9 @@ header
 
 
     .burger
-      position: fixed
       display: none
-      top: 17px
-      left: 15px
+      float: left
+      margin-top: -5px
       font-size: 25px
       cursor: pointer
       @media screen and (max-width: 740px)
@@ -49,20 +48,21 @@ header
     nav
       float: left
       display: inline-block
-      margin: 8px 10px
+      margin: 8px 0
       text-align: right
       @media screen and (max-width: 740px)
         display: none
 
       a
-        margin: 0 10px
+        margin: 0 5px
+        padding: 5px 10px
+        background-color: transparent
         color: #fff
-        text-decoration: none
         font-weight: 400
-        opacity: 0.8
-        transition: all 0.3s
+        text-decoration: none
+        border-radius: 5px
         &:hover
-          opacity: 1
+          background-color: rgba(255, 255, 255, 0.2)
 
     button.login-button
       float: right
@@ -70,7 +70,7 @@ header
       background-color: rgba(255, 255, 255, 0.3)
       color: #fff
       font-size: 16px
-      border: solid 1px #fff
+      border: none
       border-radius: 5px
       cursor: pointer
       transition: all 0.3s
@@ -119,15 +119,13 @@ header
       padding: 20px
 
   button.join-button
-    margin-top: 40px
-    padding: 8px 40px
+    margin-top: 30px
+    padding: 15px 40px 17px
     background-color: rgba(255, 255, 255, 0.3)
-    color: #fff
+    color: #fff !important
     font-size: 22px
-    font-weight: 200
     border: none
     border-radius: 10px
-    border: 3px solid #fff
     cursor: pointer
     transition: all 0.3s
     &:hover

@@ -1,11 +1,3 @@
-Template.landing.rendered = ->
-  $(window).scroll( ->
-    if $(window).scrollTop() > 480
-      $(".top-menu").addClass("tinted")
-    else
-      $(".top-menu").removeClass("tinted")
-  )
-
 Template.landing.events {
   "click .top-menu .symbol": ->
     $("html, body").animate({scrollTop: 0}, 300)
