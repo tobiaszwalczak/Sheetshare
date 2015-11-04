@@ -38,44 +38,42 @@ Template.chat.helpers {
 }
 
 Template.chat.events {
-  "keypress #chat-textarea": (evt) ->
+  "keypress section.chat #chat-textarea": (evt) ->
     if evt.which == 13
       text = $("#chat-textarea").val()
       if /\S/.test(text)
         Meteor.call("createMessage", text)
       $("section.chat").animate({scrollTop: $("section.chat")[0].scrollHeight}, 100)
-      $("#chat-textarea").val("")
-      $("#chat-textarea").trigger("autosize.resize")
+      $("section.chat #chat-textarea").val("")
+      $("section.chat #chat-textarea").trigger("autosize.resize")
       return false
 
-  "keyup #chat-textarea": ->
-    value = $("#chat-textarea").val()
+  "keyup section.chat #chat-textarea": ->
+    value = $("section.chat #chat-textarea").val()
     if /\S/.test(value) && !Meteor.user().isTyping
       Meteor.call("updateIsTyping", true)
     else if !/\S/.test(value) && Meteor.user().isTyping
       Meteor.call("updateIsTyping", false)
 
-  "click .emoji-button": ->
-    $(".emoji-window").show()
-    $(".emoji-close-button").fadeIn(100)
-    $(".emoji-window").animate({"right":"10px"}, 600, "easeInOutQuart")
+  "click section.chat .emoji-button": ->
+    $("section.chat .emoji-button").toggleClass("close-emoji-button")
+    if $("section.chat .emoji-button").hasClass("close-emoji-button")
+      $("section.chat .emoji-window").addClass("showing")
+    else
+      $("section.chat .emoji-window").removeClass("showing")
 
-  "click .emoji-close-button": ->
-    $(".emoji-window").animate({"right":"-256px"}, 600, "easeInOutQuart", ->
-      $(".emoji-window").hide()
-      $(".emoji-close-button").fadeOut(100)
-    )
-    $("#chat-textarea").focus()
+  "focus section.chat #chat-textarea": ->
+    if $("section.chat .emoji-button").hasClass("close-emoji-button")
+      $(".emoji-window").removeClass("showing")
+      $("section.chat .emoji-button").removeClass("close-emoji-button")
 
-  "click .emoji-window .emoji-tag": (evt) ->
+  "click section.chat .emoji-window .emoji-tag": (evt) ->
     tag = ":" + $(evt.currentTarget).attr("title") + ":"
-    $(".emoji-window").animate({"right":"-256px"}, 600, "easeInOutQuart", ->
-      $(".emoji-window").hide()
-      $(".emoji-close-button").fadeOut(100)
-    )
+    $("section.chat .emoji-window").removeClass("showing")
+    $("section.chat .emoji-button").removeClass("close-emoji-button")
     insertAtCursor("chat-textarea", tag)
-    $("#chat-textarea").focus()
-    $("#chat-textarea").trigger("autosize.resize")
+    $("section.chat #chat-textarea").focus()
+    $("section.chat #chat-textarea").trigger("autosize.resize")
 }
 
 insertAtCursor = (id, value) ->

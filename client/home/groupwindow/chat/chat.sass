@@ -10,16 +10,19 @@ section.chat
 
   .emoji-window
     position: fixed
-    right: -256px
-    margin: -10px 0 0 -10px
-    width: 256px
-    height: calc(100% - 150px)
+    bottom: -250px
+    width: 236px
+    height: 250px
     background-color: #fff
     text-align: center
     overflow-y: scroll
     border: solid 10px #fff
-    border-bottom-width: 45px
+    border-radius: 5px
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2)
     z-index: 3
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.33, 1.2)
+    &.showing
+      bottom: 48px
 
     .emoji-category
       margin: 20px 0 7px
@@ -135,27 +138,25 @@ section.chat
     position: fixed
     bottom: 10px
     margin-left: -10px
-    padding: 12px 55px 12px 10px
-    width: 191px
+    padding: 12px 65px 12px 10px
+    width: 181px
     max-height: 120px
     box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1)
 
-.emoji-button, .emoji-close-button
-  position: fixed
-  bottom: 17px
-  margin-left: 206px
-  width: 30px
-  height: 30px
-  background: linear-gradient(#09f 0%, #0cf 100%)
-  color: #fff
-  line-height: 30px
-  border-radius: 50%
-  cursor: pointer
-  transition: all 0.3s
-  &:hover
-    opacity: 0.8
 
-  svg.icon
-    margin: 5.5px 0 0 5px
-    width: 20px
-    height: 20px
+  .emoji-button, .more-button
+    position: fixed
+    bottom: 23px
+    margin-left: 190px
+    color: #aaa
+    font-size: 13px
+    cursor: pointer
+    transition: all 0.3s
+    &:hover
+      opacity: 0.8
+
+    &.close-emoji-button
+      color: #f66
+
+  .more-button
+    margin-left: 216px
