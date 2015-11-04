@@ -59,12 +59,15 @@ Template.chat.events {
     unless $("section.chat .emoji-button").hasClass("close-emoji-button")
       $("section.chat .emoji-window").addClass("showing")
       $("section.chat .emoji-button").attr({"title":"Schließen"})
-      $("section.chat .emoji-button").html(Blaze.toHTMLWithData(Template.entypo, "circle-with-cross"))
+      Meteor.setTimeout( ->
+        $("section.chat .emoji-button").html(Blaze.toHTMLWithData(Template.entypo, "circle-with-cross"))
+      , 300)
     else
       $("section.chat .emoji-window").removeClass("showing")
       $("section.chat .emoji-button").attr({"title":"Emojis"})
-      $("section.chat .emoji-button").html(Blaze.toHTMLWithData(Template.entypo, "emoji-flirt"))
-
+      Meteor.setTimeout( ->
+        $("section.chat .emoji-button").html(Blaze.toHTMLWithData(Template.entypo, "emoji-flirt"))
+      , 300)
 
     $("section.chat .emoji-button").toggleClass("close-emoji-button")
 
