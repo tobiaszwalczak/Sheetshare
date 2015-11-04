@@ -56,11 +56,17 @@ Template.chat.events {
       Meteor.call("updateIsTyping", false)
 
   "click section.chat .emoji-button": ->
-    $("section.chat .emoji-button").toggleClass("close-emoji-button")
-    if $("section.chat .emoji-button").hasClass("close-emoji-button")
+    unless $("section.chat .emoji-button").hasClass("close-emoji-button")
       $("section.chat .emoji-window").addClass("showing")
+      $("section.chat .emoji-button").attr({"title":"Schließen"})
+      $("section.chat .emoji-button").html(Blaze.toHTMLWithData(Template.entypo, "circle-with-cross"))
     else
       $("section.chat .emoji-window").removeClass("showing")
+      $("section.chat .emoji-button").attr({"title":"Emojis"})
+      $("section.chat .emoji-button").html(Blaze.toHTMLWithData(Template.entypo, "emoji-flirt"))
+
+
+    $("section.chat .emoji-button").toggleClass("close-emoji-button")
 
   "focus section.chat #chat-textarea": ->
     if $("section.chat .emoji-button").hasClass("close-emoji-button")

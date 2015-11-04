@@ -8,46 +8,6 @@ section.chat
   border-right: solid 1px #ccc
   overflow-y: scroll
 
-  .emoji-window
-    position: fixed
-    bottom: -250px
-    width: 236px
-    height: 250px
-    background-color: #fff
-    text-align: center
-    overflow-y: scroll
-    border: solid 10px #fff
-    border-radius: 5px
-    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2)
-    z-index: 3
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.33, 1.2)
-    &.showing
-      bottom: 48px
-
-    .emoji-category
-      margin: 20px 0 7px
-      padding-bottom: 5px
-      color: #888
-      font-size: 14px
-      border-bottom: solid 1px #ddd
-      &:first-of-type
-        margin-top: 0px
-
-      svg.icon
-        color: #ddd
-
-    .emoji-tag
-      display: inline-block
-      margin: -2px 0px
-      font-size: 20px
-      cursor: pointer
-      &:hover
-        opacity: 0.6
-
-  .emoji-close-button
-    display: none
-    z-index: 4
-
   .message
     position: relative
     margin: 10px 0
@@ -160,3 +120,39 @@ section.chat
 
   .more-button
     margin-left: 216px
+
+  .emoji-window
+    position: fixed
+    bottom: -250px
+    width: 236px
+    height: 250px
+    background-color: #fff
+    text-align: center
+    overflow-y: scroll
+    border: solid 10px #fff
+    border-radius: 5px
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2)
+    z-index: 3
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.33, 1.2)
+    &.showing
+      bottom: 50px
+
+    .emoji-category
+      margin: 20px 0 7px
+      padding-bottom: 5px
+      color: #888
+      font-size: 14px
+      border-bottom: solid 1px #ddd
+      &:first-of-type
+        margin-top: 0px
+
+      svg.icon
+        color: #ddd
+
+    .emoji-tag
+      display: inline-block
+      margin: -2px 0px
+      font-size: 20px
+      cursor: pointer
+      &:hover
+        opacity: 0.6

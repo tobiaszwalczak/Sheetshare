@@ -1,27 +1,5 @@
 template(name="chat")
   section.chat.slcd
-    .emoji-window
-      +emoji
-
-        .emoji-category {{> entypo "user"}} <br> Personen
-        each emojis.people
-          .emoji-tag(title= this) :{{this}}:
-        .emoji-category {{> entypo "flower"}} <br> Natur
-        each emojis.nature
-          .emoji-tag(title= this) :{{this}}:
-        .emoji-category {{> entypo "box"}} <br> Objekte
-        each emojis.objects
-          .emoji-tag(title= this) :{{this}}:
-        .emoji-category {{> entypo "aircraft-take-off"}} <br> Reise
-        each emojis.trip
-          .emoji-tag(title= this) :{{this}}:
-        .emoji-category {{> entypo "language"}} <br> Symbole
-        each emojis.symbols
-          .emoji-tag(title= this) :{{this}}:
-        .emoji-category {{> entypo "star"}} <br> Spezial
-        each emojis.special
-          .emoji-tag(title= this) :{{this}}:
-
     each Messages
       unless other
         .message
@@ -52,3 +30,25 @@ template(name="chat")
     textarea#chat-textarea(rows="1" placeholder="Schreibe eine Nachricht ...")
     .emoji-button(title="Emojis") {{> entypo "emoji-flirt"}}
     .more-button(title="Mehr") {{> entypo "dots-three-horizontal"}}
+    
+    .emoji-window
+      +emoji
+      
+        .emoji-category {{> entypo "user"}} <br> Personen
+        each emojis.people
+          .emoji-tag(title= this) :{{this}}:
+        .emoji-category {{> entypo "flower"}} <br> Natur
+        each emojis.nature
+          .emoji-tag(title= this) :{{this}}:
+        .emoji-category {{> entypo "box"}} <br> Objekte
+        each emojis.objects
+          .emoji-tag(title= this) :{{this}}:
+        .emoji-category {{> entypo "aircraft-take-off"}} <br> Reise
+        each emojis.trip
+          .emoji-tag(title= this) :{{this}}:
+        .emoji-category {{> entypo "language"}} <br> Symbole
+        each emojis.symbols
+          .emoji-tag(title= this) :{{this}}:
+        .emoji-category {{> entypo "star"}} <br> Spezial
+        each emojis.special
+          .emoji-tag(title= this) :{{this}}:

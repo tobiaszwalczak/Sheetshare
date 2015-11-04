@@ -15,7 +15,10 @@
     right: -231px
 
     .group-toggle
-      transform: rotate(180deg)
+      border-bottom-right-radius: 0px !important
+
+      svg.icon
+        transform: rotate(180deg)
 
   .group-header
     width: 100%
@@ -34,12 +37,11 @@
       line-height: 25px
       border-bottom-right-radius: 5px
       cursor: pointer
-      transition: background 0.3s
       &:hover
         opacity: 0.8
 
       svg.icon
-        transition: all 0.3s
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.33, 1.47) 0.3s
 
     .group-name
       width: 100%
