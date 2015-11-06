@@ -110,14 +110,14 @@ Template.chat.events {
     $("section.chat #chat-textarea").focus()
     $("section.chat #chat-textarea").trigger("autosize.resize")
 
-  "keyup section.chat .latex-widget textarea#latex-input": (evt) ->
+  "keyup section.chat .latex-widget textarea#latex-textarea": (evt) ->
     input = $(evt.target).val()
     $("section.chat .latex-widget .latex-output").text(input)
     $(".latex-output").latex()
 }
 
 insertAtCursor = (id, value) ->
-  field = document.getElementById("chat-textarea")
+  field = document.getElementById(id)
   if document.selection
     field.focus()
     sel = document.selection.createRange()
