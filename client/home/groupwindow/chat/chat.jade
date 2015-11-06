@@ -1,6 +1,6 @@
 template(name="chat")
   section.chat.slcd
-    each Messages
+    each messages
       unless other
         .message
           unless justEmojis
@@ -20,7 +20,7 @@ template(name="chat")
             .online-status(class="{{onlineStatusIndicator creator}}")
             .justemojis {{#emoji}} {{text}} {{/emoji}}
 
-    each Users
+    each users
       if other
         if isTyping
           .message.other
@@ -28,10 +28,16 @@ template(name="chat")
             img.isTyping(src="images/is-typing.gif")
           
     textarea#chat-textarea(rows="1" placeholder="Schreibe eine Nachricht ...")
-    .emoji-button(title="Emojis") {{> entypo "emoji-flirt"}}
-    .more-button(title="Mehr") {{> entypo "dots-three-horizontal"}}
+    .widget-button.emojis-button(title="Emojis" data-widget="emojis") {{> entypo "emoji-flirt"}}
+    .widget-button.more-button(title="Mehr" data-widget="more") {{> entypo "dots-three-horizontal"}}
     
-    .emoji-window
+    .chat-widget.more-widget
+      .button.image-button(title="Bild") {{> entypo "image"}}
+      .button.code-button(title="Code") {{> entypo "code"}}
+      .button.latex-button(title="LaTeX-Formel") ∑
+      .button.file-button(title="Andere Dateien") {{> entypo "documents"}}
+    
+    .chat-widget.emojis-widget
       +emoji
       
         .emoji-category {{> entypo "user"}} <br> Personen
@@ -52,3 +58,11 @@ template(name="chat")
         .emoji-category {{> entypo "star"}} <br> Spezial
         each emojis.special
           .emoji-tag(title= this) :{{this}}:
+          
+    .chat-widget.latex-widget
+      .formula-output
+        .title LaTeX-Output:
+        .help(title="Hilfe") {{> entypo "help-with-circle"}}
+        .latex-output
+      .formula-input
+        textarea#latex-input(placeholder="LaTeX-Formel eingeben ...")

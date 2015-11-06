@@ -93,7 +93,7 @@ section.chat
         font-size: 20px
         line-height: 35px
 
-  textarea
+  textarea#chat-textarea
     box-sizing: content-box
     position: fixed
     bottom: 10px
@@ -104,22 +104,49 @@ section.chat
     box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.1)
 
 
-  .emoji-button, .more-button
+  .emojis-button, .more-button
     position: fixed
     bottom: 23px
     margin-left: 190px
     color: #aaa
     font-size: 13px
     cursor: pointer
-    transition: all 0.3s 0.3s
+    transition: all 0.3s, color 0.3s 0.2s
+    &:hover
+      opacity: 0.8
 
-    &.close-emoji-button
+    &.close
       color: #f66
 
   .more-button
     margin-left: 216px
 
-  .emoji-window
+  .more-widget
+    position: fixed
+    bottom: -40px
+    margin-left: 115px
+    padding: 11px 10px 10px 11px
+    width: 120px
+    height: 40px
+    background-color: #fff
+    color: #aaa
+    font-size: 13px
+    word-spacing: 10px
+    border-radius: 5px
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2)
+    z-index: 3
+    transition: all 0.6s cubic-bezier(0.705, -0.355, 0.27, 1.35)
+    &.showing
+      bottom: 50px
+
+    .button
+      display: inline-block
+      cursor: pointer
+      transition: all 0.3s
+      &:hover
+        opacity: 0.8
+
+  .emojis-widget
     position: fixed
     bottom: -250px
     width: 236px
@@ -154,3 +181,53 @@ section.chat
       cursor: pointer
       &:hover
         opacity: 0.6
+
+  .latex-widget
+    position: fixed
+    bottom: -250px
+    width: 236px
+    background-color: #fff
+    border-radius: 5px
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.2)
+    z-index: 3
+    transition: all 0.6s cubic-bezier(0.705, -0.355, 0.27, 1.35)
+    &.showing
+      bottom: 50px
+
+    .formula-output
+      padding: 10px
+      height: 120px
+
+      .title
+        display: inline-block
+        float: left
+        color: #09f
+        font-size: 14px
+
+      .help
+        display: inline-block
+        float: right
+        color: #aaa
+        font-size: 13px
+        cursor: pointer
+        transition: all 0.3s
+        &:hover
+          opacity: 0.8
+
+      .latex-output
+        margin-top: 40px
+        text-align: center
+
+        img
+          max-width: 200px
+          opacity: 0.8
+
+    .formula-input
+      textarea#latex-input
+        box-sizing: content-box
+        margin: 0
+        padding: 10px
+        width: 216px
+        height: 50px
+        max-height: 100px
+        border-top: solid 1px #ddd

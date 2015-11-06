@@ -27,10 +27,10 @@ Template.chat.helpers {
     else
       return "Offline"
 
-  "Users": ->
+  "users": ->
     return Users.find()
 
-  "Messages": ->
+  "messages": ->
     return Messages.find({}, {sort: {createdAt: 1}})
 
   "emojis": ->
@@ -55,34 +55,65 @@ Template.chat.events {
     else if !/\S/.test(value) && Meteor.user().isTyping
       Meteor.call("updateIsTyping", false)
 
-  "click section.chat .emoji-button": ->
-    unless $("section.chat .emoji-button").hasClass("close-emoji-button")
-      $("section.chat .emoji-window").addClass("showing")
-      $("section.chat .emoji-button").attr({"title":"Schließen"})
+  "click section.chat .emojis-button": ->
+    $("section.chat .more-button.close").click()
+
+    unless $("section.chat .emojis-button").hasClass("close")
+      $("section.chat .emojis-widget").addClass("showing")
+      $("section.chat .emojis-button").attr({"title":"Schließen"})
       Meteor.setTimeout( ->
-        $("section.chat .emoji-button").html(Blaze.toHTMLWithData(Template.entypo, "circle-with-cross"))
+        $("section.chat .emojis-button").html(Blaze.toHTMLWithData(Template.entypo, "cross"))
       , 300)
     else
-      $("section.chat .emoji-window").removeClass("showing")
-      $("section.chat .emoji-button").attr({"title":"Emojis"})
+      $("section.chat .emojis-widget").removeClass("showing")
+      $("section.chat .emojis-button").attr({"title":"Emojis"})
       Meteor.setTimeout( ->
-        $("section.chat .emoji-button").html(Blaze.toHTMLWithData(Template.entypo, "emoji-flirt"))
+        $("section.chat .emojis-button").html(Blaze.toHTMLWithData(Template.entypo, "emoji-flirt"))
       , 300)
 
-    $("section.chat .emoji-button").toggleClass("close-emoji-button")
+    $("section.chat .emojis-button").toggleClass("close")
+
+  "click section.chat .more-button": ->
+    $("section.chat .emojis-button.close").click()
+
+    unless $("section.chat .more-button").hasClass("close")
+      $("section.chat .more-widget").addClass("showing")
+      $("section.chat .more-button").attr({"title":"Schließen"})
+      Meteor.setTimeout( ->
+        $("section.chat .more-button").html(Blaze.toHTMLWithData(Template.entypo, "cross"))
+      , 300)
+    else
+      $("section.chat .more-widget").removeClass("showing")
+      $("section.chat .more-button").attr({"title":"Mehr"})
+      Meteor.setTimeout( ->
+        $("section.chat .more-button").html(Blaze.toHTMLWithData(Template.entypo, "dots-three-horizontal"))
+      , 300)
+      $("section.chat .latex-widget").removeClass("showing")
+      Meteor.setTimeout( ->
+        $("section.chat .latex-widget textarea#latex-input").val("")
+        $("section.chat .latex-widget .latex-output").text("")
+      , 600)
+
+    $("section.chat .more-button").toggleClass("close")
+
+  "click section.chat .latex-button": ->
+    $("section.chat .more-widget").removeClass("showing")
+    $("section.chat .latex-widget").addClass("showing")
 
   "focus section.chat #chat-textarea": ->
-    if $("section.chat .emoji-button").hasClass("close-emoji-button")
-      $(".emoji-window").removeClass("showing")
-      $("section.chat .emoji-button").removeClass("close-emoji-button")
+    $("section.chat .widget-button.close").click()
 
-  "click section.chat .emoji-window .emoji-tag": (evt) ->
+  "click section.chat .emoji-widget .emoji-tag": (evt) ->
     tag = ":" + $(evt.currentTarget).attr("title") + ":"
-    $("section.chat .emoji-window").removeClass("showing")
-    $("section.chat .emoji-button").removeClass("close-emoji-button")
+    $("section.chat .emojis-button.close").click()
     insertAtCursor("chat-textarea", tag)
     $("section.chat #chat-textarea").focus()
     $("section.chat #chat-textarea").trigger("autosize.resize")
+
+  "keyup section.chat .latex-widget textarea#latex-input": (evt) ->
+    input = $(evt.target).val()
+    $("section.chat .latex-widget .latex-output").text(input)
+    $(".latex-output").latex()
 }
 
 insertAtCursor = (id, value) ->
