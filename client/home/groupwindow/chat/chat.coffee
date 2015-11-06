@@ -90,7 +90,7 @@ Template.chat.events {
       , 300)
       $("section.chat .latex-widget").removeClass("showing")
       Meteor.setTimeout( ->
-        $("section.chat .latex-widget textarea#latex-input").val("")
+        $("section.chat .latex-widget textarea#latex-textarea").val("")
         $("section.chat .latex-widget .latex-output").text("")
       , 600)
 
