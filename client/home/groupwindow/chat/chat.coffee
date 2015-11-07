@@ -89,7 +89,6 @@ Template.chat.events {
         $("section.chat .more-button").html(Blaze.toHTMLWithData(Template.entypo, "dots-three-horizontal"))
       , 300)
       $("section.chat .latex-widget").removeClass("showing")
-      $("section.chat .latex-widget textarea#latex-textarea").blur()
       Meteor.setTimeout( ->
         $("section.chat .latex-widget textarea#latex-textarea").val("")
         $("section.chat .latex-widget .latex-output").text("")
@@ -100,7 +99,9 @@ Template.chat.events {
   "click section.chat .latex-button": ->
     $("section.chat .more-widget").removeClass("showing")
     $("section.chat .latex-widget").addClass("showing")
-    $("section.chat .latex-widget textarea#latex-textarea").focus()
+    Meteor.setTimeout( ->
+      $("section.chat .latex-widget textarea#latex-textarea").focus()
+    , 600)
 
   "focus section.chat #chat-textarea": ->
     $("section.chat .widget-button.close").click()
