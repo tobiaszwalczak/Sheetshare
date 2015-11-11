@@ -17,14 +17,22 @@ Messages.helpers {
       return true
     else
       return false
+
+  "typeText": ->
+    return true if this.type == "text"
+
+  "typeLatex": ->
+    return true if this.type == "latex"
+
 }
 
 Meteor.methods {
-  "createMessage": (text) ->
+  "createMessage": (text, type) ->
     if Meteor.user()
       Messages.insert {
         creatorId: Meteor.userId()
         text: text
+        type: type
         createdAt: new Date()
       }
 }

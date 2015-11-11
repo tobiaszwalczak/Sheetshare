@@ -40,9 +40,9 @@ Template.chat.helpers {
 Template.chat.events {
   "keypress section.chat #chat-textarea": (evt) ->
     if evt.which == 13
-      text = $("#chat-textarea").val()
+      text = $("section.chat #chat-textarea").val()
       if /\S/.test(text)
-        Meteor.call("createMessage", text)
+        Meteor.call("createMessage", text, "text")
       $("section.chat").animate({scrollTop: $("section.chat")[0].scrollHeight}, 100)
       $("section.chat #chat-textarea").val("")
       $("section.chat #chat-textarea").trigger("autosize.resize")
@@ -90,7 +90,7 @@ Template.chat.events {
       , 300)
       $("section.chat .latex-widget").removeClass("showing")
       Meteor.setTimeout( ->
-        $("section.chat .latex-widget textarea#latex-textarea").val("")
+        $("section.chat .latex-widget #latex-textarea").val("")
         $("section.chat .latex-widget .latex-output").text("")
       , 600)
 
@@ -100,23 +100,29 @@ Template.chat.events {
     $("section.chat .more-widget").removeClass("showing")
     $("section.chat .latex-widget").addClass("showing")
     Meteor.setTimeout( ->
-      $("section.chat .latex-widget textarea#latex-textarea").focus()
+      $("section.chat .latex-widget #latex-textarea").focus()
     , 600)
 
   "focus section.chat #chat-textarea": ->
     $("section.chat .widget-button.close").click()
 
-  "click section.chat .emoji-widget .emoji-tag": (evt) ->
+  "click section.chat .emojis-widget .emoji-tag": (evt) ->
     tag = ":" + $(evt.currentTarget).attr("title") + ":"
     $("section.chat .emojis-button.close").click()
     insertAtCursor("chat-textarea", tag)
     $("section.chat #chat-textarea").focus()
     $("section.chat #chat-textarea").trigger("autosize.resize")
 
-  "keyup section.chat .latex-widget textarea#latex-textarea": (evt) ->
+  "keyup section.chat .latex-widget #latex-textarea": (evt) ->
     input = $(evt.target).val()
     $("section.chat .latex-widget .latex-output").text(input)
     $(".latex-output").latex()
+    if evt.which == 13
+      text = $("section.chat .latex-widget #latex-textarea").val()
+      if /\S/.test(text)
+        Meteor.call("createMessage", text, "latex")
+        $("section.chat .more-button.close").click()
+
 }
 
 insertAtCursor = (id, value) ->

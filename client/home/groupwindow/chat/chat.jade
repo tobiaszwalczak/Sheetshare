@@ -2,23 +2,35 @@ template(name="chat")
   section.chat.slcd
     each messages
       unless other
-        .message
-          unless justEmojis
+        if typeText
+          .message
+            unless justEmojis
+              img.profileimage(src="{{creator.profile.image}}" title="Du\n{{moment}}")
+              .bubble {{#autolink}} {{#emoji}} {{text}} {{/emoji}} {{/autolink}}
+            else
+              img.profileimage(src="{{creator.profile.image}}" title="Du\n{{moment}}")
+              .justemojis {{#emoji}} {{text}} {{/emoji}}
+        else if typeLatex
+          .message
             img.profileimage(src="{{creator.profile.image}}" title="Du\n{{moment}}")
-            .bubble {{#autolink}} {{#emoji}} {{text}} {{/emoji}} {{/autolink}}
-          else
-            img.profileimage(src="{{creator.profile.image}}" title="Du\n{{moment}}")
-            .justemojis {{#emoji}} {{text}} {{/emoji}}
+            .latex-formula
+              img(src="http://latex.codecogs.com/gif.latex?{{text}}" title="{{text}}")
       else
-        .message.other
-          unless justEmojis
+        if typeText
+          .message.other
+            unless justEmojis
+              img.profileimage(src="{{creator.profile.image}}" title="{{creator.profile.name}} • {{onlineStatusName creator }}\n{{moment}}")
+              .online-status(class="{{onlineStatusIndicator creator}}")
+              .bubble {{#autolink}} {{#emoji}} {{text}} {{/emoji}} {{/autolink}}
+            else
+              img.profileimage(src="{{creator.profile.image}}" title="{{creator.profile.name}} • {{onlineStatusName creator }}\n{{moment}}")
+              .online-status(class="{{onlineStatusIndicator creator}}")
+              .justemojis {{#emoji}} {{text}} {{/emoji}}
+        else if typeLatex
+          .message.other
             img.profileimage(src="{{creator.profile.image}}" title="{{creator.profile.name}} • {{onlineStatusName creator }}\n{{moment}}")
-            .online-status(class="{{onlineStatusIndicator creator}}")
-            .bubble {{#autolink}} {{#emoji}} {{text}} {{/emoji}} {{/autolink}}
-          else
-            img.profileimage(src="{{creator.profile.image}}" title="{{creator.profile.name}} • {{onlineStatusName creator }}\n{{moment}}")
-            .online-status(class="{{onlineStatusIndicator creator}}")
-            .justemojis {{#emoji}} {{text}} {{/emoji}}
+            .latex-formula
+              img(src="http://latex.codecogs.com/gif.latex?{{text}}" title="{{text}}")
 
     each users
       if other
