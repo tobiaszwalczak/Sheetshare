@@ -122,6 +122,7 @@ Template.chat.events {
       if /\S/.test(text)
         Meteor.call("createMessage", text, "latex")
         $("section.chat .more-button.close").click()
+      return false
 
 }
 
