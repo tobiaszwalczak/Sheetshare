@@ -33,6 +33,9 @@ Template.chat.helpers {
   "messages": ->
     return Messages.find({}, {sort: {createdAt: 1}})
 
+  "messagesExist": ->
+    return true if Messages.findOne()
+
   "emojis": ->
     return Emojis
 }

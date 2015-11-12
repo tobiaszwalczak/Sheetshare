@@ -8,6 +8,9 @@ Template.checklist.helpers {
   "doneTasks": ->
     return Tasks.find({done: true}, {sort: {doneAt: -1}})
 
+  "tasksExist": ->
+    return true if Tasks.findOne()
+
   "doneTasksExist": ->
     return true if Tasks.findOne({done: true})
 
