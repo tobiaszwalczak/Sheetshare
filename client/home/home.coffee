@@ -7,8 +7,8 @@ Template.home.events {
       $(evt.target).toggleClass("exit-fullscreen")
       if $(evt.target).hasClass("exit-fullscreen")
         BigScreen.request()
-        $(evt.target).attr({title: "Vollbildmodus verlassen"})
-        $(evt.target).html(Blaze.toHTMLWithData(Template.entypo, "resize-100"))
+        $(evt.target).attr({title: "Fenstermodus"})
+        $(evt.target).html(Blaze.toHTMLWithData(Template.entypo, "browser"))
       else
         BigScreen.exit()
         $(evt.target).attr({title: "Vollbildmodus"})
