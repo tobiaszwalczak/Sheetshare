@@ -13,6 +13,7 @@ Template.home.events {
 
 Template.menus.events {
   "click .menus .profilemenu .logout": ->
+    BigScreen.exit()
     Meteor.logout()
     Router.go("/")
 }

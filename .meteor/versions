@@ -36,6 +36,8 @@ ejson@1.0.7
 email@1.0.8
 facebook@1.2.2
 fastclick@1.0.7
+flowkey:bigscreen@1.0.3
+flowkey:callback-list@1.1.1
 fourseven:scss@2.1.1
 geojson-utils@1.0.4
 google@1.1.7

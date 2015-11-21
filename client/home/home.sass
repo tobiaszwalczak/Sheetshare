@@ -74,10 +74,10 @@
       transition: all 0.3s
       &:hover
         background-color: rgba(0, 0, 0, 0.1)
-      @media screen and (max-width: 945px)
+      @media screen and (max-width: 1020px)
         .text
           display: none !important
-      @media screen and (max-width: 570px)
+      @media screen and (max-width: 705px)
         padding: 0 10px
 
       &.slcd
@@ -97,6 +97,23 @@
             height: 20px
             vertical-align: -4px
 
+    .fullscreen-button
+      display: inline-block
+      float: right
+      margin: 14px 5px 0 0
+      width: 32px
+      height: 32px
+      background-color: rgba(0, 0, 0, 0.1)
+      color: #fff
+      font-size: 12px
+      text-align: center
+      line-height: 32px
+      border-radius: 50%
+      cursor: pointer
+      transition: all 0.3s
+
+      &:hover
+        background-color: rgba(0, 0, 0, 0.2)
 
     .profile-button
       float: right
@@ -173,12 +190,3 @@
   hr
     width: 30px
     background-color: rgba(0, 0, 0, 0.2)
-
-.sheet-window
-  position: fixed
-  top: 60px
-  left: 50px
-  width: calc(100% - 316px)
-  height: calc(100% - 60px)
-  text-align: center
-  z-index: 0

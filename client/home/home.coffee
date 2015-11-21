@@ -2,17 +2,19 @@ Meteor.subscribe("users")
 Meteor.subscribe("userData")
 
 Template.home.events {
-  "click #create-group-form .add-user": ->
-    $("#create-group-form .add-user").fadeOut(300, ->
-      $("#create-group-form input#email").fadeIn(300)
-      $("#create-group-form input#email").focus()
-    )
-
-  "blur #create-group-form input#email": ->
-    $("#create-group-form input#email").fadeOut(300, ->
-      $("#create-group-form .add-user").fadeIn(300)
-      $("#create-group-form input#email").val("")
-    )
+  "click .top-bar .top-menu .fullscreen-button": (evt) ->
+    if BigScreen.enabled
+      $(evt.target).toggleClass("exit-fullscreen")
+      if $(evt.target).hasClass("exit-fullscreen")
+        BigScreen.request()
+        $(evt.target).attr({title: "Vollbildmodus verlassen"})
+        $(evt.target).html(Blaze.toHTMLWithData(Template.entypo, "resize-100"))
+      else
+        BigScreen.exit()
+        $(evt.target).attr({title: "Vollbildmodus"})
+        $(evt.target).html(Blaze.toHTMLWithData(Template.entypo, "resize-full-screen"))
+    else
+      # TODO: Fallback
 
   "click .dark-background": ->
     $(".popup").fadeOut(300, ->
