@@ -11,6 +11,7 @@ Template.groupwindow.rendered = ->
 Template.groupwindow.events {
   "click .group-window .group-header .group-toggle": (evt) ->
     $(".group-window").toggleClass("hidden")
+    $("#sheetwindow").toggleClass("expanded")
     if ($(evt.target).attr("title") == "Ausblenden")
       $(evt.target).attr("title", "Einblenden")
     else
