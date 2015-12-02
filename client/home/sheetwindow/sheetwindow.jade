@@ -1,5 +1,18 @@
 template(name="sheetwindow")
   #sheetwindow
+    .new-sheet.showing
+      .close-button(title="Schließen") {{> entypo "cross"}}
+      .header Füge ein Blatt hinzu
+      .subheader Du kannst auch schnell per Drag&Drop hierher Bilder hochladen
+      .qr-code-section
+        .icon {{> entypo "camera"}}
+        .info Scanne den QR-Code mit deinem Smartphone um ein Bild davon hochzuladen
+        img(title="QR-Code mit dem Smartphone scannen" src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&bgcolor=f5f5f5&color=333&data=http://192.168.2.109:3000/addsheet/{{userId}}")
+      .upload-section
+        .icon {{> entypo "upload"}}
+        .info Oder klicke auf den Upload-Button um ein Bild direkt hochzuladen
+        .upload-button {{> entypo "upload-to-cloud"}}<br>Bild hochladen
+        input(type="file" accept="image/*")
     .toolcircle-menu
       .toolcircle(title="Aktionen") {{> entypo "plus"}}
       .options

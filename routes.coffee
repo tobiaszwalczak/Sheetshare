@@ -1,13 +1,24 @@
-Router.route "/", ->
-  this.render("landing")
+Router.map ->
+  this.route("landing", {
+    path: "/"
+    onBeforeAction: (pause) ->
+      if !Meteor.user()
+        this.render("landing")
+      else
+        this.redirect("/home")
+        this.next()
+  })
 
-Router.route "/home", ->
-  this.render("home")
+  this.route("home", {
+    path: "/home"
+    onBeforeAction: (pause) ->
+      if !Meteor.user()
+        this.redirect("/")
+        this.next()
+      else
+        this.render("home")
+  })
 
-Router.onBeforeAction( ->
-  if Meteor.userId()
-    this.render("home")
-  else
-    this.redirect("/")
-    this.next()
-)
+  this.route("addsheet", {
+    path: "/addsheet/:_id"
+  })
