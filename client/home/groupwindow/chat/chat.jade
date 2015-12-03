@@ -30,6 +30,7 @@ template(name="chat")
           else if typeLatex
             .message.other
               img.profileimage(src="{{creator.profile.image}}" title="{{creator.profile.name}} • {{onlineStatusName creator }}\n{{moment}}")
+              .online-status(class="{{onlineStatusIndicator creator}}")
               .latex-formula
                 img(src="http://latex.codecogs.com/gif.latex?{{text}}" title="{{text}}")
 
