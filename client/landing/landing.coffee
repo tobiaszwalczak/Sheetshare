@@ -34,7 +34,19 @@ Template.landing.events {
     email = $("#signup-form #email").val()
     password = $("#signup-form #password").val()
 
-    Meteor.call("registerUser", name, email, password)
+    options = {
+      email: email
+      password: password
+      profile: {
+        name: name
+        email: email
+        image: "http://api.adorable.io/avatars/256/" + email
+      }
+      group: {
+        tab: "chat"
+      }
+    }
+    Accounts.createUser(options)
     return false
 
   "click .login-button.facebook": ->
