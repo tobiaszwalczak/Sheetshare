@@ -1,6 +1,6 @@
 Template.sheetwindow.helpers {
   "userId": ->
-    return ""+ Meteor.userId()
+    return Meteor.userId()
 }
 
 Template.sheetwindow.events {
