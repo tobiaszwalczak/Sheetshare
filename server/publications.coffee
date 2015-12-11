@@ -2,6 +2,10 @@ Meteor.publish("messages", ->
   return Messages.find()
 )
 
+Meteor.publish("images", ->
+  return Images.find()
+)
+
 Meteor.publish("users", ->
   return Users.find()
 )

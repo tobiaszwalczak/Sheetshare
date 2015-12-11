@@ -1,4 +1,5 @@
 Meteor.subscribe("messages")
+Meteor.subscribe("images")
 Meteor.subscribe("users")
 
 Template.chat.rendered = ->
@@ -105,6 +106,16 @@ Template.chat.events {
     Meteor.setTimeout( ->
       $("section.chat .latex-widget #latex-textarea").focus()
     , 600)
+
+  "click section.chat .image-button": ->
+    $("section.chat .image-upload").click()
+
+  "change section.chat .image-upload": (evt) ->
+    FS.Utility.eachFile evt, (file) ->
+      Images.insert file, (err, fileObj) ->
+        $("section.chat .widget-button.close").click()
+        Meteor.call("createMessage", "", "image", fileObj._id)
+
 
   "focus section.chat #chat-textarea": ->
     $("section.chat .widget-button.close").click()

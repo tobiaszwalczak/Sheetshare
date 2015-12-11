@@ -11,6 +11,12 @@ template(name="chat")
               else
                 img.profileimage(src="{{creator.profile.image}}" title="Du\n{{moment}}")
                 .justemojis {{#emoji}} {{text}} {{/emoji}}
+          else if typeImage
+            .message
+              img.profileimage(src="{{creator.profile.image}}" title="Du\n{{moment}}")
+              .image
+                img(src="{{image.url}}")
+                .name {{image.name}}
           else if typeLatex
             .message
               img.profileimage(src="{{creator.profile.image}}" title="Du\n{{moment}}")
@@ -50,6 +56,7 @@ template(name="chat")
     .widget-button.more-button(title="Mehr" data-widget="more") {{> entypo "dots-three-horizontal"}}
     
     .chat-widget.more-widget
+      input.image-upload(type="file")
       .button.image-button(title="Bild") {{> entypo "image"}}
       .button.code-button(title="Code") {{> entypo "code"}}
       .button.latex-button(title="LaTeX-Formel") ∑

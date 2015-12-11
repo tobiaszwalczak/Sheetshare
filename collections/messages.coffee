@@ -4,6 +4,9 @@ Messages.helpers {
   "creator": ->
     return Users.findOne(this.creatorId)
 
+  "image": ->
+    return Images.findOne(this.id)
+
   "other": ->
     return true unless Meteor.userId() == this.creatorId
 
@@ -21,18 +24,22 @@ Messages.helpers {
   "typeText": ->
     return true if this.type == "text"
 
+  "typeImage": ->
+    return true if this.type == "image"
+
   "typeLatex": ->
     return true if this.type == "latex"
 
 }
 
 Meteor.methods {
-  "createMessage": (text, type) ->
+  "createMessage": (text, type, id) ->
     if Meteor.user()
       Messages.insert {
         creatorId: Meteor.userId()
         text: text
         type: type
+        id: id
         createdAt: new Date()
       }
 }
