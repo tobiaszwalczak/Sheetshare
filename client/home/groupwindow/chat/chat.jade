@@ -14,9 +14,8 @@ template(name="chat")
           else if typeImage
             .message
               img.profileimage(src="{{creator.profile.image}}" title="Du\n{{moment}}")
-              .image
+              .image(title="{{image.name}}")
                 img(src="{{image.url}}")
-                .name {{image.name}}
           else if typeLatex
             .message
               img.profileimage(src="{{creator.profile.image}}" title="Du\n{{moment}}")
@@ -37,9 +36,8 @@ template(name="chat")
             .message.other
               img.profileimage(src="{{creator.profile.image}}" title="{{creator.profile.name}} • {{onlineStatusName creator }}\n{{moment}}")
               .online-status(class="{{onlineStatusIndicator creator}}")
-              .image
+              .image(title="{{image.name}}")
                 img(src="{{image.url}}")
-                .name {{image.name}}
           else if typeLatex
             .message.other
               img.profileimage(src="{{creator.profile.image}}" title="{{creator.profile.name}} • {{onlineStatusName creator }}\n{{moment}}")
