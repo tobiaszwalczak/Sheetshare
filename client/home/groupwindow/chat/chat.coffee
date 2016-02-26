@@ -1,7 +1,3 @@
-Meteor.subscribe("messages")
-Meteor.subscribe("images")
-Meteor.subscribe("users")
-
 Template.chat.rendered = ->
   UserStatus.startMonitor({threshold: 30000, interval: 1000, idleOnBlur: true})
   $("section.chat textarea").autosize()
@@ -112,10 +108,11 @@ Template.chat.events {
 
   "change section.chat .image-upload": (evt) ->
     FS.Utility.eachFile evt, (file) ->
-      Images.insert file, (err, fileObj) ->
+      newFile = new FS.File(file)
+      newFile.groupId = Meteor.user().group.current
+      Images.insert newFile, (err, fileObj) ->
         $("section.chat .widget-button.close").click()
         Meteor.call("createMessage", "", "image", fileObj._id)
-
 
   "focus section.chat #chat-textarea": ->
     $("section.chat .widget-button.close").click()

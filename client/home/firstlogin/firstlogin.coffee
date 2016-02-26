@@ -1,5 +1,6 @@
 Meteor.subscribe("users")
 Meteor.subscribe("userData")
+Meteor.subscribe("groups")
 
 Template.firstlogin.rendered = ->
   unless Meteor.user().firstLogin
@@ -29,18 +30,24 @@ Template.firstlogin.events {
     $(".first-login-popup .package").removeClass("slcd")
     $(evt.currentTarget).addClass("slcd")
 
-  "click .first-login-popup .invite-button": ->
-    $(".first-login-popup .invite-button").fadeOut(300, ->
-      $(".first-login-popup #create-first-group #email").focus()
-      $(".first-login-popup #create-first-group #email").fadeIn(300)
-    )
+  "keypress form#create-first-group #members": (evt) ->
+    name = $(".first-login-popup form#create-first-group #name").val()
+    if evt.which == 13
+      if /\S/.test(name)
+        $(".first-login-popup form#create-first-group").submit()
+      return false
 
-  "blur #create-first-group #email": ->
-    $(".first-login-popup #create-first-group #email").fadeOut(300, ->
-      $(".first-login-popup #create-first-group #email").blur()
-      $(".first-login-popup .invite-button").fadeIn(300)
+  "submit .first-login-popup form#create-first-group": ->
+    name = $("form#create-first-group #name").val()
+    emails = $("form#create-first-group #members").val().replace(" ", "").trim().split(",")
+    Meteor.call("createGroup", name, emails, (error, result) ->
+      Meteor.call("setCurrentGroup", result)
     )
-    $(".first-login-popup #create-first-group #email").hide()
+    $("form#create-first-group #name").val("")
+    $("form#create-first-group #members").val("")
+    alert("Gruppe #{name} wurde erstellt.")
+    $(".first-login-popup .button.next-step").click()
+    return false
 }
 
 Template.firstlogin.helpers {

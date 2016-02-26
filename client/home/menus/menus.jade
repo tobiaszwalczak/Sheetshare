@@ -1,5 +1,13 @@
 template(name="menus")
   .menus
+    .menu.groupmenu
+      .grouplist
+        each groups
+          .groupitem
+            .name(data-id="{{_id}}") {{name}}
+            .sheetcount {{sheetcount}} {{> entypo "map"}}
+            .membercount {{membercount}} {{> entypo "users"}}
+            
     .menu.profilemenu
       .share(title="Profil teilen") {{> entypo "export"}}
       img.profileimage(src="{{currentUser.profile.image}}" title= currentUser.profile.name)

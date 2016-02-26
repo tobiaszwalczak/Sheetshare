@@ -1,6 +1,3 @@
-Meteor.subscribe("tasks")
-Meteor.subscribe("users")
-
 Template.checklist.helpers {
   "notDoneTasks": ->
     return Tasks.find({done: false}, {sort: {createdAt: -1}})

@@ -5,6 +5,12 @@ Router.map ->
       if !Meteor.user()
         this.render("landing")
       else
+        this.subscribe("users")
+        this.subscribe("userData")
+        this.subscribe("groups")
+        this.subscribe("messages", Meteor.user().group.current)
+        this.subscribe("images", Meteor.user().group.current)
+        this.subscribe("tasks", Meteor.user().group.current)
         this.redirect("/home")
         this.next()
   })
@@ -16,6 +22,12 @@ Router.map ->
         this.redirect("/")
         this.next()
       else
+        this.subscribe("users")
+        this.subscribe("userData")
+        this.subscribe("groups")
+        this.subscribe("messages", Meteor.user().group.current)
+        this.subscribe("images", Meteor.user().group.current)
+        this.subscribe("tasks", Meteor.user().group.current)
         this.render("home")
   })
 

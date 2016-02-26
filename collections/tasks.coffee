@@ -18,6 +18,7 @@ Meteor.methods {
   "createTask": (content) ->
     Tasks.insert {
       creatorId: Meteor.userId()
+      groupId: Meteor.user().group.current
       content: content
       done: false
       doneAt: false

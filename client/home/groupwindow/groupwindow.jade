@@ -2,7 +2,11 @@ template(name="groupwindow")
   .group-window
     .group-header
       .group-toggle(title="Ausblenden") {{> entypo "chevron-right"}}
-      .group-name Analysis I
+      .group-name 
+        if group
+          | {{group.name}}
+        else
+          | Noch keine Gruppe
       .group-menu
         .button#chat.slcd(title="Chat") {{> entypo "typing"}}
         .button#checklist(title="Checkliste") {{> entypo "list"}}

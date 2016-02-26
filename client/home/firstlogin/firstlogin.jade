@@ -47,12 +47,11 @@ template(name="firstlogin")
           .subheading Hier und jetzt entsteht deine erste Gruppe
           
           form#create-first-group
-            input#name(type="text" placeholder="Name der Gruppe")
+            input#name(type="text" placeholder="Name der Gruppe" autocomplete="false")
             .invite-people
-              | Leute einladen: <br>
-              .invite-button {{> entypo "add-user"}}
-              input#email(type="email" placeholder="Email des Mitglieds")
-            button(type="submit") Erstellen
+              | {{> entypo "users"}} <br>
+              textarea#members(placeholder="Emails der Mitglieder (Durch ',' getrennt)")
+            button Erstellen
             
           
         .content

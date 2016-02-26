@@ -37,6 +37,7 @@ Meteor.methods {
     if Meteor.user()
       Messages.insert {
         creatorId: Meteor.userId()
+        groupId: Meteor.user().group.current
         text: text
         type: type
         id: id

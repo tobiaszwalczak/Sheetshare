@@ -1,3 +1,4 @@
+Meteor.subscribe("groups")
 Meteor.subscribe("users")
 Meteor.subscribe("usersData")
 
@@ -35,3 +36,9 @@ changeGroupTab = (name) ->
 
   if name == "chat"
     $(".group-window section.chat").animate({scrollTop: $("section.chat")[0].scrollHeight}, 1)
+
+
+Template.groupwindow.helpers {
+  "group": ->
+    return Groups.findOne(Meteor.user().group.current)
+}

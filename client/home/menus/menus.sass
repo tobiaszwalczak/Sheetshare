@@ -23,10 +23,40 @@
       height: 1px
       background-color: #eee
 
+    &.groupmenu
+      top: -430px
+      left: 150px
+      &.slcd
+        top: 40px
+
+      .groupitem
+        height: 50px
+        font-size: 15px
+        line-height: 50px
+        text-align: left
+
+        .name, .membercount, .sheetcount
+          display: inline-block
+
+        .name
+          color: #09f
+          cursor: pointer
+          transition: all 0.3s
+          &:hover
+            color: #0cf
+
+        .membercount, .sheetcount
+          float: right
+          margin: 0 5px
+          color: #999
+          font-size: 14px
+
+          .icon
+            color: #ddd
+
     &.profilemenu
       top: -430px
       right: 45px
-
       &.slcd
         top: 40px
 
