@@ -25,8 +25,11 @@ Template.home.events {
 
   "click .menu.groupmenu .grouplist .groupitem .name": (evt) ->
     id = $(evt.currentTarget).data("id")
-    Meteor.call("setCurrentGroup", id)
     $(".anything-else").click()
+    $(".group-window .sections section").fadeOut(300, ->
+      Meteor.call("setCurrentGroup", id)
+      $(".group-window .sections section").delay(200).fadeIn(300)
+    )
 }
 
 Template.menus.events {
