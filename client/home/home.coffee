@@ -1,6 +1,3 @@
-Meteor.subscribe("users")
-Meteor.subscribe("userData")
-
 Template.home.events {
   "click .top-bar .top-menu .fullscreen-button": (evt) ->
     if BigScreen.enabled

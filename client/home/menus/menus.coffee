@@ -1,5 +1,3 @@
-Meteor.subscribe("groups")
-
 Template.home.events {
   "click .top-bar .top-menu .group-button": ->
     if !$(".anything-else").hasClass("slcd") && !$(".top-menu .group-button").hasClass("slcd")

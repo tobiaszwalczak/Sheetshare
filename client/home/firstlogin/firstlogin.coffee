@@ -1,7 +1,3 @@
-Meteor.subscribe("users")
-Meteor.subscribe("userData")
-Meteor.subscribe("groups")
-
 Template.firstlogin.rendered = ->
   unless Meteor.user().firstLogin
     Session.set("firstLoginStep", 1)

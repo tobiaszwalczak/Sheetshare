@@ -1,7 +1,3 @@
-Meteor.subscribe("groups")
-Meteor.subscribe("users")
-Meteor.subscribe("usersData")
-
 Template.groupwindow.rendered = ->
   groupTab = Meteor.user().group.tab
   $(".group-window .sections section").removeClass("slcd")
