@@ -1,7 +1,8 @@
 template(name="landing")
   header
     .top-menu
-      .burger(title="Menü") {{> entypo "menu"}}
+      .burger(title="Menü")
+        i.mdi.mdi-menu
       nav
         a(href="#") Features
         a(href="#") Preise
@@ -9,7 +10,7 @@ template(name="landing")
         a(href="#") Kontakt
       .symbol
         img(src="/images/symbol.png" title="Sheetshare")
-      button.login-button {{> entypo "user"}} Login
+      button.login-button <i class="mdi mdi-account-circle"></i> Login
       
     h1 Sheetshare
       .beta ßeta
@@ -39,7 +40,9 @@ template(name="landing")
           .row 1 Gruppe erstellen
           .row Mitlied in 2 Gruppen
           .row Nicht so viel ...
-          .check {{> entypo "check"}}
+          br
+          .check
+            i.mdi.mdi-check
           .package-info Immer gratis
       .package.premium
         .header Premium
@@ -48,7 +51,9 @@ template(name="landing")
           .row So viele du willst
           .row Unbegrenzt
           .row Personalisierung
-          .check {{> entypo "check"}}
+          br
+          .check
+            i.mdi.mdi-check
           .package-info 1. Monat gratis
         
     section(id="contact")
@@ -59,57 +64,69 @@ template(name="landing")
     img.footer-logo(src="/images/symbol.png")
     .links
       .links-group
-        a(href="#") {{> entypo "star"}} Features
-        a(href="#") {{> entypo "wallet"}} Preise
-        a(href="#") {{> entypo "news"}} Blog
-        a(href="#") {{> entypo "v-card"}} Kontakt
+        a(href="#") <i class="mdi mdi-star"></i> Features
+        a(href="#") <i class="mdi mdi-wallet"></i> Preise
+        a(href="#") <i class="mdi mdi-blogger"></i> Blog
+        a(href="#") <i class="mdi mdi-contact-mail"></i> Kontakt
       hr
       .links-group
-        a(href="#") {{> entypo "newsletter"}} Impressum
-        a(href="#") {{> entypo "text-document-inverted"}} AGB
-        a(href="#") {{> entypo "key"}} Privatsphäre
-        a(href="#") {{> entypo "help"}} Hilfe
+        a(href="#") <i class="mdi mdi-file-document-box"></i> Impressum
+        a(href="#") <i class="mdi mdi-file-document-box"></i> AGB
+        a(href="#") <i class="mdi mdi-lock"></i> Privatsphäre
+        a(href="#") <i class="mdi mdi-help"></i> Hilfe
     .social-links
       a(href="http://facebook.com", target="_blank", title="Facebook").link.facebook
-       | {{> entypo "facebook"}}
+       i.mdi.mdi-facebook
       a(href="http://twitter.com", target="_blank", title="Twitter").link.twitter
-        | {{> entypo "twitter"}}
+        i.mdi.mdi-twitter
       a(href="http://instagram.com", target="_blank", title="Instagram").link.instagram
-       | {{> entypo "instagram"}}
+       i.mdi.mdi-instagram
     .made-by
-      .code {{> entypo "code"}}
+      .code
+        i.mdi.mdi-code-tags
       | with
-      .heart {{> entypo "heart"}}
+      .heart
+        i.mdi.mdi-heart
       | by Tobiasz Walczak in Berlin
     
   .dark-background
     
   .popup.login-popup
     .popup-header Login
-      .popup-close(title="Schließen") {{> entypo "cross"}}
+      .popup-close(title="Schließen")
+        i.mdi.mdi-close
     .popup-content
       form#login-form
         input#email(type="email" placeholder="Email")
         input#password(type="password" placeholder="Passwort")
-        button.login-button.login(type="submit") {{> entypo "chevron-thin-right"}}
+        button.login-button.login(type="submit")
+          i.mdi.mdi-chevron-right
       .login-with Anmelden mit:
-      button.login-button.facebook Facebook
-      button.login-button.twitter Twitter
-      button.login-button.google Google
+      button.login-button.facebook
+        i.mdi.mdi-facebook
+      button.login-button.twitter
+        i.mdi.mdi-twitter
+      button.login-button.google
+        i.mdi.mdi-google
 
   .popup.join-popup
     .popup-header Beitreten
-      .popup-close(title="Schließen") {{> entypo "cross"}}
+      .popup-close(title="Schließen")
+        i.mdi.mdi-close
     .popup-content
       form#signup-form
         input#name(type="text" placeholder="Name")
         input#email(type="email" placeholder="Email")
         input#password(type="password" placeholder="Passwort")
-        button.login-button.signup(type="submit") {{> entypo "chevron-thin-right"}}
+        button.login-button.signup(type="submit")
+          i.mdi.mdi-chevron-right
       .login-with Anmelden mit:
-      button.login-button.facebook Facebook
-      button.login-button.twitter Twitter
-      button.login-button.google Google
+      button.login-button.facebook
+        i.mdi.mdi-facebook
+      button.login-button.twitter
+        i.mdi.mdi-twitter
+      button.login-button.google
+        i.mdi.mdi-google
         
       
       

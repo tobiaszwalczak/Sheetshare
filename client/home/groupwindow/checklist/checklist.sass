@@ -13,7 +13,7 @@ section.checklist
 
   .seperator
     margin: 15px auto 0
-    padding: 0 10px
+    padding: 10px
     width: 100%
     text-align: left
     color: #0c7
@@ -30,9 +30,6 @@ section.checklist
         color: #f77
 
 
-    svg.icon
-      float: right
-
   .tasks
     margin-top: 10px
     .task
@@ -48,7 +45,7 @@ section.checklist
       border-radius: 5px
       z-index: 3
       overflow: hidden
-      transition: all 0.3s
+      transition: all 0.2s
 
       img.emoji
         width: 1.2em
@@ -88,13 +85,13 @@ section.checklist
         margin-top: 5px
         opacity: 0
         pointer-events: none
-        transition: all 0.3s ease-in
+        transition: all 0.2s ease-in
 
         .action
           display: inline-block
           margin-left: 3px
           cursor: pointer
-          opacity: 0.4
+          opacity: 0.3
           transition: all 0.3s
           &:hover
             opacity: 1
@@ -133,11 +130,11 @@ section.checklist
           font-size: 12px
 
           .row
-            &.user svg.icon
+            &.user i.mdi
               color: #0cf
-            &.clock svg.icon
+            &.clock i.mdi
               color: #f4db00
-            &.check svg.icon
+            &.check i.mdi
               color: #0c7
 
         &.showing
@@ -174,8 +171,11 @@ section.checklist
         .action
           opacity: 0.8
 
-        .infobox svg.icon
-          color: #fff !important
+        .infobox
+          color: rgba(0, 0, 0, 0.2) !important
+
+          i.mdi
+            color: #fff !important
 
   input#todo
     display: inline-block

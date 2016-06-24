@@ -20,11 +20,9 @@ mquandalle:jade
 dburles:collection-helpers
 copleykj:autolinker
 service-configuration
-lookback:entypo
 linto:jquery-ui
 mizzao:user-status
 matb33:collection-hooks
-percolate:velocityjs
 seriousm:emoji-continued
 copleykj:jquery-autosize
 rubaxa:sortable
@@ -49,3 +47,4 @@ standard-minifier-css
 standard-minifier-js
 vue:vue
 dapearce:material-icons
+meteorhacks:fast-render

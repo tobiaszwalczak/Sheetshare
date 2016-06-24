@@ -57,42 +57,49 @@ template(name="chat")
         
           
     textarea#chat-textarea(rows="1" placeholder="Schreibe eine Nachricht ...")
-    .widget-button.emojis-button(title="Emojis" data-widget="emojis") {{> entypo "emoji-flirt"}}
-    .widget-button.more-button(title="Mehr" data-widget="more") {{> entypo "dots-three-horizontal"}}
+    .widget-button.emojis-button(title="Emojis" data-widget="emojis")
+      i.mdi.mdi-emoticon
+    .widget-button.more-button(title="Mehr" data-widget="more")
+      i.mdi.mdi-dots-horizontal
     
     .chat-widget.more-widget
       input.image-upload(type="file")
-      .button.image-button(title="Bild") {{> entypo "image"}}
-      .button.code-button(title="Code") {{> entypo "code"}}
-      .button.latex-button(title="LaTeX-Formel") ∑
-      .button.file-button(title="Andere Dateien") {{> entypo "documents"}}
+      .button.image-button(title="Bild")
+        i.mdi.mdi-image
+      .button.code-button(title="Code")
+        i.mdi.mdi-code-tags
+      .button.latex-button(title="LaTeX-Formel")
+        i.mdi.mdi-sigma
+      .button.file-button(title="Andere Dateien")
+        i.mdi.mdi-folder-outline
     
     .chat-widget.emojis-widget
       +emoji
       
-        .emoji-category {{> entypo "user"}} <br> Personen
+        .emoji-category <i class="mdi mdi-account-circle"></i><br> Personen
         each emojis.people
           .emoji-tag(title= this) :{{this}}:
-        .emoji-category {{> entypo "flower"}} <br> Natur
+        .emoji-category <i class="mdi mdi-flower"></i><br> Natur
         each emojis.nature
           .emoji-tag(title= this) :{{this}}:
-        .emoji-category {{> entypo "box"}} <br> Objekte
+        .emoji-category <i class="mdi mdi-archive"></i><br> Objekte
         each emojis.objects
           .emoji-tag(title= this) :{{this}}:
-        .emoji-category {{> entypo "aircraft-take-off"}} <br> Reise
+        .emoji-category <i class="mdi mdi-airplane"></i><br> Reise
         each emojis.trip
           .emoji-tag(title= this) :{{this}}:
-        .emoji-category {{> entypo "language"}} <br> Symbole
+        .emoji-category <i class="mdi mdi-shape-plus"></i><br> Symbole
         each emojis.symbols
           .emoji-tag(title= this) :{{this}}:
-        .emoji-category {{> entypo "star"}} <br> Spezial
+        .emoji-category <i class="mdi mdi-star"></i><br> Spezial
         each emojis.special
           .emoji-tag(title= this) :{{this}}:
           
     .chat-widget.latex-widget
       .formula-output
         .title LaTeX-Output:
-        .help(title="Hilfe") {{> entypo "help-with-circle"}}
+        .help(title="Hilfe")
+          i.mdi.mdi-help-circle
         .latex-output
       .formula-input
         textarea#latex-textarea(placeholder="LaTeX-Formel eingeben ...")

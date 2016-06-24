@@ -68,8 +68,8 @@
       display: inline-block
       padding: 0 20px
       margin-left: 10px
-      font-size: 15px
-      line-height: 62px
+      font-size: 14px
+      line-height: 61px
       cursor: pointer
       transition: all 0.3s
       &:hover
@@ -85,17 +85,17 @@
 
       .text
         display: inline-block
+        font-size: 13px
 
-      .symbol
-        display: inline-block
-        margin-left: 5px
+      i.mdi
+        margin-left: 7px
+        font-size: 18px
+        color: rgba(0, 0, 0, 0.2)
+        transform: translateY(2px)
         @media screen and (max-width: 945px)
           margin-left: 0
-
-          svg.icon
-            width: 20px
-            height: 20px
-            vertical-align: -4px
+          width: 20px
+          height: 20px
 
     .fullscreen-button
       display: inline-block
@@ -105,7 +105,7 @@
       height: 32px
       background-color: rgba(0, 0, 0, 0.1)
       color: #fff
-      font-size: 12px
+      font-size: 17px
       text-align: center
       line-height: 32px
       border-radius: 50%
@@ -114,6 +114,10 @@
 
       &:hover
         background-color: rgba(0, 0, 0, 0.2)
+
+      i.mdi
+        pointer-events: none
+
 
     .profile-button
       float: right
@@ -124,14 +128,13 @@
         height: 60px
 
       &.slcd
-        svg.icon
+        i.mdi
           transform: rotate(180deg)
 
-      svg.icon
+      i.mdi
         margin-right: 5px
+        font-size: 18px
         transition: all 0.4s cubic-bezier(0.175, 0.885, 0.33, 1.47) 0.3s
-        vertical-align: -0.17em
-        fill: rgba(0, 0, 0, 0.2)
         @media screen and (max-width: 570px)
           display: none
 

@@ -62,13 +62,13 @@ Template.chat.events {
       $("section.chat .emojis-widget").addClass("showing")
       $("section.chat .emojis-button").attr({"title":"Schließen"})
       Meteor.setTimeout( ->
-        $("section.chat .emojis-button").html(Blaze.toHTMLWithData(Template.entypo, "cross"))
+        $("section.chat .emojis-button").html("<i class='mdi mdi-close'>")
       , 300)
     else
       $("section.chat .emojis-widget").removeClass("showing")
       $("section.chat .emojis-button").attr({"title":"Emojis"})
       Meteor.setTimeout( ->
-        $("section.chat .emojis-button").html(Blaze.toHTMLWithData(Template.entypo, "emoji-flirt"))
+        $("section.chat .emojis-button").html("<i class='mdi mdi-emoticon'>")
       , 300)
 
     $("section.chat .emojis-button").toggleClass("close")
@@ -80,13 +80,13 @@ Template.chat.events {
       $("section.chat .more-widget").addClass("showing")
       $("section.chat .more-button").attr({"title":"Schließen"})
       Meteor.setTimeout( ->
-        $("section.chat .more-button").html(Blaze.toHTMLWithData(Template.entypo, "cross"))
+        $("section.chat .more-button").html("<i class='mdi mdi-close'>")
       , 300)
     else
       $("section.chat .more-widget").removeClass("showing")
       $("section.chat .more-button").attr({"title":"Mehr"})
       Meteor.setTimeout( ->
-        $("section.chat .more-button").html(Blaze.toHTMLWithData(Template.entypo, "dots-three-horizontal"))
+        $("section.chat .more-button").html("<i class='mdi mdi-dots-horizontal'>")
       , 300)
       $("section.chat .latex-widget").removeClass("showing")
       Meteor.setTimeout( ->

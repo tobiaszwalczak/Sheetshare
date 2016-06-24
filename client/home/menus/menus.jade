@@ -5,24 +5,25 @@ template(name="menus")
         each groups
           .groupitem
             .name(data-id="{{_id}}") {{name}}
-            .sheetcount {{sheetcount}} {{> entypo "map"}}
-            .membercount {{membercount}} {{> entypo "users"}}
+            .sheetcount {{sheetcount}} <i class="mdi mdi-file"></i>
+            .membercount {{membercount}} <i class="mdi mdi-account"></i>
             
     .menu.profilemenu
-      .share(title="Profil teilen") {{> entypo "export"}}
+      .share(title="Profil teilen")
+        i.mdi.mdi-launch
       img.profileimage(src="{{currentUser.profile.image}}" title= currentUser.profile.name)
       .name= currentUser.profile.name
       .button
-        .icon {{> entypo "user"}}
+        i.mdi.mdi-account-circle
         .label Profil
       .button
-        .icon {{> entypo "tools"}}
+        i.mdi.mdi-settings
         .label Einstellungen
       .button
-        .icon {{> entypo "line-graph"}}
+        i.mdi.mdi-chart-line
         .label Statistiken
       .button.logout
-        .icon {{> entypo "lock"}}
+        i.mdi.mdi-logout
         .label Logout
       .button.upgrade Upgraden
       hr

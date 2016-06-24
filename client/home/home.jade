@@ -7,34 +7,43 @@ template(name="home")
     .top-menu
       .button.group-button(title="Meine Gruppen")
         .text Meine Gruppen 
-        .symbol {{> entypo "grid"}}
-      .button(title="Neue Gruppe")
-        .text Neue Gruppe 
-        .symbol {{> entypo "squared-plus"}}
+        i.mdi.mdi-account-multiple
+      .button(title="Gruppe erstellen")
+        .text Gruppe erstellen
+        i.mdi.mdi-account-multiple-plus
       .button(title="Mitteilungen")
         .text Mitteilungen 
-        .symbol {{> entypo "flash"}}
+        i.mdi.mdi-bell
       .button.profile-button
-        | {{> entypo "chevron-down"}}
+        i.mdi.mdi-chevron-down
         .name {{currentUser.profile.name}}
         img.profileimage(src="{{currentUser.profile.image}}" title= currentUser.profile.name)
-      .fullscreen-button(title="Vollbildmodus") {{> entypo "resize-full-screen"}}
+      .fullscreen-button(title="Vollbildmodus")
+        i.mdi.mdi-fullscreen
   
   +menus
   
   .background
   
   .toolbar
-    .tool(title="Vergrößern") {{> entypo "circle-with-plus"}}
-    .tool(title="Verkleinern") {{> entypo "circle-with-minus"}}
+    .tool(title="Vergrößern")
+      i.mdi.mdi-plus-circle
+    .tool(title="Verkleinern")
+      i.mdi.mdi-minus-circle
     hr
-    .tool(title="Stift") {{> entypo "pencil"}}
-    .tool(title="Rechteck") {{> entypo "controller-stop"}}
-    .tool(title="Kreis") {{> entypo "controller-record"}}
-    .tool(title="Text") {{> entypo "text"}}
-    .tool(title="Rückgängig") {{> entypo "back"}}
+    .tool(title="Rechteck")
+      i.mdi.mdi-crop-square
+    .tool(title="Kreis")
+      i.mdi.mdi-checkbox-blank-circle-outline
+    .tool(title="Stift")
+      i.mdi.mdi-pencil
+    .tool(title="Text")
+      i.mdi.mdi-format-text
+    .tool(title="Rückgängig")
+      i.mdi.mdi-replay
     hr
-    .tool(title="Alle Sheets") {{> entypo "grid"}}
+    .tool(title="Alle Sheets")
+      i.mdi.mdi-book-open-variant
     
   +sheetwindow
     

@@ -30,7 +30,8 @@ template(name="firstlogin")
             .row 1 Gruppe erstellen
             .row Mitglied in 2 Gruppen
             .row Nicht so viel ...
-            .check {{> entypo "check"}}
+            .check
+              i.mdi.mdi-check
             .package-info Immer gratis
             
           .package.premium
@@ -39,7 +40,8 @@ template(name="firstlogin")
             .row So viele du willst
             .row Unbegrenzt
             .row Personalisierung
-            .check {{> entypo "check"}}
+            .check
+              i.mdi.mdi-check
             .package-info 1. Monat gratis
           
         .content
@@ -49,7 +51,8 @@ template(name="firstlogin")
           form#create-first-group
             input#name(type="text" placeholder="Name der Gruppe" autocomplete="false")
             .invite-people
-              | {{> entypo "users"}} <br>
+              i.mdi.mdi-account-multiple
+              br
               textarea#members(placeholder="Emails der Mitglieder (Durch ',' getrennt)")
             button Erstellen
             
@@ -70,6 +73,9 @@ template(name="firstlogin")
         .step
         .step
 
-      .button.prev-step(title="Zurück") {{> entypo "chevron-left"}}
-      .button.next-step(title="Weiter") {{> entypo "chevron-right"}}
-      .button.done(title="Fertig") {{> entypo "check"}}
+      .button.prev-step(title="Zurück")
+        i.mdi.mdi-chevron-left
+      .button.next-step(title="Weiter")
+        i.mdi.mdi-chevron-right
+      .button.done(title="Fertig")
+        i.mdi.mdi-check

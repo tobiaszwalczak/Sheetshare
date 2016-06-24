@@ -1,18 +1,24 @@
 template(name="groupwindow")
   .group-window
     .group-header
-      .group-toggle(title="Ausblenden") {{> entypo "chevron-right"}}
+      .group-toggle(title="Ausblenden")
+        i.mdi.mdi-chevron-right
       .group-name 
         if group
           | {{group.name}}
         else
           | Noch keine Gruppe
       .group-menu
-        .button#chat.slcd(title="Chat") {{> entypo "typing"}}
-        .button#checklist(title="Checkliste") {{> entypo "list"}}
-        .button#members(title="Mitglieder") {{> entypo "users"}}
-        .button#archive(title="Archiv") {{> entypo "archive"}}
-        .button#settings(title="Einstellungen") {{> entypo "cog"}}
+        .button#chat.slcd(title="Chat")
+          i.mdi.mdi-forum
+        .button#checklist(title="Checkliste")
+          i.mdi.mdi-checkbox-marked-circle-outline
+        .button#members(title="Mitglieder")
+          i.mdi.mdi-account-multiple
+        .button#archive(title="Archiv")
+          i.mdi.mdi-clock
+        .button#settings(title="Einstellungen")
+          i.mdi.mdi-settings
     
     .sections
       +chat
