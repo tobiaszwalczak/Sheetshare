@@ -1,7 +1,7 @@
 Router.map ->
   this.route("landing", {
     path: "/"
-    onBeforeAction: (pause) ->
+    onBeforeAction: () ->
       if !Meteor.user()
         this.render("landing")
       else
@@ -17,7 +17,7 @@ Router.map ->
 
   this.route("home", {
     path: "/home"
-    onBeforeAction: (pause) ->
+    onBeforeAction: () ->
       if !Meteor.user()
         this.redirect("/")
         this.next()
