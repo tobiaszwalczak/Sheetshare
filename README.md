@@ -5,6 +5,7 @@ Echtzeit-Platform für Studentengruppen und ihre Hausaufgaben
 # Installation & Start
 
 ```
+$ curl https://install.meteor.com/ | sh
 $ git clone git@github.com:tobiaszwalczak/Sheetshare.git Sheetshare
 $ cd Sheetshare
 $ meteor
