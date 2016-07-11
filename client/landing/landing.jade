@@ -10,7 +10,9 @@ template(name="landing")
         a(href="#") Kontakt
       .symbol
         img(src="/images/symbol.png" title="Sheetshare")
-      button.login-button <i class="mdi mdi-account-circle"></i> Login
+      button.login-button
+        i(class="mdi mdi-account-circle")
+        | Login
       
     h1 Sheetshare
       .beta ßeta
@@ -60,34 +62,7 @@ template(name="landing")
       h2 Kontakt
 
 
-  footer
-    img.footer-logo(src="/images/symbol.png")
-    .links
-      .links-group
-        a(href="#") <i class="mdi mdi-star"></i> Features
-        a(href="#") <i class="mdi mdi-wallet"></i> Preise
-        a(href="#") <i class="mdi mdi-blogger"></i> Blog
-        a(href="#") <i class="mdi mdi-contact-mail"></i> Kontakt
-      hr
-      .links-group
-        a(href="#") <i class="mdi mdi-file-document-box"></i> Impressum
-        a(href="#") <i class="mdi mdi-file-document-box"></i> AGB
-        a(href="#") <i class="mdi mdi-lock"></i> Privatsphäre
-        a(href="#") <i class="mdi mdi-help"></i> Hilfe
-    .social-links
-      a(href="http://facebook.com", target="_blank", title="Facebook").link.facebook
-       i.mdi.mdi-facebook
-      a(href="http://twitter.com", target="_blank", title="Twitter").link.twitter
-        i.mdi.mdi-twitter
-      a(href="http://instagram.com", target="_blank", title="Instagram").link.instagram
-       i.mdi.mdi-instagram
-    .made-by
-      .code
-        i.mdi.mdi-code-tags
-      | with
-      .heart
-        i.mdi.mdi-heart
-      | by Tobiasz Walczak in Berlin
+  +footer
     
   .dark-background
     
