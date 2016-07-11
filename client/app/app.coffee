@@ -1,4 +1,4 @@
-Template.home.events {
+Template.app.events {
   "click .top-bar .top-menu .fullscreen-button": (evt) ->
     if BigScreen.enabled
       $(evt.target).toggleClass("exit-fullscreen")

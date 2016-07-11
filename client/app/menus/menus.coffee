@@ -1,4 +1,4 @@
-Template.home.events {
+Template.app.events {
   "click .top-bar .top-menu .group-button": ->
     if !$(".anything-else").hasClass("slcd") && !$(".top-menu .group-button").hasClass("slcd")
       $(".top-bar .top-menu .group-button, .menus .groupmenu, .anything-else").addClass("slcd")
