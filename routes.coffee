@@ -11,12 +11,12 @@ Router.map ->
         this.subscribe("messages", Meteor.user().group.current)
         this.subscribe("images", Meteor.user().group.current)
         this.subscribe("tasks", Meteor.user().group.current)
-        this.redirect("/home")
+        this.redirect("/app")
         this.next()
   })
 
-  this.route("home", {
-    path: "/home"
+  this.route("app", {
+    path: "/app"
     onBeforeAction: () ->
       if !Meteor.user()
         this.redirect("/")
@@ -28,7 +28,7 @@ Router.map ->
         this.subscribe("messages", Meteor.user().group.current)
         this.subscribe("images", Meteor.user().group.current)
         this.subscribe("tasks", Meteor.user().group.current)
-        this.render("home")
+        this.render("app")
   })
 
   this.route("addsheet", {

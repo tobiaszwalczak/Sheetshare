@@ -1,0 +1,236 @@
+#firstlogin
+
+  .first-login-popup
+    padding: 0
+    position: relative
+
+    .hirni
+      display: inline-block
+      width: 200px
+      height: 100%
+      background-color: #f5f5f5
+
+      img
+        margin: 25px 45px
+        height: 350px
+
+    svg.triangle
+      position: absolute
+      top: 70px
+      left: 170px
+      fill: #fff
+
+    .bubble
+      display: inline-block
+      position: absolute
+      top: 0
+      left: 200px
+      width: 400px
+      height: 400px
+      background-color: #fff
+      overflow: hidden
+
+      .content-slider
+        position: absolute
+        top: 0px
+        left: 0px
+        width: 2000px
+        height: 400px
+
+        .content
+          display: inline-block
+          vertical-align: top
+          margin: 0px
+          margin-right: -4px
+          width: 400px
+          height: 400px
+          padding: 30px
+          text-align: center
+          color: #888
+
+          .heading
+            font-size: 25px
+            color: #444
+            font-weight: 500
+            letter-spacing: 2px
+
+          .i-am
+            margin: 5px 0 30px
+            font-size: 22px
+
+          .subheading
+            margin-bottom: 5px
+            font-size: 15px
+
+          .package
+            display: inline-block
+            vertical-align: top
+            margin-top: 15px
+            width: calc(50% - 5px)
+            height: 240px
+            color: #666
+            border-radius: 5px
+            overflow: hidden
+            cursor: pointer
+            transition: all 0.3s
+            &:hover
+              box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2)
+            &:active
+              box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2)
+              transition: all 0.1s
+
+            &.light
+              margin-right: 5px
+
+            .header
+              padding: 10px 0
+              background: rgba(255, 255, 255, 0.7)
+              color: #09f
+
+              .cost
+                color: #ccc
+                font-size: 13px
+
+            .row
+              margin: 0 auto
+              padding: 5px 0
+              width: 90%
+              font-size: 13px
+              line-height: 30px
+              border-bottom: solid 1px #eee
+              &:nth-of-type(4)
+                border-bottom: none
+
+            .check
+              margin: 5px auto 0
+              width: 25px
+              height: 25px
+              color: #0d7
+              font-size: 15px
+              text-align: center
+              line-height: 25px
+              border: solid 1px #ccc
+              border-radius: 5px
+              transition: all 0.4s
+
+              i.mdi
+                opacity: 0
+                transition: all 0.4s
+
+            .package-info
+              margin-top: 5px
+              font-size: 11px
+              color: #ccc
+              transition: all 0.4s
+
+            &.slcd
+              .check
+                border-color: #0d7
+                i.mdi
+                  opacity: 1
+
+              .package-info
+                color: #0d7
+
+
+          form#create-first-group
+            text-align: center
+
+            input
+              margin: 10px 0 15px
+
+            .invite-people
+
+            textarea#members
+              margin: 10px 0 5px
+              padding: 10px
+              width: 75%
+              font-size: 13px
+              border: solid 1px #ddd
+
+              &:focus
+                border: solid 1px #0cf
+
+            button
+              display: inline-block
+              margin-top: 30px
+              padding: 5px 20px
+              background: linear-gradient(#0c7 0%, #0f7 100%)
+              color: rgba(0, 0, 0, 0.4)
+              font-size: 16px
+              text-align: center
+              border-radius: 5px
+              border: none
+              outline: none
+              cursor: pointer
+              transition: all 0.3s
+              &:hover
+                opacity: 0.8
+
+          .big-emoji
+            img.emoji
+              font-size: 40px
+
+      .step-indicator
+        position: absolute
+        bottom: 10px
+        width: 100%
+        height: 30px
+        text-align: center
+        line-height: 33px
+
+        .step
+          display: inline-block
+          margin: 2px
+          width: 10px
+          height: 10px
+          background-color: #ccc
+          border-radius: 50%
+
+        @for $i from 1 through 4
+          &[data-step="#{$i}"]
+            .step:nth-of-type(#{$i})
+              background: linear-gradient(#09f 0%, #0cf 100%)
+
+        &[data-step="1"] ~ .button.prev-step, &[data-step="4"] ~ .button.next-step
+          opacity: 0
+          pointer-events: none
+        &[data-step="4"] ~ .button.done
+          opacity: 1
+          pointer-events: auto
+
+
+      .button
+        position: absolute
+        padding: 0
+        width: 30px
+        height: 30px
+        color: #fff
+        font-size: 18px
+        text-align: center
+        line-height: 30px
+        border: none
+        border-radius: 50%
+        cursor: pointer
+        transition: all 0.3s
+        &:hover
+          opacity: 0.8
+
+        &.next-step
+          bottom: 10px
+          right: 10px
+          background: linear-gradient(#09f 0%, #0cf 100%)
+        &.prev-step
+          bottom: 10px
+          left: 10px
+          background-color: #ccc
+        &.done
+          bottom: 10px
+          right: 10px
+          background: linear-gradient(#0c7 0%, #0f7 100%)
+          font-size: 16px
+          opacity: 0
+          pointer-events: none
+
+        i.mdi
+          margin: 0

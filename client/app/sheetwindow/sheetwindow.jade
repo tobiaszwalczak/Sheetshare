@@ -1,5 +1,26 @@
 template(name="sheetwindow")
   #sheetwindow
+  
+    .toolbar
+      .tool(title="Vergrößern")
+        i.mdi.mdi-plus-circle
+      .tool(title="Verkleinern")
+        i.mdi.mdi-minus-circle
+      hr
+      .tool(title="Rechteck")
+        i.mdi.mdi-crop-square
+      .tool(title="Kreis")
+        i.mdi.mdi-checkbox-blank-circle-outline
+      .tool(title="Stift")
+        i.mdi.mdi-pencil
+      .tool(title="Text")
+        i.mdi.mdi-format-text
+      .tool(title="Rückgängig")
+        i.mdi.mdi-replay
+      hr
+      .tool(title="Alle Sheets")
+        i.mdi.mdi-book-open-variant
+      
     .new-sheet.showing
       .close-button(title="Schließen")
         i.mdi.mdi-close
@@ -25,8 +46,10 @@ template(name="sheetwindow")
       .options
         .option.new-homework(title="Neue Hausaufgabe erstellen")
           i.mdi.mdi-book-open
-        .option.new-page(title="Neue Seite hinzufügen")
+        .option.new-image(title="Neues Foto hinzufügen")
           i.mdi.mdi-camera
+        .option.new-page(title="Leere Seite hinzufügen")
+          i.mdi.mdi-file-outline
         .option.replace(title="Jetzige Seite ersetzen")
           i.mdi.mdi-shuffle-variant
         .option.delete(title="Seite löschen")

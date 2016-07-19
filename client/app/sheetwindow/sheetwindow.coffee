@@ -17,7 +17,7 @@ Template.sheetwindow.events {
     else
       $(evt.target).attr({title: "Aktionen"})
 
-  "click #sheetwindow .toolcircle-menu .options .option.new-page": (evt) ->
+  "click #sheetwindow .toolcircle-menu .options .option.new-image": (evt) ->
     $("#sheetwindow .toolcircle-menu .toolcircle.close").click()
     $("#sheetwindow .new-sheet").addClass("showing")
 }
