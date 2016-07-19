@@ -1,26 +1,7 @@
 template(name="app")
   #app
-    .top-bar
-      .logo
-        .symbol
-        .sheetshare Sheetshare
-        .beta ßeta
-      .top-menu
-        .button.group-button(title="Meine Gruppen")
-          .text Meine Gruppen 
-          i.mdi.mdi-account-multiple
-        .button(title="Gruppe erstellen")
-          .text Gruppe erstellen
-          i.mdi.mdi-account-multiple-plus
-        .button(title="Mitteilungen")
-          .text Mitteilungen 
-          i.mdi.mdi-bell
-        .button.profile-button
-          i.mdi.mdi-chevron-down
-          .name {{currentUser.profile.name}}
-          img.profileimage(src="{{currentUser.profile.image}}" title= currentUser.profile.name)
-        .fullscreen-button(title="Vollbildmodus")
-          i.mdi.mdi-fullscreen
+    
+    +menubar
     
     +menus
       

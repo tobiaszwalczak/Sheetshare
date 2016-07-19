@@ -6,15 +6,15 @@ Template.firstlogin.rendered = ->
     )
 
 Template.firstlogin.events {
-  "click .first-login-popup .button.next-step": ->
+  "click #firstlogin .button.next-step": ->
     $(".first-login-popup .content-slider").animate({"left":"-=400px"}, 300, "easeInOutBack")
     Session.set("firstLoginStep", Session.get("firstLoginStep") + 1)
 
-  "click .first-login-popup .button.prev-step": ->
+  "click #firstlogin .button.prev-step": ->
     $(".first-login-popup .content-slider").animate({"left":"+=400px"}, 300, "easeInOutBack")
     Session.set("firstLoginStep", Session.get("firstLoginStep") - 1)
 
-  "click .first-login-popup .button.done": ->
+  "click #firstlogin .button.done": ->
     # Mark users first login as done
     $(".popup").fadeOut(300, ->
       $(".dark-background").delay(200).fadeOut(300)
@@ -22,18 +22,18 @@ Template.firstlogin.events {
       $(".popup input").blur()
     )
 
-  "click .first-login-popup .package": (evt) ->
+  "click #firstlogin .package": (evt) ->
     $(".first-login-popup .package").removeClass("slcd")
     $(evt.currentTarget).addClass("slcd")
 
-  "keypress form#create-first-group #members": (evt) ->
+  "keypress #firstlogin form#create-first-group #members": (evt) ->
     name = $(".first-login-popup form#create-first-group #name").val()
     if evt.which == 13
       if /\S/.test(name)
         $(".first-login-popup form#create-first-group").submit()
       return false
 
-  "submit .first-login-popup form#create-first-group": ->
+  "submit #firstlogin form#create-first-group": ->
     name = $("form#create-first-group #name").val()
     emails = $("form#create-first-group #members").val().replace(" ", "").trim().split(",")
     Meteor.call("createGroup", name, emails, (error, result) ->
