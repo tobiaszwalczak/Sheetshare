@@ -253,16 +253,44 @@ header
           .package-info
             color: #0d7
 
+.dark-background
+  position: fixed
+  display: none
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  background-color: rgba(0, 0, 0, 0.7)
+  cursor: pointer
+  z-index: 50
+
 .popup
+  position: fixed
+  display: none
+  top: 50%
+  left: 50%
+  margin: -200px 0 0 -300px
+  width: 600px
+  height: 400px
+  background-color: #fff
+  border-radius: 5px
+  box-shadow: 0 0 20px -3px rgba(0, 0, 0, 0.7)
+  overflow: hidden
+  z-index: 51
+  @media screen and (max-width: 667px)
+    top: 0px !important
+    left: 50% !important
+    margin-left: -50% !important
+    margin: 0 !important
+    width: 100% !important
+    height: 100% !important
+    border-radius: 0
+
+
   &.login-popup, &.join-popup
     width: 400px !important
     margin-left: -200px !important
     text-align: center
-    @media screen and (max-width: 667px)
-      left: 50% !important
-      margin-left: -50% !important
-      width: 100% !important
-      height: 100% !important
     @media screen and (max-height: 400px)
       overflow-y: scroll
   &.login-popup
@@ -271,6 +299,31 @@ header
   &.join-popup
     margin-top: -208px
     height: 416px
+
+  .popup-header
+    position: relative
+    width: 100%
+    height: 50px
+    color: #09f
+    font-size: 20px
+    text-align: center
+    line-height: 50px
+
+    .popup-close
+      position: absolute
+      top: 16px
+      right: 15px
+      height: 17px
+      color: #f66
+      font-size: 17px
+      cursor: pointer
+      overflow: hidden
+      transition: all 0.3s
+      &:hover
+        opacity: 0.7
+
+      i.mdi
+        vertical-align: top
 
   .popup-content
     margin: 0 auto
