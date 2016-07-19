@@ -1,0 +1,25 @@
+template(name="members")
+  section.members
+    
+    each members
+      .member-card
+        img.profile-image(src="{{ profile.image }}")
+        .info
+          .name(title="{{ profile.name }}") {{ profile.name }}
+          .email(title="{{ profile.email }}") {{ profile.email }}
+          
+          if status.online
+            if status.idle
+              .status.idle Abwesend
+            else
+              .status.online Online
+          else
+            .status.offline Offline
+            
+        // if isAdmin?
+        .remove-member-button(title="Mitglied aus Gruppe entfernen")
+          i.mdi.mdi-close-circle
+
+
+    .add-member-button(title="Gruppenmitglied hinzufügen")
+      i.mdi.mdi-account-plus
