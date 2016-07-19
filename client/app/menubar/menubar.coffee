@@ -31,7 +31,4 @@ Template.menubar.events {
     else
       $(".top-bar .top-menu .profile-button, #menus .profilemenu, .anything-else").removeClass("slcd")
 
-  "click .anything-else": ->
-    $("#menus .menu, .anything-else").removeClass("slcd")
-    $(".top-bar .top-menu .profile-button, .top-bar .top-menu .group-button").removeClass("slcd")
 }

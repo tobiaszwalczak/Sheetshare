@@ -11,6 +11,10 @@ Template.menus.events {
       Meteor.call("setCurrentGroup", id)
       $(".group-window .sections section").delay(200).fadeIn(300)
     )
+
+  "click .anything-else": ->
+    $("#menus .menu, .anything-else").removeClass("slcd")
+    $(".top-bar .top-menu .profile-button, .top-bar .top-menu .group-button").removeClass("slcd")
 }
 
 Template.menus.helpers {
