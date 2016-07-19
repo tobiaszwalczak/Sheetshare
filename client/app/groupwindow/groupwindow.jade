@@ -1,0 +1,28 @@
+template(name="groupwindow")
+  #groupwindow
+  
+    .group-window
+      .group-header
+        .group-toggle(title="Ausblenden")
+          i.mdi.mdi-chevron-right
+        .group-name 
+          if group
+            | {{group.name}}
+          else
+            | Noch keine Gruppe
+        .group-menu
+          .button#chat.slcd(title="Chat")
+            i.mdi.mdi-forum
+          .button#checklist(title="Checkliste")
+            i.mdi.mdi-checkbox-marked-circle-outline
+          .button#members(title="Mitglieder")
+            i.mdi.mdi-account-multiple
+          .button#archive(title="Archiv")
+            i.mdi.mdi-clock
+          .button#settings(title="Einstellungen")
+            i.mdi.mdi-settings
+      
+      .sections
+        +chat
+        
+        +checklist

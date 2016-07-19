@@ -10,6 +10,38 @@
   &.expanded
     width: calc(100% - 86px)
 
+
+  .toolbar
+    position: fixed
+    top: 60px
+    left: 0
+    width: 50px
+    height: calc(100% - 60px)
+    z-index: 1
+    overflow: auto
+
+    .tool
+      margin: 15px 10px
+      width: 30px
+      height: 30px
+      background-color: rgba(0, 0, 0, 0.3)
+      font-size: 15px
+      color: rgba(255, 255, 255, 0.5)
+      text-align: center
+      line-height: 30px
+      border-radius: 50%
+      cursor: pointer
+      transition: all 0.3s
+      &:hover
+        background-color: rgba(0, 0, 0, 0.4)
+        color: rgba(255, 255, 255, 0.8)
+
+    hr
+      width: 30px
+      background-color: rgba(0, 0, 0, 0.2)
+
+
+
   .new-sheet
     position: relative
     margin: 100vh auto 0
@@ -109,6 +141,8 @@
 
       input
         display: none
+
+
 
   .toolcircle-menu
     display: inline-block
