@@ -192,8 +192,8 @@
 
     .options
       position: absolute
-      margin-left: -100px
-      width: 200px
+      margin-left: -125px
+      width: 250px
 
       .option
         position: relative
@@ -214,21 +214,29 @@
           color: rgba(255, 255, 255, 0.8)
 
         &.new-homework
+          margin-right: -10px
           transition: all 0.3s, top 0.4s cubic-bezier(0.7, -0.3, 0.25, 1.3)
 
-        &.new-page
-          margin-right: 10px
+        &.new-image
+          margin-right: 5px
           transition: all 0.3s, top 0.4s cubic-bezier(0.7, -0.3, 0.25, 1.3) 0.05s
 
-        &.replace
+        &.new-page
+          margin-right: 5px
           transition: all 0.3s, top 0.4s cubic-bezier(0.7, -0.3, 0.25, 1.3) 0.1s
 
-        &.delete
+        &.replace
+          margin-right: -10px
           transition: all 0.3s, top 0.4s cubic-bezier(0.7, -0.3, 0.25, 1.3) 0.15s
+
+        &.delete
+          transition: all 0.3s, top 0.4s cubic-bezier(0.7, -0.3, 0.25, 1.3) 0.2s
 
 
       &.showing
         .new-homework, .delete
-          top: -75px
-        .new-page, .replace
-          top: -110px
+          top: -65px
+        .new-image, .replace
+          top: -100px
+        .new-page
+          top: -114px
