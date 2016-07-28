@@ -1,6 +1,11 @@
 template(name="members")
   section.members
     
+    .add-member-button(title="Gruppenmitglied hinzufügen")
+      i.mdi.mdi-account-plus
+      form
+        input(type="email" placeholder="Email Addresse")
+    
     each members
       .member-card
         img.profile-image(src="{{ profile.image }}")
@@ -19,7 +24,3 @@ template(name="members")
         // if isAdmin?
         .remove-member-button(title="Mitglied aus Gruppe entfernen")
           i.mdi.mdi-close-circle
-
-
-    .add-member-button(title="Gruppenmitglied hinzufügen")
-      i.mdi.mdi-account-plus
