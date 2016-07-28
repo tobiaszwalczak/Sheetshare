@@ -1,6 +1,7 @@
 Router.map ->
   this.route("landing", {
     path: "/"
+    fastRender: true
     onBeforeAction: () ->
       if !Meteor.user()
         this.render("landing")
@@ -17,6 +18,7 @@ Router.map ->
 
   this.route("app", {
     path: "/app"
+    fastRender: true
     onBeforeAction: () ->
       if !Meteor.user()
         this.redirect("/")
