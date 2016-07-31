@@ -18,6 +18,16 @@
     z-index: 10
     transition: all 0.5s cubic-bezier(0.7, -0.3, 0.25, 1.3)
 
+    &.slcd
+      top: 40px !important
+
+    i.big-icon.mdi
+      padding: 20px
+      margin: 10px 0 20px
+      font-size: 30px
+      color: #dfdfdf
+      border-radius: 50%
+
     hr
       width: 100%
       height: 1px
@@ -26,8 +36,9 @@
     &.groupmenu
       top: -430px
       left: 150px
-      &.slcd
-        top: 40px
+
+      i.big-icon.mdi
+        border: solid 1px #09f
 
       .groupitem
         height: 50px
@@ -48,17 +59,33 @@
         .membercount, .sheetcount
           float: right
           margin: 0 5px
-          color: #999
+          color: #777
           font-size: 14px
 
           i.mdi
             color: #ddd
 
+
+
+    &.newgroupmenu
+      top: -430px
+      left: 330px
+
+      i.big-icon.mdi
+        border: solid 1px #0c7
+
+
+    &.notificationmenu
+      top: -430px
+      left: 500px
+
+      i.big-icon.mdi
+        border: solid 1px #f66
+
+
     &.profilemenu
       top: -430px
       right: 45px
-      &.slcd
-        top: 40px
 
       .share
         display: inline-block

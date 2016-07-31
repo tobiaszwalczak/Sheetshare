@@ -14,7 +14,7 @@ Template.menus.events {
 
   "click .anything-else": ->
     $("#menus .menu, .anything-else").removeClass("slcd")
-    $(".top-bar .top-menu .profile-button, .top-bar .top-menu .group-button").removeClass("slcd")
+    $(".top-bar .top-menu .button").removeClass("slcd")
 }
 
 Template.menus.helpers {

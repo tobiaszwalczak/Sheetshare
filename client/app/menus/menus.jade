@@ -2,13 +2,24 @@ template(name="menus")
   #menus
   
     .menu.groupmenu
+      i.big-icon.mdi.mdi-account-multiple
       .grouplist
         each groups
           .groupitem
             .name(data-id="{{_id}}") {{name}}
-            .sheetcount {{sheetcount}} <i class="mdi mdi-file"></i>
-            .membercount {{membercount}} <i class="mdi mdi-account"></i>
+            .sheetcount {{sheetcount}}
+              i.mdi.mdi-file-outline
+            .membercount {{membercount}}
+              i.mdi.mdi-account
             
+    .menu.newgroupmenu
+      i.big-icon.mdi.mdi-account-multiple-plus
+
+                    
+    .menu.notificationmenu
+      i.big-icon.mdi.mdi-bell
+                      
+                      
     .menu.profilemenu
       .share(title="Profil teilen")
         i.mdi.mdi-launch
