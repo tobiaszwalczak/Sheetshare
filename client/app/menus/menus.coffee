@@ -18,6 +18,11 @@ Template.menus.events {
 }
 
 Template.menus.helpers {
+
   "groups": ->
-    return Groups.find()
+    Groups.find()
+
+  "knownUsers": ->
+    Users.find()
+
 }

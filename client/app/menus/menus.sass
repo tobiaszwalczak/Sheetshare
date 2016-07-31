@@ -7,7 +7,7 @@
 
   .menu
     position: fixed
-    padding: 35px 20px 20px
+    padding: 35px 30px 30px
     width: 300px
     background-color: #fff
     text-align: center
@@ -73,6 +73,85 @@
 
       i.big-icon.mdi
         border: solid 1px #0c7
+
+      form
+
+        input
+          margin-bottom: 10px
+          width: 100%
+          text-align: center
+          border-bottom: solid 1px #ddd
+
+          &:focus
+            border-bottom: solid 1px #0cf
+
+        textarea
+          margin: 5px 0 5px
+          padding: 10px
+          width: 100%
+          font-size: 13px
+          text-align: center
+          border: solid 1px #ddd
+
+          &:focus
+            border: solid 1px #0cf
+
+        button
+          margin-top: 10px
+          width: 50px
+          height: 50px
+          background: linear-gradient(#0c7 0%, #0f7 100%)
+          color: rgba(0, 0, 0, 0.4)
+          font-size: 16px
+          text-align: center
+          border-radius: 50%
+          border: none
+          outline: none
+          cursor: pointer
+          transition: all 0.3s
+          &:hover
+            opacity: 0.8
+
+      .known-users
+        margin-top: 10px
+        height: 100px
+        color: #666
+        line-height: normal
+        overflow: hidden
+
+        .heading
+          margin-bottom: 15px
+          font-size: 14px
+          color: #ccc
+
+        .scroll-container
+          height: 100px
+          overflow-x: scroll
+
+          .scroller
+            padding: 0 10px
+            height: 100px
+            white-space: nowrap
+
+            .user
+              display: inline-block
+              padding-bottom: 10px
+              width: 50px
+              text-align: center
+              color: #444
+              font-size: 10px
+              word-spacing: 50px
+              transition: color 0.2s
+              cursor: pointer
+
+              &:hover
+                color: #09f
+
+              img
+                width: 40px
+                border-radius: 50%
+                transition: all 0.2s
+
 
 
     &.notificationmenu
