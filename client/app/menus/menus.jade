@@ -5,8 +5,8 @@ template(name="menus")
       i.big-icon.mdi.mdi-account-multiple
       .grouplist
         each groups
-          .groupitem
-            .name(data-id="{{_id}}") {{name}}
+          .groupitem(data-id="{{_id}}")
+            .name {{name}}
             .sheetcount {{sheetcount}}
               i.mdi.mdi-file-outline
             .membercount {{membercount}}
@@ -32,6 +32,7 @@ template(name="menus")
                     
     .menu.notificationmenu
       i.big-icon.mdi.mdi-bell
+      .nothing Du hast zurzeit keine neuen Benachrichtigungen.
                       
                       
     .menu.profilemenu

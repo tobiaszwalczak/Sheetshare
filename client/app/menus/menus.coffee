@@ -4,7 +4,7 @@ Template.menus.events {
     Meteor.logout()
     Router.go("/")
 
-  "click #menus .groupmenu .name": (evt) ->
+  "mouseup #menus .groupmenu .groupitem": (evt) ->
     id = $(evt.currentTarget).data("id")
     $(".anything-else").click()
     $(".group-window .sections section").fadeOut(300, ->
