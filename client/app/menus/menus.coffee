@@ -2,7 +2,7 @@ Template.menus.events {
   "click #menus .profilemenu .logout": ->
     BigScreen.exit()
     Meteor.logout()
-    Router.redirect("/")
+    Router.go("/")
 
   "click #menus .groupmenu .name": (evt) ->
     id = $(evt.currentTarget).data("id")

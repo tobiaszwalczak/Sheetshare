@@ -22,9 +22,10 @@ template(name="menus")
           .scroll-container
             .scroller
               each knownUsers
-                .user(title="{{ profile.name }}")
-                  img(src="{{ profile.image }}")
-                  .name {{ firstName }}
+                if other
+                  .user(title="{{ profile.name }}")
+                    img(src="{{ profile.image }}")
+                    .name {{ firstName }}
         button
           i.mdi.mdi-plus
 
