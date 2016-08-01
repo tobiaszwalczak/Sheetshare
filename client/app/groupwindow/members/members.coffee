@@ -3,6 +3,9 @@ Template.members.helpers {
   members: ->
     Users.find()
 
+  knownUsers: ->
+    Users.find()
+
 }
 
 

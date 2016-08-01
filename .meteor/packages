@@ -29,7 +29,6 @@ service-configuration
 
 
 flowkey:bigscreen
-khrone:img-qrcode
 cfs:filesystem
 cfs:standard-packages
 standard-minifier-css
@@ -38,7 +37,6 @@ dapearce:material-icons
 meteorhacks:fast-render
 linto:jquery-ui
 mizzao:user-status
-matb33:collection-hooks
 seriousm:emoji-continued
 copleykj:jquery-autosize
 rubaxa:sortable

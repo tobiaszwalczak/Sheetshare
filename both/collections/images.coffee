@@ -3,7 +3,12 @@
 })
 
 Images.allow {
-  "insert": ->
-    # add custom authentication code here
+  insert: (userId,project) ->
+    return true
+  update: (userId,project,fields,modifier) ->
+   return true
+  remove: (userId,project) ->
+    return true
+  download: () ->
     return true
 }

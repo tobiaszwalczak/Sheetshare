@@ -2,9 +2,9 @@ Template.menus.events {
   "click #menus .profilemenu .logout": ->
     BigScreen.exit()
     Meteor.logout()
-    Router.redirect("/")
+    Router.go("/")
 
-  "click #menus .groupmenu .name": (evt) ->
+  "mouseup #menus .groupmenu .groupitem": (evt) ->
     id = $(evt.currentTarget).data("id")
     $(".anything-else").click()
     $(".group-window .sections section").fadeOut(300, ->
@@ -14,10 +14,15 @@ Template.menus.events {
 
   "click .anything-else": ->
     $("#menus .menu, .anything-else").removeClass("slcd")
-    $(".top-bar .top-menu .profile-button, .top-bar .top-menu .group-button").removeClass("slcd")
+    $(".top-bar .top-menu .button").removeClass("slcd")
 }
 
 Template.menus.helpers {
+
   "groups": ->
-    return Groups.find()
+    Groups.find()
+
+  "knownUsers": ->
+    Users.find()
+
 }

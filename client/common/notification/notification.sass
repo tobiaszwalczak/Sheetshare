@@ -1,0 +1,49 @@
+#notification
+  position: fixed
+  top: 30px
+  right: 30px
+  padding: 20px 20px 25px
+  max-width: 330px
+  color: rgba(0, 0, 0, 0.5)
+  font-size: 13px
+  border-radius: 5px
+  box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.7)
+  z-index: 60
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.2s
+  opacity: 0
+  cursor: default
+  transform: scale(0.5)
+  pointer-events: none
+
+  &.showing
+    opacity: 1
+    transform: scale(1.0)
+    pointer-events: auto
+
+  &.success
+    background: linear-gradient(#0c7 0%, #0f7 100%)
+  &.error
+    background: linear-gradient(#f66 0%, #f77 100%)
+  &.info
+    background: linear-gradient(#ff0 0%, #ff3 100%)
+
+
+  .content
+    margin: -2px 45px 0 0
+    transition: all 0.1s
+
+  .dismiss-button
+    float: right
+    width: 30px
+    height: 30px
+    font-size: 15px
+    color: #f66
+    text-align: center
+    line-height: 30px
+    background-color: rgba(255, 255, 255, 0.5)
+    cursor: pointer
+    border-radius: 50%
+    transition: all 0.25s
+
+    &:hover
+      transform: rotate(180deg)

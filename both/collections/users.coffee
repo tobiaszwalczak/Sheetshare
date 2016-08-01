@@ -1,11 +1,14 @@
 @Users = Meteor.users
 
 Users.helpers {
+  "firstName": ->
+    this.profile.name.split(" ")[0]
+
   "other": ->
-    return true unless Meteor.userId() == this._id
+    true unless Meteor.userId() == this._id
 
   "currentGroup": ->
-    return Groups.findOne(this.group.current)
+    Groups.findOne(this.group.current)
 }
 
 Meteor.methods {

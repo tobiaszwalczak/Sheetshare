@@ -2,13 +2,39 @@ template(name="menus")
   #menus
   
     .menu.groupmenu
+      i.big-icon.mdi.mdi-account-multiple
       .grouplist
         each groups
-          .groupitem
-            .name(data-id="{{_id}}") {{name}}
-            .sheetcount {{sheetcount}} <i class="mdi mdi-file"></i>
-            .membercount {{membercount}} <i class="mdi mdi-account"></i>
+          .groupitem(data-id="{{_id}}")
+            .name {{name}}
+            .sheetcount {{sheetcount}}
+              i.mdi.mdi-file-outline
+            .membercount {{membercount}}
+              i.mdi.mdi-account
             
+    .menu.newgroupmenu
+      i.big-icon.mdi.mdi-account-multiple-plus
+      form
+        input(type="text" placeholder="Name deiner Gruppe")
+        textarea(placeholder="Emails der Mitgleider (mit ',' getrennt)")
+        .known-users 
+          .heading Bekannte:
+          .scroll-container
+            .scroller
+              each knownUsers
+                if other
+                  .user(title="{{ profile.name }}")
+                    img(src="{{ profile.image }}")
+                    .name {{ firstName }}
+        button
+          i.mdi.mdi-plus
+
+                    
+    .menu.notificationmenu
+      i.big-icon.mdi.mdi-bell
+      .nothing Du hast zurzeit keine neuen Benachrichtigungen.
+                      
+                      
     .menu.profilemenu
       .share(title="Profil teilen")
         i.mdi.mdi-launch
