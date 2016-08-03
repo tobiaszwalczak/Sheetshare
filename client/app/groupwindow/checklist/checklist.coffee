@@ -1,4 +1,4 @@
-Template.chat.onCreated ->
+Template.checklist.onRendered ->
   Tracker.autorun ->
     Meteor.subscribe("tasks", Meteor.user().group.current)
 
