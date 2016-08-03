@@ -1,3 +1,8 @@
+Template.chat.onCreated ->
+  Tracker.autorun ->
+    Meteor.subscribe("tasks", Meteor.user().group.current)
+
+
 Template.checklist.helpers {
   "notDoneTasks": ->
     return Tasks.find({done: false}, {sort: {createdAt: -1}})

@@ -41,7 +41,7 @@ Template.firstlogin.events {
     )
     $("form#create-first-group #name").val("")
     $("form#create-first-group #members").val("")
-    alert("Gruppe #{name} wurde erstellt.")
+    Notify("success", "Deine Gruppe <b>#{name}</b> wurde erfolgreich erstellt.")
     $(".first-login-popup .button.next-step").click()
     return false
 }

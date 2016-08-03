@@ -1,9 +1,16 @@
-Template.chat.rendered = ->
+Template.chat.onCreated ->
+  Tracker.autorun ->
+    Meteor.subscribe("messages", Meteor.user().group.current)
+    Meteor.subscribe("images", Meteor.user().group.current)
   UserStatus.startMonitor({threshold: 30000, interval: 1000, idleOnBlur: true})
+
+
+Template.chat.onRendered ->
   $("section.chat textarea").autosize()
   $("section.chat").animate({scrollTop: $("section.chat")[0].scrollHeight}, 100)
   Meteor.call("updateIsTyping", false)
   UserStatus.events.on("connectionLogout", -> Meteor.call("updateIsTyping", false))
+
 
 Template.chat.helpers {
   "onlineStatusIndicator": (creator) ->
@@ -36,6 +43,7 @@ Template.chat.helpers {
   "emojis": ->
     return Emojis
 }
+
 
 Template.chat.events {
   "keypress section.chat #chat-textarea": (evt) ->
