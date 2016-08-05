@@ -1,10 +1,11 @@
 Template.members.helpers {
 
   members: ->
-    Users.find()
+    return Groups.findOne(Meteor.user().group.current).members()
 
   knownUsers: ->
-    Users.find()
+    memberIds = Groups.findOne(Meteor.user().group.current).memberIds
+    return Users.find({_id: {$nin: memberIds}})
 
 }
 
@@ -19,5 +20,12 @@ Template.members.events {
   "blur section.members .add-member-button input": (evt) ->
     $(".add-member-button").removeClass("adding")
     $(evt.target).val("")
+
+  "click section.members .add-member-button .known-users .user": (evt) ->
+    userId = $(evt.currentTarget).data("id")
+    profile = Users.findOne(userId).profile
+    group = Groups.findOne(Meteor.user().group.current)
+    Meteor.call("sendInvitation", [profile.email], group._id)
+    Notify("success", "<b>#{profile.name}</b> wurde zur Gruppe <b>#{group.name}</b> eingeladen.")
 
 }

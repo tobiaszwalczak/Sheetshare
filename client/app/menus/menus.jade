@@ -32,7 +32,21 @@ template(name="menus")
                     
     .menu.notificationmenu
       i.big-icon.mdi.mdi-bell
-      .nothing Du hast zurzeit keine neuen Benachrichtigungen.
+      if notifications
+        .invitations
+          each invitations
+            .invitation(data-id="{{_id}}" data-name="{{group.name}}")
+              .message
+                b {{creator.profile.name}}
+                | hat dich zur Gruppe
+                b {{group.name}}
+                | eingeladen.
+              .question Beitreten?
+                .options
+                  i.accept.mdi.mdi-check(title="Annehmen")
+                  i.decline.mdi.mdi-close(title="Ablehnen")
+      else
+        .nothing Du hast zurzeit keine neuen Benachrichtigungen.
                       
                       
     .menu.profilemenu

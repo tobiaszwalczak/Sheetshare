@@ -11,7 +11,7 @@ template(name="members")
           .scroller
             each knownUsers
               if other
-                .user(title="{{ profile.name }}")
+                .user(title="{{ profile.name }}" data-id="{{ _id }}")
                   img(src="{{ profile.image }}")
                   .name {{ firstName }}
                   
@@ -32,5 +32,6 @@ template(name="members")
             .status.offline Offline
             
         // if isAdmin?
-        .remove-member-button(title="Mitglied aus Gruppe entfernen")
-          i.mdi.mdi-close-circle
+        if other
+          .remove-member-button(title="Mitglied aus Gruppe entfernen")
+            i.mdi.mdi-close-circle

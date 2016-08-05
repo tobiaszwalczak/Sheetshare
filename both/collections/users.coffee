@@ -20,4 +20,7 @@ Meteor.methods {
 
   "setCurrentGroupTab": (name) ->
     Users.update(Meteor.userId(), {$set: {"group.tab": name}})
+
+  "addKnownUser": (id) ->
+    # Do stuff
 }

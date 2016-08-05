@@ -4,8 +4,11 @@ Groups.helpers {
   "creator": ->
     return Users.findOne(this.creatorId)
 
+  "members": ->
+    return Users.find({_id: {$in: this.memberIds}})
+
   "membercount": ->
-    return this.emails.length + 1
+    return this.members().count()
 
   "sheetcount": ->
     return this.emails.length
@@ -16,15 +19,17 @@ Groups.helpers {
 
 Meteor.methods {
   "createGroup": (name, emails) ->
-    if Meteor.user()
-      Groups.insert {
+    if Meteor.userId()
+      newGroupId = Groups.insert {
         name: name
         creatorId: Meteor.userId()
-        emails: emails
+        memberIds: [Meteor.userId()]
         createdAt: new Date()
       }
+      Meteor.call("sendInvitation", emails, newGroupId)
+      return newGroupId
 
-  "addUserToGroup": (id, userId) ->
-    if Meteor.user()
-      return true
+  "addUserToGroup": (userId, groupId) ->
+    if Meteor.userId()
+      Groups.update(groupId, {$push: {memberIds: userId}})
 }

@@ -9,8 +9,12 @@ Meteor.publish("userData", ->
     this.ready()
 )
 
+Meteor.publish("invitations", (email) ->
+  return Invitations.find({email: email})
+)
+
 Meteor.publish("groups", ->
-  return Groups.find({})
+  return Groups.find({memberIds: this.userId})
 )
 
 Meteor.publish("messages", (groupId) ->
