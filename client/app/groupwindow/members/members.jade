@@ -3,17 +3,18 @@ template(name="members")
     
     .add-member-button(title="Gruppenmitglied hinzufügen")
       i.mdi.mdi-account-plus
-      form
+      form#add-member-form
         input(type="email" placeholder="Email Addresse")
-      .known-users 
-        .heading Bekannte:
-        .scroll-container
-          .scroller
-            each knownUsers
-              if other
-                .user(title="{{ profile.name }}" data-id="{{ _id }}")
-                  img(src="{{ profile.image }}")
-                  .name {{ firstName }}
+      if knownUsersExist
+        .known-users 
+          .heading Bekannte:
+          .scroll-container
+            .scroller
+              each knownUsers
+                if other
+                  .user(title="{{ profile.name }}" data-id="{{ _id }}")
+                    img(src="{{ profile.image }}")
+                    .name {{ firstName }}
                   
     
     each members
