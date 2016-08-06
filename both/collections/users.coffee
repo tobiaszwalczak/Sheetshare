@@ -9,6 +9,10 @@ Users.helpers {
 
   "currentGroup": ->
     Groups.findOne(this.group.current)
+
+  "currentGroupAdmin": ->
+    group = Groups.findOne(Meteor.user().group.current)
+    true if this._id == group.creatorId
 }
 
 Meteor.methods {

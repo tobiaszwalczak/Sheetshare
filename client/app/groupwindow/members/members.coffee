@@ -1,5 +1,8 @@
 Template.members.helpers {
 
+  isAdmin: ->
+    return true if Meteor.userId() == Meteor.user().currentGroup().creatorId
+
   members: ->
     return Meteor.user().currentGroup().members()
 
@@ -45,5 +48,12 @@ Template.members.events {
     group = Meteor.user().currentGroup()
     Meteor.call("sendInvitation", [profile.email], group._id, group.name)
     Notify("success", "<b>#{profile.name}</b> wurde zur Gruppe <b>#{group.name}</b> eingeladen.")
+
+  "click section.members .remove-member-button": (evt) ->
+    userId = $(evt.currentTarget).data("id")
+    name = Users.findOne(userId).profile.name
+    groupId = Meteor.user().currentGroup()._id
+    Meteor.call("removeUserFromGroup", userId, groupId)
+    Notify("success", "<b>#{name}</b> wurde erfolgreich aus dieser Gruppe entfernt.")
 
 }

@@ -32,7 +32,10 @@ template(name="members")
           else
             .status.offline Offline
             
-        // if isAdmin?
-        if other
-          .remove-member-button(title="Mitglied aus Gruppe entfernen")
-            i.mdi.mdi-close-circle
+          if currentGroupAdmin
+            .admin Admin
+            
+        if isAdmin
+          if other
+            .remove-member-button(title="Mitglied aus Gruppe entfernen" data-id="{{ _id }}")
+              i.mdi.mdi-close-circle

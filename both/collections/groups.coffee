@@ -32,4 +32,11 @@ Meteor.methods {
   "addUserToGroup": (userId, groupId) ->
     if Meteor.userId()
       Groups.update(groupId, {$push: {memberIds: userId}})
+
+  "removeUserFromGroup": (userId, groupId) ->
+    if Meteor.userId()
+      Groups.update(groupId, {$pull: {memberIds: userId}})
+      user = Users.findOne(userId)
+      if user.group.current == groupId
+        Users.update(userId, {$set: {"group.current": ""}})
 }
