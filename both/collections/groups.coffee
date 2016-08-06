@@ -11,7 +11,7 @@ Groups.helpers {
     return this.members().count()
 
   "sheetcount": ->
-    return this.emails.length
+    return 0
 
   "moment": ->
     return moment(this.createdAt).format("HH:mm:SS | DD.MM.YYYY")
@@ -26,7 +26,7 @@ Meteor.methods {
         memberIds: [Meteor.userId()]
         createdAt: new Date()
       }
-      Meteor.call("sendInvitation", emails, newGroupId)
+      Meteor.call("sendInvitation", emails, newGroupId, name)
       return newGroupId
 
   "addUserToGroup": (userId, groupId) ->

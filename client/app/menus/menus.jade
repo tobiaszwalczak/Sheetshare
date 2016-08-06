@@ -35,11 +35,11 @@ template(name="menus")
       if notifications
         .invitations
           each invitations
-            .invitation(data-id="{{_id}}" data-name="{{group.name}}")
+            .invitation(data-id="{{_id}}" data-name="{{groupName}}")
               .message
                 b {{creator.profile.name}}
                 | hat dich zur Gruppe
-                b {{group.name}}
+                b {{groupName}}
                 | eingeladen.
               .question Beitreten?
                 .options

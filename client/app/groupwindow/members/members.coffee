@@ -25,7 +25,7 @@ Template.members.events {
     userId = $(evt.currentTarget).data("id")
     profile = Users.findOne(userId).profile
     group = Groups.findOne(Meteor.user().group.current)
-    Meteor.call("sendInvitation", [profile.email], group._id)
+    Meteor.call("sendInvitation", [profile.email], group._id, group.name)
     Notify("success", "<b>#{profile.name}</b> wurde zur Gruppe <b>#{group.name}</b> eingeladen.")
 
 }
