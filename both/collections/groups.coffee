@@ -31,7 +31,13 @@ Meteor.methods {
 
   "addUserToGroup": (userId, groupId) ->
     if Meteor.userId()
-      Groups.update(groupId, {$push: {memberIds: userId}})
+      group = Groups.findOne(groupId)
+      memberEmails = group.members().map (obj) -> obj.profile.email
+      userEmail = Users.findOne(userId).profile.email
+      Users.update(userId, {$addToSet: {knownEmails: {$each: memberEmails}}})
+      # BUG !!! 
+      Users.update({_id: {$in: group.memberIds}}, {$addToSet: {knownEmails: userEmail}})
+      Groups.update(groupId, {$addToSet: {memberIds: userId}})
 
   "removeUserFromGroup": (userId, groupId) ->
     if Meteor.userId()

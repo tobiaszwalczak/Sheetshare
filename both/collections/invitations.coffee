@@ -16,11 +16,13 @@ Meteor.methods {
         if email != Meteor.user().profile.email
           Invitations.insert {
             creatorId: Meteor.userId()
+            creatorName: Meteor.user().profile.name
             groupId: groupId
             groupName: groupName
             email: email
             createdAt: new Date()
           }
+          Meteor.call("addKnownEmail", Meteor.userId(), email)
 
   "answerInvitation": (id, accepted) ->
     if Meteor.userId()

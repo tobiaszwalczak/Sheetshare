@@ -37,7 +37,7 @@ template(name="menus")
           each invitations
             .invitation(data-id="{{_id}}" data-name="{{groupName}}")
               .message
-                b {{creator.profile.name}}
+                b {{creatorName}}
                 | hat dich zur Gruppe
                 b {{groupName}}
                 | eingeladen.

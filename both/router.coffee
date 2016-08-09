@@ -16,9 +16,7 @@ Router.map ->
     fastRender: true
     waitOn: ->
       return [
-        Meteor.subscribe("users")
         Meteor.subscribe("userData")
-        Meteor.subscribe("groups")
       ]
     action: ->
       if Meteor.userId()
