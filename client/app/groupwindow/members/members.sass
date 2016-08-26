@@ -29,7 +29,7 @@ section.members
       opacity: 0
       pointer-events: none
       transform: scale(0.6)
-      margin-top: -70px
+      margin-top: -72px
       transition: all 0.2s
 
       input
@@ -75,9 +75,10 @@ section.members
               border-radius: 50%
               transition: all 0.2s
 
+    &.expanded
+      height: 190px
 
     &.adding
-      height: 190px
       background-color: #fff !important
       box-shadow: 0 3px 2px -1px rgba(0, 0, 0, 0.1) !important
 
@@ -90,7 +91,6 @@ section.members
         opacity: 1
         pointer-events: auto
         transform: scale(1)
-
 
 
 
@@ -132,6 +132,8 @@ section.members
         text-overflow: ellipsis
 
       .status
+        display: inline-block
+        vertical-align: top
         font-size: 11px
 
         &.online
@@ -140,6 +142,17 @@ section.members
           color: #f66
         &.idle
           color: #f90
+
+      .admin
+        display: inline-block
+        vertical-align: top
+        margin: 1px 0 0 2px
+        padding: 0 5px
+        background-color: #09f
+        color: #fff
+        font-size: 9px
+        font-weight: 600
+        border-radius: 2px
 
     .remove-member-button
       position: absolute

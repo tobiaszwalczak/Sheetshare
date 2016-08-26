@@ -1,4 +1,4 @@
-Template.firstlogin.rendered = ->
+Template.firstlogin.onRendered ->
   unless Meteor.user().firstLogin
     Session.set("firstLoginStep", 1)
     $(".dark-background").fadeIn(300, ->
@@ -37,12 +37,14 @@ Template.firstlogin.events {
     name = $("form#create-first-group #name").val()
     emails = $("form#create-first-group #members").val().replace(" ", "").trim().split(",")
     Meteor.call("createGroup", name, emails, (error, result) ->
-      Meteor.call("setCurrentGroup", result)
+      if error
+        Notify("error", "Deine Gruppe <b>#{name}</b> konnte nicht erstellt werden.")
+      else
+        Meteor.call("setCurrentGroup", result)
+        $("form#create-first-group #name, form#create-first-group #members").val("")
+        Notify("success", "Deine Gruppe <b>#{name}</b> wurde erfolgreich erstellt.")
+        $(".first-login-popup .button.next-step").click()
     )
-    $("form#create-first-group #name").val("")
-    $("form#create-first-group #members").val("")
-    Notify("success", "Deine Gruppe <b>#{name}</b> wurde erfolgreich erstellt.")
-    $(".first-login-popup .button.next-step").click()
     return false
 }
 

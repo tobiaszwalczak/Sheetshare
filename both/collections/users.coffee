@@ -9,6 +9,10 @@ Users.helpers {
 
   "currentGroup": ->
     Groups.findOne(this.group.current)
+
+  "currentGroupAdmin": ->
+    group = Meteor.user().currentGroup()
+    true if this._id == group.creatorId
 }
 
 Meteor.methods {
@@ -20,4 +24,7 @@ Meteor.methods {
 
   "setCurrentGroupTab": (name) ->
     Users.update(Meteor.userId(), {$set: {"group.tab": name}})
+
+  "addKnownEmail": (userId, email) ->
+    Users.update(userId, {$addToSet: {knownEmails: email}})
 }
