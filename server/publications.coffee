@@ -1,7 +1,7 @@
 Meteor.publish("users", (emails) ->
   emails = emails || []
-  # return Users.find({"profile.email": {$in: emails}})
-  return Users.find()
+  return Users.find({"profile.email": {$in: emails}})
+  #return Users.find()
 )
 
 Meteor.publish("userData", ->
