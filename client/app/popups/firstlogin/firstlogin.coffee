@@ -7,11 +7,11 @@ Template.firstlogin.onRendered ->
 
 Template.firstlogin.events {
   "click #firstlogin .button.next-step": ->
-    $(".first-login-popup .content-slider").animate({"left":"-=400px"}, 300, "easeInOutBack")
+    $(".first-login-popup .content-slider").animate({"left":"-=400px"}, 200)
     Session.set("firstLoginStep", Session.get("firstLoginStep") + 1)
 
   "click #firstlogin .button.prev-step": ->
-    $(".first-login-popup .content-slider").animate({"left":"+=400px"}, 300, "easeInOutBack")
+    $(".first-login-popup .content-slider").animate({"left":"+=400px"}, 200)
     Session.set("firstLoginStep", Session.get("firstLoginStep") - 1)
 
   "click #firstlogin .button.done": ->

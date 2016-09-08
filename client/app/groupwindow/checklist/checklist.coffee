@@ -15,17 +15,6 @@ Template.checklist.helpers {
 
   "doneTasksExist": ->
     return true if Tasks.findOne({done: true})
-
-  "sortableOptions": ->
-    return {
-      draggable: ".task"
-      animation: "300"
-      handle: ".handle"
-      ghostClass: "ghost"
-      scroll: true
-      onSort: (evt) ->
-        console.log("Moved player #%d from %d to %d", evt.data.order, evt.oldIndex + 1, evt.newIndex + 1)
-    }
 }
 
 Template.checklist.events {

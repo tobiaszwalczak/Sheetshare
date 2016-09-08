@@ -20,12 +20,10 @@ template(name="checklist")
     
     if tasksExist
       .tasks.notdone
-        +sortable items=notDoneTasks group="notDone" options=sortableOptions
+        each notDoneTasks
           .task(data-id="{{_id}}")
             input.check(type="checkbox" id="{{_id}}")
             label(for="{{_id}}") {{#autolink}} {{#emoji}} {{content}} {{/emoji}} {{/autolink}}
-            .handle
-              i.mdi.mdi-drag
             .actions(data-id="{{_id}}")
               .action.info(title="Info")
                 i.mdi.mdi-information
@@ -48,12 +46,10 @@ template(name="checklist")
           span.deleteDone(title="Erledigte löschen")
             i.mdi.mdi-backspace
         .tasks.done
-          +sortable items=doneTasks group="done" options=sortableOptions
+          each doneTasks
             .task(data-id="{{_id}}")
               input.check(type="checkbox" id="{{_id}}" checked)
               label(for="{{_id}}") {{#autolink}} {{#emoji}} {{content}} {{/emoji}} {{/autolink}}
-              .handle
-                i.mdi.mdi-drag
               .actions(data-id="{{_id}}")
                 .action.info(title="Info")
                   i.mdi.mdi-information
