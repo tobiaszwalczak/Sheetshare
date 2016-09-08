@@ -5,7 +5,6 @@ Template.menus.onRendered ->
 
 Template.menus.events {
   "click #menus .profilemenu .logout": ->
-    BigScreen.exit()
     Meteor.logout()
     Router.go("/")
 
