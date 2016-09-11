@@ -22,10 +22,15 @@ template(name="groupwindow")
           .button#settings(title="Einstellungen")
             i.mdi.mdi-settings
       
-      .sections
-      
-        +chat
-        
-        +checklist
-        
-        +members
+      if group
+        .sections
+          +chat
+          +checklist
+          +members
+      else
+        .empty
+          .big-icon
+            i.mdi.mdi-account-multiple-outline
+          | Sieht aus als hättest du zurzeit noch keine Gruppe.<br>Erstell doch schnell eine.
+          .cta
+            i.mdi.mdi-plus

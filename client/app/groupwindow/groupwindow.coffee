@@ -17,6 +17,9 @@ Template.groupwindow.events {
   "click .group-window .group-header .group-menu .button": (evt) ->
     id = $(evt.target).attr("id")
     changeGroupTab(id)
+
+  "click .group-window .empty .cta": (evt) ->
+    $("#menubar .new-group-button").delay(500).click()
 }
 
 changeGroupTab = (name) ->
