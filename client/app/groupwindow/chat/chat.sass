@@ -1,11 +1,7 @@
 $green: #6affbe
 
 section.chat
-  position: absolute
-  top: 0px
-  right: 0px
   padding: 0px 10px 100px !important
-  border-right: solid 1px #ccc
   overflow-y: scroll
 
   .placeholder
@@ -17,8 +13,8 @@ section.chat
 
     img.profileimage
       position: absolute
-      width: 35px
-      height: 35px
+      width: 30px
+      height: 30px
       border-radius: 50%
 
     .online-status
@@ -39,13 +35,13 @@ section.chat
 
     .bubble
       display: inline-block
-      margin-left: 45px
+      margin-left: 40px
       padding: 10px
-      width: calc(100% - 45px)
+      width: calc(100% - 40px)
       height: auto
-      background: linear-gradient(#09f 0%, #0cf 100%)
-      color: rgba(0, 0, 0, 0.4)
-      font-size: 14px
+      background-color: #fff
+      color: #666
+      font-size: 13px
       line-height: 16px
       font-weight: 400
       box-shadow: 0 3px 2px -1px rgba(0, 0, 0, 0.1)
@@ -66,8 +62,8 @@ section.chat
     .justemojis
       display: inline-block
       margin-left: 30px
-      padding: 4px 5px 5px 10px
-      width: calc(100% - 45px)
+      padding: 1px 5px 5px 10px
+      width: calc(100% - 40px)
       height: auto
       color: rgba(0, 0, 0, 0.4)
       font-size: 30px
@@ -75,35 +71,33 @@ section.chat
       word-wrap: break-word
 
     .latex-formula
-      margin-left: 45px
-      padding: 10px 10px 8px
-      width: calc(100% - 45px)
+      margin-left: 40px
+      padding: 10px 10px 7px
+      width: calc(100% - 40px)
       background-color: #fff
-      border: solid 2px #00b3fe
+      // border: solid 2px #00b3fe
       border-radius: 5px
       box-shadow: 0 3px 2px -1px rgba(0, 0, 0, 0.1)
       cursor: zoom-in
-      transition: all 0.3s
+      transition: all 0.2s
       &:hover
-        box-shadow: 0 3px 10px -1px rgba(0, 0, 0, 0.3)
-
+        box-shadow: 0 3px 10px -1px rgba(0, 0, 0, 0.2)
 
       img
         max-width: 100%
         opacity: 0.7
 
     .image
-      margin-left: 45px
+      margin-left: 40px
       padding: 5px 5px 0px
-      width: calc(100% - 45px)
+      width: calc(100% - 40px)
       background-color: #fff
-      border: solid 2px #00b3fe
       border-radius: 5px
       box-shadow: 0 3px 2px -1px rgba(0, 0, 0, 0.1)
       cursor: zoom-in
       transition: all 0.3s
       &:hover
-        box-shadow: 0 3px 10px -1px rgba(0, 0, 0, 0.3)
+        box-shadow: 0 3px 10px -1px rgba(0, 0, 0, 0.2)
 
       img
         width: 100%
@@ -114,18 +108,17 @@ section.chat
 
       .bubble
         margin-left: 0 !important
-        background: linear-gradient(#0c7 0%, #0f7 100%)
         text-align: right
 
       .justemojis
         margin-left: 0 !important
-        padding: 4px 0px 5px 5px
+        padding: 1px 0px 5px 5px
         text-align: right
 
       .latex-formula
         margin-left: 0 !important
         text-align: right
-        border: solid 2px #05e478
+        // border: solid 2px #05e478
 
         img
           max-width: 100%

@@ -1,0 +1,78 @@
+<template name="checklist">
+  <section class="checklist">
+
+    <form id="add-task-form">
+      <input id="todo" type="text" placeholder="Aufgabe hinzufügen"/>
+      <button type="submit" title="Hinzufügen" class="plus"><i class="mdi mdi-playlist-plus"></i></button>
+      <input id="file" type="file"/>
+      <div class="mediainputs">
+        <div title="Emojis" class="button media-emoji"><i class="mdi mdi-emoticon"></i></div>
+        <input type="file" style="display: none" class="image-upload"/>
+        <div title="Bild" class="button media-image"><i class="mdi mdi-image"></i></div>
+        <div title="Code" class="button media-code"><i class="mdi mdi-code-tags"></i></div>
+        <div title="LaTeX-Formel" class="button media-code"><i class="mdi mdi-sigma"></i></div>
+        <div title="Andere Dateien" class="button media-documents"><i class="mdi mdi-folder-outline"></i></div>
+      </div>
+    </form>
+
+    {{#if tasksExist}}
+      <div class="tasks notdone">
+        {{#each notDoneTasks}}
+          <div data-id={{_id}} class="task">
+            <input type="checkbox" id="{{_id}}" class="check"/>
+            <label for={{_id}}>{{#autolink}}{{#emoji}}{{content}}{{/emoji}}{{/autolink}}</label>
+            <div data-id={{_id}} class="actions">
+              <div title="Info" class="action info"><i class="mdi mdi-information"></i></div>
+              <div title="Bearbeiten" class="action edit"><i class="mdi mdi-pen"></i></div>
+              <div title="Löschen" class="action delete"><i class="mdi mdi-delete"></i></div>
+            </div>
+            <div class="infobox">
+              <div class="header-icon"><i class="mdi mdi-information"></i></div>
+              <div class="information">
+                <div class="row user"><i class="mdi mdi-account"></i> {{creator}}</div>
+                <div class="row clock"><i class="mdi mdi-clock"></i> {{moment}}</div>
+                <div class="row check"><i class="mdi mdi-check"></i> Noch nicht erledigt</div>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+      {{#if doneTasksExist}}
+        <div class="seperator">
+          <i class="mdi mdi-check"></i> Erledigte Aufgaben:
+          <span title="Erledigte löschen" class="deleteDone">
+            <i class="mdi mdi-backspace"></i>
+          </span>
+        </div>
+        <div class="tasks done">
+          {{#each doneTasks}}
+            <div data-id={{_id}} class="task">
+              <input type="checkbox" id={{_id}} checked="checked" class="check"/>
+              <label for="{{_id}}">{{#autolink}}{{#emoji}}{{content}}{{/emoji}}{{/autolink}}</label>
+              <div data-id={{_id}} class="actions">
+                <div title="Info" class="action info"><i class="mdi mdi-information"></i></div>
+                <div title="Bearbeiten" class="action edit"><i class="mdi mdi-pen"></i></div>
+                <div title="Löschen" class="action delete"><i class="mdi mdi-delete"></i></div>
+              </div>
+              <div class="infobox">
+                <div class="header-icon"><i class="mdi mdi-information"></i></div>
+                <div class="information">
+                  <div class="row user"><i class="mdi mdi-account"></i> {{creator}}</div>
+                  <div class="row clock"><i class="mdi mdi-clock"></i> {{moment}}</div>
+                  <div class="row check"><i class="mdi mdi-check"></i> {{doneStatus}}</div>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      {{/if}}
+
+    {{else}}
+      <div class="placeholder">
+        Füge Aufgaben hinzu, welche ihr zusammen lösen könnt
+        <div class="emojis">{{> emoji ":couple::white_check_mark:"}}</div>
+      </div>
+    {{/if}}
+
+  </section>
+</template>

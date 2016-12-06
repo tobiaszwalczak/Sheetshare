@@ -1,0 +1,55 @@
+<template name="members">
+  <section class="members">
+    <div class="add-member-button" title="Gruppenmitglied hinzufügen">
+      <i class="mdi mdi-account-plus"></i>
+      <form id="add-member-form">
+        <input type="email" placeholder="Email Addresse">
+      </form>
+      {{#if knownUsersExist}}
+        <div class="known-users">
+          <div class="heading">Bekannte einladen:</div>
+          <div class="scroll-container">
+            <div class="scroller">
+              {{#each knownUsers}}
+                {{#if other}}
+                  <div class="user" title={{profile.name}} data-id={{_id}}>
+                    <img src={{profile.image}}/>
+                    <div class="name">{{firstName}}</div>
+                  </div>
+                {{/if}}
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      {{/if}}
+    </div>
+    {{#each members}}
+      <div class="member-card">
+        <img class="profile-image" src={{profile.image}}>
+        <div class="info">
+          <div class="name" title={{profile.name}}>{{profile.name}}</div>
+          <div class="email" title={{profile.email}}>{{profile.email}}</div>
+          {{#if status.online}}
+            {{#if status.idle}}
+              <div class="status idle">Abwesend</div>
+            {{else}}
+              <div class="status online">Online</div>
+            {{/if}}
+          {{else}}
+            <div class="status offline">Offline</div>
+          {{/if}}
+          {{#if currentGroupAdmin}}
+            <div class="admin">Admin</div>
+          {{/if}}
+        </div>
+        {{#if isAdmin}}
+          {{#if other}}
+            <div class="remove-member-button" title="Mitglied aus Gruppe entfernen" data-id={{_id}}>
+              <i class="mdi mdi-close-circle"></i>
+            </div>
+          {{/if}}
+        {{/if}}
+      </div>
+    {{/each}}
+  </section>
+</template>

@@ -1,0 +1,45 @@
+<template name="groupwindow">
+  <div id="groupwindow">
+    <div class="group-window">
+      <div class="group-header">
+        <div title="Ausblenden" class="group-toggle"><i class="mdi mdi-chevron-right"></i></div>
+        <div class="group-name">
+          {{#if group}}{{group.name}}{{else}}Noch keine Gruppe{{/if}}
+        </div>
+        <div class="group-menu">
+          <div id="chat" class="button" data-tooltip="Chat" data-tooltip-top="5">
+            <i class="mdi mdi-forum"></i>
+          </div>
+          <div id="checklist" class="button" data-tooltip="Checkliste" data-tooltip-top="5">
+            <i class="mdi mdi-checkbox-marked-circle-outline"></i>
+          </div>
+          <div id="archive" class="button" data-tooltip="Archiv" data-tooltip-top="5">
+            <i class="mdi mdi-clock"></i>
+          </div>
+          <div id="members" class="button" data-tooltip="Mitglieder" data-tooltip-top="5">
+            <i class="mdi mdi-account-multiple"></i>
+          </div>
+          <div id="settings" class="button" data-tooltip="Einstellungen" data-tooltip-top="5">
+            <i class="mdi mdi-settings"></i>
+          </div>
+        </div>
+      </div>
+
+      {{#if group}}
+        <div class="sections">
+          {{> chat}}
+          {{> checklist}}
+          {{> members}}
+        </div>
+      {{else}}
+        <div class="empty">
+          <div class="big-icon"><i class="mdi mdi-account-multiple-outline"></i></div>
+          Sieht aus als hättest du zurzeit noch keine Gruppe.<br>
+          Erstell doch schnell eine.
+          <div class="cta"><i class="mdi mdi-plus"></i></div>
+        </div>
+      {{/if}}
+
+    </div>
+  </div>
+</template>

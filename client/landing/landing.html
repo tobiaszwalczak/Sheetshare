@@ -1,0 +1,110 @@
+<template name="landing">
+  <div id="landing">
+    
+    <header>
+      <div class="top-menu">
+        <div title="Menü" class="burger"><i class="mdi mdi-menu"></i></div>
+        <nav>
+          <a href="#">Features</a>
+          <a href="#">Preise</a>
+          <a href="#">Blog</a>
+          <a href="#">Kontakt</a>
+        </nav>
+        <div class="symbol"><img src="/images/symbol.png" title="Sheetshare"/></div>
+        <button class="login-button"><i class="mdi mdi-account-circle"></i>Login</button>
+      </div>
+      <h1>
+        Sheetshare <div class="beta">ßeta</div>
+      </h1>
+      <hr/>
+      <p>
+        Hey du. Ja du!<br>Du musst deine Hausaufgaben in einer Gruppe machen?<br>
+        Dann ist Sheetshare das perfekte Werkzeug für dich.
+      </p>
+      <a href="#"><button class="join-button">Jetzt beitreten</button></a>
+      <div class="or-login">
+        <div class="or">oder</div>
+        <a>einloggen</a>
+      </div>
+    </header>
+
+    <div class="content">
+      <section id="about">
+        <div class="laptop"><img src="/images/mbp.png"/></div>
+      </section>
+      <section id="features">
+        <h2>Features</h2>
+      </section>
+      <section id="pricing">
+        <h2>Preise</h2>
+        <div class="package light">
+          <div class="header">Light
+            <div class="cost">0.00€ / Monat</div>
+          </div>
+          <div class="content">
+            <div class="row">1 Gruppe erstellen</div>
+            <div class="row">Mitlied in 2 Gruppen</div>
+            <div class="row">Nicht so viel ...</div><br/>
+            <div class="check"><i class="mdi mdi-check"></i></div>
+            <div class="package-info">Immer gratis</div>
+          </div>
+        </div>
+        <div class="package premium">
+          <div class="header">Premium
+            <div class="cost">3.00€ / Monat</div>
+          </div>
+          <div class="content">
+            <div class="row">So viele du willst</div>
+            <div class="row">Unbegrenzt</div>
+            <div class="row">Personalisierung</div><br/>
+            <div class="check"><i class="mdi mdi-check"></i></div>
+            <div class="package-info">1. Monat gratis</div>
+          </div>
+        </div>
+      </section>
+      <section id="contact">
+        <h2>Kontakt</h2>
+      </section>
+    </div>
+
+    {{> footer}}
+
+    <div class="dark-background"></div>
+
+    <div class="popup login-popup">
+      <div class="popup-header">Login
+        <div title="Schließen" class="popup-close"><i class="mdi mdi-close"></i></div>
+      </div>
+      <div class="popup-content">
+        <form id="login-form">
+          <input id="email" type="email" placeholder="Email"/>
+          <input id="password" type="password" placeholder="Passwort"/>
+          <button type="submit" class="login-button login"><i class="mdi mdi-chevron-right"></i></button>
+        </form>
+        <div class="login-with">Anmelden mit:</div>
+        <button class="login-button facebook"><i class="mdi mdi-facebook"></i></button>
+        <button class="login-button twitter"><i class="mdi mdi-twitter"></i></button>
+        <button class="login-button google"><i class="mdi mdi-google"></i></button>
+      </div>
+    </div>
+
+    <div class="popup join-popup">
+      <div class="popup-header">Beitreten
+        <div title="Schließen" class="popup-close"><i class="mdi mdi-close"></i></div>
+      </div>
+      <div class="popup-content">
+        <form id="signup-form">
+          <input id="name" type="text" placeholder="Name"/>
+          <input id="email" type="email" placeholder="Email"/>
+          <input id="password" type="password" placeholder="Passwort"/>
+          <button type="submit" class="login-button signup"><i class="mdi mdi-chevron-right"></i></button>
+        </form>
+        <div class="login-with">Anmelden mit:</div>
+        <button class="login-button facebook"><i class="mdi mdi-facebook"></i></button>
+        <button class="login-button twitter"><i class="mdi mdi-twitter"></i></button>
+        <button class="login-button google"><i class="mdi mdi-google"></i></button>
+      </div>
+    </div>
+
+  </div>
+</template>

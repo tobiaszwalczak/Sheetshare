@@ -1,0 +1,57 @@
+<template name="sheetwindow">
+  <div id="sheetwindow">
+    <div class="toolbar">
+      <div data-tooltip="Vergrößern" data-tooltip-direction="e" class="tool">
+        <i class="mdi mdi-plus-circle"></i>
+      </div>
+      <div data-tooltip="Verkleinern" data-tooltip-direction="e" class="tool">
+        <i class="mdi mdi-minus-circle"></i>
+      </div>
+      <hr/>
+      <div data-tooltip="Rechteck" data-tooltip-direction="e" class="tool">
+        <i class="mdi mdi-crop-square"></i>
+      </div>
+      <div data-tooltip="Kreis" data-tooltip-direction="e" class="tool">
+        <i class="mdi mdi-checkbox-blank-circle-outline"></i>
+      </div>
+      <div data-tooltip="Stift" data-tooltip-direction="e" class="tool">
+        <i class="mdi mdi-pencil"></i>
+      </div>
+      <div data-tooltip="Text" data-tooltip-direction="e" class="tool">
+        <i class="mdi mdi-format-text"></i>
+      </div>
+      <div data-tooltip="Rückgängig" data-tooltip-direction="e" class="tool">
+        <i class="mdi mdi-replay"></i>
+      </div>
+      <hr/>
+      <div data-tooltip="Alle Sheets" data-tooltip-direction="e" class="tool">
+        <i class="mdi mdi-book-open-variant"></i>
+      </div>
+    </div>
+    <div class="new-sheet showing">
+      <div title="Schließen" class="close-button"><i class="mdi mdi-close"></i></div>
+      <div class="header">Füge ein Blatt hinzu</div>
+      <div class="qr-code-section">
+        <i class="mdi mdi-cellphone-iphone"></i><i class="mdi mdi-qrcode-scan"></i>
+        <div class="info">Scanne den QR-Code mit deinem Smartphone um ein Foto deines Blattes davon hochzuladen</div>
+        <img title="QR-Code mit dem Smartphone scannen"
+          src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&amp;bgcolor=f5f5f5&amp;color=333&amp;data=http://192.168.2.109:3000/addsheet/{{userId}}"/>
+      </div>
+      <div class="upload-section"><i class="mdi mdi-laptop-mac"></i><i class="mdi mdi-cloud-upload"></i>
+        <div class="info">Oder klicke auf den Upload-Button um ein Bild von hier hochzuladen</div>
+        <div class="upload-button"><i class="mdi mdi-file-image"></i><br/>Bild hochladen</div>
+        <input type="file" accept="image/*"/>
+      </div>
+    </div>
+    <div class="toolcircle-menu">
+      <div title="Aktionen" class="toolcircle"><i class="mdi mdi-plus"></i></div>
+      <div class="options">
+        <div title="Neue Hausaufgabe erstellen" class="option new-homework"><i class="mdi mdi-book-open"></i></div>
+        <div title="Neues Foto hinzufügen" class="option new-image"><i class="mdi mdi-camera"></i></div>
+        <div title="Leere Seite hinzufügen" class="option new-page"><i class="mdi mdi-file-outline"></i></div>
+        <div title="Jetzige Seite ersetzen" class="option replace"><i class="mdi mdi-shuffle-variant"></i></div>
+        <div title="Seite löschen" class="option delete"><i class="mdi mdi-delete"></i></div>
+      </div>
+    </div>
+  </div>
+</template>

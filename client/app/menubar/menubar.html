@@ -1,0 +1,30 @@
+<template name="menubar">
+  <div id="menubar">
+    <div class="top-bar">
+      <div class="logo">
+        <div class="symbol"></div>
+        <div class="sheetshare">Sheetshare</div>
+        <div class="beta">ßeta</div>
+      </div>
+      <div class="top-menu">
+        <div title="Meine Gruppen" data-menu=".groupmenu" class="button group-button">
+          <div class="text">Meine Gruppen</div>
+          <i class="mdi mdi-account-multiple"></i>
+        </div>
+        <div title="Gruppe erstellen" data-menu=".newgroupmenu" class="button new-group-button">
+          <div class="text">Gruppe erstellen</div>
+          <i class="mdi mdi-account-multiple-plus"></i>
+        </div>
+        <div title="Mitteilungen" data-menu=".notificationmenu" class="button notification-button">
+          <div class="text">Mitteilungen</div>
+          <i class="mdi mdi-bell"></i>
+        </div>
+        <div data-menu=".profilemenu" class="button profile-button">
+          <i class="mdi mdi-chevron-down"></i>
+          <div class="name">{{currentUser.profile.name}}</div>
+          <img src={{currentUser.profile.image}} title={{currentUser.profile.name}} class="profileimage"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
