@@ -1,3 +1,7 @@
+Template.sheetwindow.onRendered(() => {
+  $("#homeworkStartDateInput, #homeworkEndDateInput").dateDropper();
+});
+
 Template.sheetwindow.helpers({
   userId() {
     return Meteor.userId();
@@ -7,6 +11,9 @@ Template.sheetwindow.helpers({
 Template.sheetwindow.events({
   "click #sheetwindow .new-sheet .close-button"() {
     $("#sheetwindow .new-sheet").removeClass("showing");
+  },
+  "click #sheetwindow .sheetmodal.new-homework .close-button"() {
+    $("#sheetwindow .sheetmodal.new-homework").removeClass("showing");
   },
   "click #sheetwindow .new-sheet .upload-button"() {
     $("#sheetwindow .new-sheet input").click();
@@ -19,6 +26,17 @@ Template.sheetwindow.events({
   },
   "click #sheetwindow .toolcircle-menu .options .option.new-image"() {
     $("#sheetwindow .toolcircle-menu .toolcircle.close").click();
-    $("#sheetwindow .new-sheet").addClass("showing");
+    $("#sheetwindow .sheetmodal").removeClass("showing");
+    $("#sheetwindow .sheetmodal.new-sheet").addClass("showing");
+  },
+  "click #sheetwindow .toolcircle-menu .options .option.new-homework"() {
+    $("#sheetwindow .toolcircle-menu .toolcircle.close").click();
+    $("#sheetwindow .sheetmodal").removeClass("showing");
+    $("#sheetwindow .sheetmodal.new-homework").addClass("showing");
+  },
+  "click #sheetwindow .toolcircle-menu .options .option.new-page"() {
+    $("#sheetwindow .toolcircle-menu .toolcircle.close").click();
+    $("#sheetwindow .sheetmodal").removeClass("showing");
+    $("#sheetwindow .sheetmodal.new-page").addClass("showing");
   }
 });

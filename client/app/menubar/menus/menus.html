@@ -45,21 +45,23 @@
     <div class="menu notificationmenu">
       <i class="big-icon mdi mdi-bell"></i>
       {{#if notifications}}
-        <div class="invitations">
-          {{#each invitations}}
-            <div class="invitation" data-id={{_id}} data-name={{groupName}}>
-              <div class="message">
-                <b>{{creatorName}}</b> hat dich zur Gruppe <b>{{groupName}}</b> eingeladen.
-              </div>
-              <div class="question">
-                Beitreten?
-                <div class="options">
-                  <i class="accept mdi mdi-check" title="Annehmen"></i>
-                  <i class="decline mdi mdi-close" title="Ablehnen"></i>
+        <div class="scroll-container">
+          <div class="invitations">
+            {{#each invitations}}
+              <div class="invitation" data-id={{_id}} data-name={{groupName}}>
+                <div class="message">
+                  <b>{{creatorName}}</b> hat dich zur Gruppe <b>{{groupName}}</b> eingeladen.
+                </div>
+                <div class="question">
+                  Beitreten?
+                  <div class="options">
+                    <i class="accept mdi mdi-check" title="Annehmen"></i>
+                    <i class="decline mdi mdi-close" title="Ablehnen"></i>
+                  </div>
                 </div>
               </div>
-            </div>
-          {{/each}}
+            {{/each}}
+          </div>
         </div>
       {{else}}
         <div class="nothing">Du hast zurzeit keine neuen Benachrichtigungen.</div>

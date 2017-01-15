@@ -6,7 +6,7 @@ Template.menus.onRendered(() => {
 
 Template.menus.events({
   "click #menus .profilemenu .logout"() {
-    Router.go("/");
+    Meteor.logout();
   },
   "mouseup #menus .groupmenu .groupitem"(event) {
     const id = $(event.currentTarget).data("id");

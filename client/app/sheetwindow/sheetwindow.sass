@@ -42,9 +42,11 @@
 
 
 
-  .new-sheet
-    position: relative
-    margin: 100vh auto 0
+  .sheetmodal
+    position: absolute
+    margin-top: 100vh
+    margin-left: 50%
+    transform: translateX(-50%)
     padding-top: 40px
     width: 80%
     max-width: 900px
@@ -83,9 +85,13 @@
         margin-left: 2px
 
     .header
+      padding: 0 20px
       margin-bottom: 30px
       color: #444
-      font-size: 30px
+      font-size: 25px
+
+    input
+      border-bottom: solid 1px #ccc
 
     .qr-code-section
       display: inline-block

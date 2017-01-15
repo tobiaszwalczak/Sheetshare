@@ -161,49 +161,56 @@
     &.notificationmenu
       top: -430px
       left: 475px
+      max-height: 450px
+      padding-bottom: 0
 
       i.big-icon.mdi
         border: solid 1px #f66
 
       .nothing
-        margin: 15px 0 30px
+        margin: 15px 0 50px
         font-size: 14px
         color: #999
 
-      .invitations
-        color: #aaa
+      .scroll-container
+        overflow-y: scroll
+        max-height: 313px
+        padding-bottom: 30px
 
-        .invitation
-          margin-top: 10px
-          padding: 15px
-          border: solid 1px #ddd
-          border-radius: 5px
-          font-size: 14px
-          color: #555
+        .invitations
+          color: #aaa
 
-          b
-            color: #09f
-
-          .question
+          .invitation
             margin-top: 10px
-            color: #999
+            padding: 15px
+            border: solid 1px #ddd
+            border-radius: 5px
+            font-size: 14px
+            color: #555
 
-            .options
-              font-size: 20px
+            b
+              color: #09f
 
-              i
-                margin-top: 5px
-                cursor: pointer !important
-                transition: opacity 0.3s
-                pointer-events: auto
-                &.accept
-                  margin-right: 5px
-                  color: #0c7
-                &.decline
-                  color: #f66
+            .question
+              margin-top: 10px
+              color: #999
 
-                &:hover
-                  opacity: 0.6
+              .options
+                font-size: 20px
+
+                i
+                  margin-top: 5px
+                  cursor: pointer !important
+                  transition: opacity 0.3s
+                  pointer-events: auto
+                  &.accept
+                    margin-right: 5px
+                    color: #0c7
+                  &.decline
+                    color: #f66
+
+                  &:hover
+                    opacity: 0.6
 
 
     &.profilemenu
