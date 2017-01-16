@@ -90,8 +90,44 @@
       color: #444
       font-size: 25px
 
-    input
-      border-bottom: solid 1px #ccc
+      .subheader
+        font-size: 16px
+        color: #aaa
+
+    .create-homework-section
+      padding-top: 20px
+
+      input
+        text-align: center
+        width: 80%
+        max-width: 170px
+        border-bottom: solid 1px #ccc
+        transition: all 0.3s
+        &:focus
+          border-color: #0cf
+
+      #homeworkNameInput
+        margin-bottom: 30px
+        max-width: 300px
+
+      i
+        color: #09f
+        margin: 10px 0 0
+
+      button
+        margin-top: 40px
+        padding: 10px 20px
+        background: linear-gradient(#0c7 0%, #0f7 100%)
+        color: rgba(0, 0, 0, 0.4)
+        text-align: center
+        font-size: 14px
+        border: none
+        border-radius: 5px
+        outline: none
+        cursor: pointer
+        transition: opacity 0.3s
+        &:hover
+          opacity: 0.8
 
     .qr-code-section
       display: inline-block

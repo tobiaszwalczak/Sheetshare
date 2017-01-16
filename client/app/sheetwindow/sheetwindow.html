@@ -48,12 +48,21 @@
 
     <div class="sheetmodal new-homework showing">
       <div title="Schließen" class="close-button"><i class="mdi mdi-close"></i></div>
-      <div class="header">Erstelle eine neue Hausaufgabe</div>
-      <input type="text" placeholder="Name der Hausaufgabe"><br>
-      <input type="text" placeholder="Datum des Beginns"
-        id="homeworkStartDateInput" data-lang="de" data-init-set="false" data-format="d.m.Y"><br>
-      <input type="text" placeholder="Deadline"
-        id="homeworkEndDateInput" data-lang="de" data-init-set="false" data-format="d.m.Y">
+      <div class="header">
+        Erstelle eine neue Hausaufgabe
+        <div class="subheader">Füge dann Foto-Sheets oder Leere-Sheets zu ihr hinzu</div>
+      </div>
+      <div class="create-homework-section">
+        <form id="newHomeworkForm">
+          <input type="text" placeholder="Name der Hausaufgabe" id="homeworkNameInput"><br>
+          <input type="text" placeholder="Beginn" id="homeworkStartDateInput"
+            data-lang="de" data-init-set="false" data-format="d. F Y"><br>
+          <i class="mdi mdi-debug-step-into"></i><br>
+          <input type="text" placeholder="Deadline" id="homeworkEndDateInput"
+            data-lang="de" data-init-set="false" data-format="d. F Y"><br>
+          <button type="submit">Erstellen</button>
+        </form>
+      </div>
     </div>
 
     <div class="sheetmodal new-page">
