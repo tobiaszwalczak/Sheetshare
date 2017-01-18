@@ -1,0 +1,108 @@
+<template name="menus">
+  <div id="menus">
+
+    <div class="menu groupmenu">
+      <i class="big-icon mdi mdi-account-multiple"></i>
+      <div class="grouplist">
+        {{#each groups}}
+          <div class="groupitem" data-id={{_id}}>
+            <div class="name">{{name}}</div>
+            <div class="sheetcount">
+              {{sheetcount}} <i class="mdi mdi-file-outline"></i>
+            </div>
+            <div class="membercount">
+              {{membercount}} <i class="mdi mdi-account"></i>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="menu newgroupmenu">
+      <i class="big-icon mdi mdi-account-multiple-plus"></i>
+      <form>
+        <input type="text" placeholder="Name deiner Gruppe">
+        <textarea placeholder="Emails der Mitgleider (mit ',' getrennt)"></textarea>
+        <div class="known-users">
+          <div class="heading">Bekannte einladen:</div>
+          <div class="scroll-container">
+            <div class="scroller">
+              {{#each knownUsers}}
+                {{#if other}}
+                  <div class="user" title={{profile.name}}>
+                    <img src={{profile.image}}/>
+                    <div class="name">{{firstName}}</div>
+                  </div>
+                {{/if}}
+              {{/each}}
+            </div>
+          </div>
+        </div>
+        <button><i class="mdi mdi-plus"></i></button>
+      </form>
+    </div>
+
+    <div class="menu notificationmenu">
+      <i class="big-icon mdi mdi-bell"></i>
+      {{#if notifications}}
+        <div class="scroll-container">
+          <div class="invitations">
+            {{#each invitations}}
+              <div class="invitation" data-id={{_id}} data-name={{groupName}}>
+                <div class="message">
+                  <b>{{creatorName}}</b> hat dich zur Gruppe <b>{{groupName}}</b> eingeladen.
+                </div>
+                <div class="question">
+                  Beitreten?
+                  <div class="options">
+                    <i class="accept mdi mdi-check" title="Annehmen"></i>
+                    <i class="decline mdi mdi-close" title="Ablehnen"></i>
+                  </div>
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        </div>
+      {{else}}
+        <div class="nothing">Du hast zurzeit keine neuen<br>Mitteilungen.</div>
+      {{/if}}
+    </div>
+
+    <div class="menu profilemenu">
+      <div class="share" title="Profil teilen">
+        <i class="mdi mdi-launch"></i>
+      </div>
+      <img class="profileimage" src={{currentUser.profile.image}} title={{currentUser.profile.name}}/>
+      <div class="name">{{currentUser.profile.name}}</div>
+      <div class="button">
+        <i class="mdi mdi-account-circle"></i>
+        <div class="label">Profil</div>
+      </div>
+      <div class="button">
+        <i class="mdi mdi-wrench"></i>
+        <div class="label">Einstellungen</div>
+      </div>
+      <div class="button">
+        <i class="mdi mdi-chart-line"></i>
+        <div class="label">Statistiken</div>
+      </div>
+      <div class="button logout">
+        <i class="mdi mdi-logout"></i>
+        <div class="label">Logout</div>
+      </div>
+      <div class="button upgrade">Upgraden</div>
+      <hr/>
+      <footer>
+        <a href="#">Info</a>
+        <a href="#">Kontakt</a>
+        <a href="#">AGB</a>
+        <a href="#">Privats.</a>
+        <a href="#">Hilfe</a>
+        <a href="#">Blog</a>
+      </footer>
+    </div>
+
+    <div class="anything-else"></div>
+
+  </div>
+</template>

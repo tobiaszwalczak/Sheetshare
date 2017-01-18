@@ -11,7 +11,7 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
     overflow: hidden
     z-index: 1
-    transition: all 0.4s cubic-bezier(0.7, -0.3, 0.25, 1.3)
+    transition: all 0.35s cubic-bezier(0.7, -0.3, 0.25, 1.3)
 
     &.hidden
       right: -231px
@@ -48,11 +48,11 @@
 
       .group-name
         width: 100%
-        font-size: 15px
+        font-size: 14px
         color: #555
-        line-height: 40px
+        line-height: 38px
         text-align: center
-        font-weight: 300
+        font-weight: 400
 
       .group-menu
         text-align: center
@@ -77,19 +77,49 @@
             color: #fff
             opacity: 1
 
+    .empty
+      margin-top: 40px
+      padding: 20px
+      color: #888
+      font-size: 13px
+      text-align: center
+
+      .big-icon i
+        font-size: 60px
+        color: #ddd
+        margin-bottom: 20px
+
+      .cta
+        opacity: 1
+        margin: 30px auto
+        width: 50px
+        height: 50px
+        background: linear-gradient(#0c7 0%, #0f7 100%)
+        border-radius: 50%
+        color: rgba(0, 0, 0, 0.4)
+        line-height: 50px
+        cursor: pointer
+        transition: all 0.3s
+
+        &:hover
+          opacity: 0.8
+
     .sections
       position: absolute
       width: 256px
       height: 100%
 
       section
+        position: absolute
+        top: 0
+        left: 0
         padding: 10px
         width: 100%
         height: calc(100% - 80px)
         overflow-y: scroll
         opacity: 0
         pointer-events: none
-        transition: all 0.3s
+        transition: all 0.2s
 
         &.slcd
           opacity: 1

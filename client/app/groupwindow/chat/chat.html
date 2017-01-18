@@ -1,0 +1,168 @@
+<template name="chat">
+  <section class="chat">
+
+    {{#if messagesExist}}
+      {{#each messages}}
+        {{#unless other}}
+          {{#if typeText}}
+            <div class="message">
+              {{#unless justEmojis}}
+                <img class="profileimage" src={{creator.profile.image}}
+                  data-tooltip="Du<br>{{moment}}" data-tooltip-direction="e"/>
+                <div class="bubble">{{#autolink}}{{#emoji}}{{text}}{{/emoji}}{{/autolink}}</div>
+              {{else}}
+                <img class="profileimage" src={{creator.profile.image}}
+                  data-tooltip="Du<br>{{moment}}" data-tooltip-direction="e"/>
+                <div class="justemojis">{{#emoji}}{{text}}{{/emoji}}</div>
+              {{/unless}}
+            </div>
+          {{/if}}
+          {{#if typeImage}}
+            <div class="message">
+              <img class="profileimage" src={{creator.profile.image}}
+                data-tooltip="Du<br>{{moment}}" data-tooltip-direction="e"/>
+              <div class="image" title={{image.name}}>
+                <img src={{image.url}}/>
+              </div>
+            </div>
+          {{/if}}
+          {{#if typeLatex}}
+            <div class="message">
+              <img class="profileimage" src={{creator.profile.image}}
+                data-tooltip="Du<br>{{moment}}" data-tooltip-direction="e"/>
+              <div class="latex-formula">
+                <img src="http://latex.codecogs.com/gif.latex?{{text}}" title={{text}}/>
+              </div>
+            </div>
+          {{/if}}
+        {{else}}
+          {{#if typeText}}
+            <div class="message other">
+              {{#unless justEmojis}}
+                <img class="profileimage" src={{creator.profile.image}}
+                  data-tooltip="{{creator.profile.name}}<br>{{onlineStatusName creator}}<br>{{moment}}" data-tooltip-direction="w"/>
+                <div class="online-status {{onlineStatusIndicator creator}}"></div>
+                <div class="bubble">{{#autolink}}{{#emoji}}{{text}}{{/emoji}}{{/autolink}}</div>
+              {{else}}
+                <img class="profileimage" src={{creator.profile.image}}
+                  data-tooltip="{{creator.profile.name}}<br>{{onlineStatusName creator}}<br>{{moment}}" data-tooltip-direction="w"/>
+                <div class="online-status {{onlineStatusIndicator creator}}"></div>
+                <div class="justemojis">{{#emoji}}{{text}}{{/emoji}}</div>
+              {{/unless}}
+            </div>
+          {{/if}}
+          {{#if typeImage}}
+            <div class="message other">
+              <img class="profileimage" src={{creator.profile.image}}
+                data-tooltip="{{creator.profile.name}}<br>{{onlineStatusName creator}}<br>{{moment}}" data-tooltip-direction="w"/>
+              <div class="online-status {{onlineStatusIndicator creator}}"></div>
+              <div class="image" title={{image.name}}>
+                <img src={{image.url}}/>
+              </div>
+            </div>
+          {{/if}}
+          {{#if typeLatex}}
+            <div class="message other">
+              <img class="profileimage" src={{creator.profile.image}}
+                data-tooltip="{{creator.profile.name}}<br>{{onlineStatusName creator}}<br>{{moment}}" data-tooltip-direction="w"/>
+              <div class="online-status {{onlineStatusIndicator creator}}"></div>
+              <div class="latex-formula">
+                <img src="http://latex.codecogs.com/gif.latex?{{text}}" title={{text}}/>
+              </div>
+            </div>
+          {{/if}}
+        {{/unless}}
+      {{/each}}
+      {{#each users}}
+        {{#if other}}
+          {{#if isTyping}}
+            <div class="message other">
+              <img class="profileimage" src={{this.profile.image}} data-tooltip-top="5"
+                data-tooltip="{{this.profile.name}} • {{onlineStatusName this }}"/>
+              <img class="isTyping" src="images/is-typing.gif"/>
+            </div>
+          {{/if}}
+        {{/if}}
+      {{/each}}
+    {{else}}
+      <div class="placeholder">
+        Sei der Erste<br>und schreib 'ne Nachricht
+        <div class="emojis">{{> emoji ":grin::speech_balloon:"}}</div>
+      </div>
+    {{/if}}
+
+    <textarea id="chat-textarea" rows="1" placeholder="Schreibe eine Nachricht ..."></textarea>
+    <div class="widget-button emojis-button" data-widget="emojis" data-tooltip-top="5"
+      data-tooltip="Emojis">
+      <i class="mdi mdi-emoticon"></i>
+    </div>
+    <div class="widget-button more-button" data-widget="more" data-tooltip-top="5"
+      data-tooltip="Mehr">
+      <i class="mdi mdi-dots-horizontal"></i>
+    </div>
+
+    <div class="chat-widget more-widget">
+      <input class="image-upload" type="file"/>
+      <div class="button image-button" data-tooltip-top="5" data-tooltip="Bild">
+        <i class="mdi mdi-image"></i>
+      </div>
+      <div class="button code-button" data-tooltip-top="5" data-tooltip="Code">
+        <i class="mdi mdi-code-tags"></i>
+      </div>
+      <div class="button latex-button" data-tooltip-top="5" data-tooltip="LaTeX-Formel">
+        <i class="mdi mdi-sigma"></i>
+      </div>
+      <div class="button file-button" data-tooltip-top="5" data-tooltip="Dateien">
+        <i class="mdi mdi-folder-outline"></i>
+      </div>
+    </div>
+
+    <div class="chat-widget emojis-widget">
+      {{#emoji}}
+        <div class="emoji-category"><i class="mdi mdi-account-circle"></i><br>Personen</div>
+        {{#each emojis.people}}
+          <div class="emoji-tag" title={{this}}>:{{this}}:</div>
+        {{/each}}
+
+        <div class="emoji-category"><i class="mdi mdi-flower"></i><br>Natur</div>
+        {{#each emojis.nature}}
+          <div class="emoji-tag" title={{this}}>:{{this}}:</div>
+        {{/each}}
+
+        <div class="emoji-category"><i class="mdi mdi-archive"></i><br>Objekte</div>
+        {{#each emojis.objects}}
+          <div class="emoji-tag" title={{this}}>:{{this}}:</div>
+        {{/each}}
+
+        <div class="emoji-category"><i class="mdi mdi-airplane"></i><br>Reise</div>
+        {{#each emojis.trip}}
+          <div class="emoji-tag" title={{this}}>:{{this}}:</div>
+        {{/each}}
+
+        <div class="emoji-category"><i class="mdi mdi-shape-plus"></i><br>Symbole</div>
+        {{#each emojis.symbols}}
+          <div class="emoji-tag" title={{this}}>:{{this}}:</div>
+        {{/each}}
+
+        <div class="emoji-category"><i class="mdi mdi-star"></i><br>Spezial</div>
+        {{#each emojis.special}}
+          <div class="emoji-tag" title={{this}}>:{{this}}:</div>
+        {{/each}}
+      {{/emoji}}
+    </div>
+
+    <div class="chat-widget latex-widget">
+      <div class="formula-output">
+        <div class="title">LaTeX-Output:</div>
+        <div class="help" title="Hilfe">
+          <i class="mdi mdi-help-circle"></i>
+        </div>
+        <div class="latex-output"></div>
+      </div>
+      <div class="formula-input">
+        <textarea id="latex-textarea" placeholder="LaTeX-Formel eingeben ..."></textarea>
+      </div>
+    </div>
+
+  </section>
+</template>

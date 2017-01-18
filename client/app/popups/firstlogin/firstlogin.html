@@ -1,0 +1,80 @@
+<template name="firstlogin">
+  <div id="firstlogin">
+    <div class="popup first-login-popup">
+      <div class="hirni"><img src="/images/hirni.png"/></div>
+      <svg class="triangle">
+        <polygon points="30,0 30,50 0,25"></polygon>
+      </svg>
+      <div class="bubble">
+        <div class="content-slider">
+          <div class="content">
+            <div class="heading">Hallöle</div>
+            <div class="i-am">Ich bin <i class="blue">Hirni</i></div>
+            <p>
+              Wie’s aussieht bist du zum<br>
+              ersten Mal hier …<br><br>
+              Keine Sorge! {{> emoji ":wink:"}}<br><br>
+              Ich helf dir bei deinen ersten<br>
+              Schritten und wenn du mal Probleme<br>
+              mit der Seite hast.
+            </p>
+          </div>
+          <div class="content">
+            <div class="heading">Suche ein Paket aus</div>
+            <div class="subheading">Für einen Döner im Monat gibt's Premium</div>
+            <div class="package light">
+              <div class="header">Light
+                <div class="cost">0.00€ / Monat</div>
+              </div>
+              <div class="row">1 Gruppe erstellen</div>
+              <div class="row">Mitglied in 2 Gruppen</div>
+              <div class="row">Nicht so viel ...</div>
+              <div class="check"><i class="mdi mdi-check"></i></div>
+              <div class="package-info">Immer gratis</div>
+            </div>
+            <div class="package premium">
+              <div class="header">Premium
+                <div class="cost">3.00€ / Monat</div>
+              </div>
+              <div class="row">So viele du willst</div>
+              <div class="row">Unbegrenzt</div>
+              <div class="row">Personalisierung</div>
+              <div class="check"><i class="mdi mdi-check"></i></div>
+              <div class="package-info">1. Monat gratis</div>
+            </div>
+          </div>
+          <div class="content">
+            <div class="heading">Erstelle eine Gruppe</div>
+            <div class="subheading">Hier und jetzt entsteht deine erste Gruppe</div>
+            <form id="create-first-group">
+              <input id="name" type="text" placeholder="Name der Gruppe" autocomplete="false"/>
+              <div class="invite-people"><i class="mdi mdi-at"></i><i class="mdi mdi-account-multiple"></i><br/>
+                <textarea id="members" placeholder="Emails der Mitglieder (Durch ',' getrennt)"></textarea>
+              </div>
+              <button>Erstellen</button>
+            </form>
+          </div>
+          <div class="content">
+            <div class="heading">Das war's schon</div>
+            <div class="subheading">Alles klar, du kannst loslegen {{> emoji ":rocket:"}}</div><br/>
+            <p>
+              Wenn du Lust hast kannst du dein Profil noch ein wenig <a href="#">personalisieren</a>.<br><br>
+              Da du das <span class="blue">Premium</span> Packet ausgesucht hast, ist dein erster Monat bei uns
+              gratis. {{> emoji ":smile:"}}
+            </p>
+            <div class="big-emoji">{{> emoji ":v:"}} <br><br> Viel Spaß!</div>
+          </div>
+        </div>
+        <div data-step={{firstLoginStep}} class="step-indicator">
+          <div class="step"></div>
+          <div class="step"></div>
+          <div class="step"></div>
+          <div class="step"></div>
+        </div>
+        <div title="Zurück" class="button prev-step"><i class="mdi mdi-chevron-left"></i></div>
+        <div title="Weiter" class="button next-step"><i class="mdi mdi-chevron-right"></i></div>
+        <div title="Fertig" class="button done"><i class="mdi mdi-check"></i></div>
+      </div>
+    </div>
+  </div>
+</template>

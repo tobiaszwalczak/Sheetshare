@@ -1,12 +1,5 @@
 section.checklist
-  position: absolute
-  top: 0
-  right: 0
   padding-bottom: 20px
-  width: 256px
-  height: 100%
-  text-align: center
-  transition: all 0.3s
 
   .placeholder
     top: calc(50% - 20px) !important
@@ -54,14 +47,14 @@ section.checklist
       input.check
         display: inline-block
         position: absolute
-        top: 11px
+        top: 12px
         left: 10px
         cursor: pointer
 
       label
         display: inline-block
-        margin-left: 20px
-        width: calc(100% - 30px)
+        margin-left: 25px
+        width: calc(100% - 35px)
         line-height: 18px
         overflow: hidden
         text-overflow: ellipsis
@@ -70,14 +63,6 @@ section.checklist
         img.emoji
           width: 1.2em !important
           height: 1.2em !important
-
-      .handle
-        position: absolute
-        top: 10px
-        right: 8px
-        color: #ccc
-        font-size: 15px
-        cursor: ns-resize
 
       .actions
         position: absolute
