@@ -38,14 +38,18 @@
 
     <div class="sheetmodal new-sheet">
       <div title="Schließen" class="close-button"><i class="mdi mdi-close"></i></div>
-      <div class="header">Füge ein Foto von einem Blatt hinzu</div>
+      <div class="header">
+        Füge ein Foto von einem Blatt hinzu
+        <div class="subheader">Du und deine Gruppe könnt dann darauf schreiben</div>
+      </div>
       <div class="qr-code-section">
-        <i class="mdi mdi-cellphone-iphone"></i><i class="mdi mdi-qrcode-scan"></i>
+        <i class="mdi mdi-cellphone-iphone"></i> <i class="mdi mdi-qrcode-scan"></i>
         <div class="info">Scanne den QR-Code mit deinem Smartphone um ein Foto deines Blattes davon hochzuladen</div>
         <img title="QR-Code mit dem Smartphone scannen"
           src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&amp;bgcolor=ffffff&amp;color=333&amp;data=http://jarvis.local:3000/addsheet/{{userId}}"/>
       </div>
-      <div class="upload-section"><i class="mdi mdi-laptop-mac"></i><i class="mdi mdi-cloud-upload"></i>
+      <div class="upload-section">
+        <i class="mdi mdi-laptop-mac"></i> <i class="mdi mdi-cloud-upload"></i>
         <div class="info">Oder klicke auf den Upload-Button um ein Bild direkt von hier hochzuladen</div>
         <div class="upload-button"><i class="mdi mdi-file-image"></i><br/>Bild hochladen</div>
         <input type="file" accept="image/*"/>
