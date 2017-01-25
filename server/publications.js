@@ -16,6 +16,10 @@ Meteor.publish("groups", function() {
   return Groups.find({memberIds: this.userId});
 });
 
+Meteor.publish("homeworks", (groupId) => {
+  return Homeworks.find({groupId: groupId});
+});
+
 Meteor.publish("messages", (groupId) => {
   return Messages.find({groupId: groupId});
 });
