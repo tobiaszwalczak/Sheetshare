@@ -36,6 +36,15 @@
       </div>
     </div>
 
+    <div class="all-homeworks showing">
+      {{#each homeworks}}
+        <div class="homework">
+          <div class="sheet-thumbnails"></div>
+          <div class="name">{{name}}</div>
+        </div>
+      {{/each}}
+    </div>
+
     <div class="sheetmodal new-sheet">
       <div title="Schließen" class="close-button"><i class="mdi mdi-close"></i></div>
       <div class="header">

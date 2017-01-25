@@ -8,16 +8,21 @@ Template.sheetwindow.onRendered(() => {
 Template.sheetwindow.helpers({
   userId() {
     return Meteor.userId();
+  },
+  homeworks() {
+    return Homeworks.find({}, {sort: {createdAt: -1}});
   }
 });
 
 Template.sheetwindow.events({
   "click #sheetwindow .new-sheet .close-button"() {
     $("#sheetwindow .new-sheet").removeClass("showing");
+    $("#sheetwindow .all-homeworks").addClass("showing");
   },
   "click #sheetwindow .sheetmodal.new-homework .close-button"() {
     $("#sheetwindow .sheetmodal.new-homework").removeClass("showing");
     $("#sheetwindow .sheetmodal.new-homework input").val("");
+    $("#sheetwindow .all-homeworks").addClass("showing");
   },
   "click #sheetwindow .new-sheet .upload-button"() {
     $("#sheetwindow .new-sheet input").click();
@@ -32,17 +37,20 @@ Template.sheetwindow.events({
     $("#sheetwindow .toolcircle-menu .toolcircle.close").click();
     $("#sheetwindow .sheetmodal").removeClass("showing");
     $("#sheetwindow .sheetmodal.new-homework input").val("");
+    $("#sheetwindow .all-homeworks").removeClass("showing");
     $("#sheetwindow .sheetmodal.new-sheet").addClass("showing");
   },
   "click #sheetwindow .toolcircle-menu .options .option.new-homework"() {
     $("#sheetwindow .toolcircle-menu .toolcircle.close").click();
     $("#sheetwindow .sheetmodal").removeClass("showing");
+    $("#sheetwindow .all-homeworks").removeClass("showing");
     $("#sheetwindow .sheetmodal.new-homework").addClass("showing");
   },
   "click #sheetwindow .toolcircle-menu .options .option.new-page"() {
     $("#sheetwindow .toolcircle-menu .toolcircle.close").click();
     $("#sheetwindow .sheetmodal").removeClass("showing");
     $("#sheetwindow .sheetmodal.new-homework input").val("");
+    $("#sheetwindow .all-homeworks").removeClass("showing");
     $("#sheetwindow .sheetmodal.new-page").addClass("showing");
   },
   "submit #newHomeworkForm"(event) {
@@ -55,8 +63,9 @@ Template.sheetwindow.events({
       Meteor.call("createHomework", name, group._id, startDate, endDate);
       Notify("success", `Hausaufgabe <b>${name}</b> wurde erflogreich in der Gruppe <b>${group.name}</b> erstellt.`);
       $("#sheetwindow .sheetmodal.new-homework .close-button").click();
+      $("#sheetwindow .all-homeworks").addClass("showing");
     } else {
-      Notify("error", "Fülle bitte wenigstens den <b>Beginn</b> und die <b>Deadline</b> aus.");
+      Notify("error", "Fülle bitte den <b>Beginn</b> und die <b>Deadline</b> der Hausaufgabe aus.");
     }
 
     return false;
