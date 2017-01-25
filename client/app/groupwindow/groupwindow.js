@@ -1,8 +1,6 @@
 Template.groupwindow.onRendered(() => {
   let groupTab = Meteor.user().group.tab || "chat";
   setTimeout(() => {
-    $(".group-window .sections section, .group-window .group-header .group-menu .button")
-      .removeClass("slcd");
     $(`.group-window .sections section.${groupTab}, .group-window .group-header .group-menu .button#${groupTab}`)
       .addClass("slcd");
   }, 500);
@@ -29,7 +27,7 @@ Template.groupwindow.events({
       .removeClass("slcd");
     $(`.group-window .group-header .group-menu .button#${id}, .group-window .sections section.${id}`)
       .addClass("slcd");
-    Meteor.call("setCurrentGroupTab", name);
+    Meteor.call("setCurrentGroupTab", id);
   },
   "click .group-window .empty .cta"(event) {
     $("#menubar .new-group-button").delay(500).click();

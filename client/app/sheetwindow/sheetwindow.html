@@ -36,23 +36,40 @@
       </div>
     </div>
 
+    <div class="all-homeworks showing">
+      {{#each homeworks}}
+        <div class="homework">
+          <div class="sheet-thumbnails">
+            <div class="sheet-thumbnail"></div>
+            <div class="sheet-thumbnail"></div>
+            <div class="sheet-thumbnail"></div>
+          </div>
+          <div class="name">{{name}}</div>
+        </div>
+      {{/each}}
+    </div>
+
     <div class="sheetmodal new-sheet">
       <div title="Schließen" class="close-button"><i class="mdi mdi-close"></i></div>
-      <div class="header">Füge ein Foto von einem Blatt hinzu</div>
+      <div class="header">
+        Füge ein Foto von einem Blatt hinzu
+        <div class="subheader">Du und deine Gruppe könnt dann darauf schreiben</div>
+      </div>
       <div class="qr-code-section">
-        <i class="mdi mdi-cellphone-iphone"></i><i class="mdi mdi-qrcode-scan"></i>
+        <i class="mdi mdi-cellphone-iphone"></i> <i class="mdi mdi-qrcode-scan"></i>
         <div class="info">Scanne den QR-Code mit deinem Smartphone um ein Foto deines Blattes davon hochzuladen</div>
         <img title="QR-Code mit dem Smartphone scannen"
           src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&amp;bgcolor=ffffff&amp;color=333&amp;data=http://jarvis.local:3000/addsheet/{{userId}}"/>
       </div>
-      <div class="upload-section"><i class="mdi mdi-laptop-mac"></i><i class="mdi mdi-cloud-upload"></i>
+      <div class="upload-section">
+        <i class="mdi mdi-laptop-mac"></i> <i class="mdi mdi-cloud-upload"></i>
         <div class="info">Oder klicke auf den Upload-Button um ein Bild direkt von hier hochzuladen</div>
         <div class="upload-button"><i class="mdi mdi-file-image"></i><br/>Bild hochladen</div>
         <input type="file" accept="image/*"/>
       </div>
     </div>
 
-    <div class="sheetmodal new-homework showing">
+    <div class="sheetmodal new-homework">
       <div title="Schließen" class="close-button"><i class="mdi mdi-close"></i></div>
       <div class="header">
         Erstelle eine neue Hausaufgabe
@@ -63,10 +80,10 @@
           <input type="text" placeholder="Name der Hausaufgabe" id="homeworkNameInput"><br>
           <small>Optional (sonst Datum des Beginns)</small><br>
           <input type="text" placeholder="Beginn" id="homeworkStartDateInput"
-            data-lang="de" data-init-set="false" data-format="d. F Y">
+            data-lang="de" data-init-set="false" data-format="d.m.Y">
           <i class="mdi mdi-clock-fast"></i>
           <input type="text" placeholder="Deadline" id="homeworkEndDateInput"
-            data-lang="de" data-init-set="false" data-format="d. F Y"><br>
+            data-lang="de" data-init-set="false" data-format="d.m.Y"><br>
           <button type="submit">Erstellen</button>
         </form>
       </div>
