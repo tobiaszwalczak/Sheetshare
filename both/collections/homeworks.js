@@ -9,6 +9,8 @@ Meteor.methods({
         groupId,
         startDate,
         endDate,
+        done: false,
+        doneAt: null,
         createdAt: new Date()
       });
     }

@@ -11,6 +11,9 @@ Template.sheetwindow.helpers({
   },
   homeworks() {
     return Homeworks.find({}, {sort: {createdAt: -1}});
+  },
+  sheets() {
+    return [1, 2, 3, 4, 5, 6, 7];
   }
 });
 
@@ -35,22 +38,19 @@ Template.sheetwindow.events({
   },
   "click #sheetwindow .toolcircle-menu .options .option.new-image"() {
     $("#sheetwindow .toolcircle-menu .toolcircle.close").click();
-    $("#sheetwindow .sheetmodal").removeClass("showing");
+    $("#sheetwindow .sheetmodal, #sheetwindow .all-homeworks, #sheetwindow .all-sheets").removeClass("showing");
     $("#sheetwindow .sheetmodal.new-homework input").val("");
-    $("#sheetwindow .all-homeworks").removeClass("showing");
     $("#sheetwindow .sheetmodal.new-sheet").addClass("showing");
   },
   "click #sheetwindow .toolcircle-menu .options .option.new-homework"() {
     $("#sheetwindow .toolcircle-menu .toolcircle.close").click();
-    $("#sheetwindow .sheetmodal").removeClass("showing");
-    $("#sheetwindow .all-homeworks").removeClass("showing");
+    $("#sheetwindow .sheetmodal, #sheetwindow .all-homeworks, #sheetwindow .all-sheets").removeClass("showing");
     $("#sheetwindow .sheetmodal.new-homework").addClass("showing");
   },
   "click #sheetwindow .toolcircle-menu .options .option.new-page"() {
     $("#sheetwindow .toolcircle-menu .toolcircle.close").click();
-    $("#sheetwindow .sheetmodal").removeClass("showing");
+    $("#sheetwindow .sheetmodal, #sheetwindow .all-homeworks, #sheetwindow .all-sheets").removeClass("showing");
     $("#sheetwindow .sheetmodal.new-homework input").val("");
-    $("#sheetwindow .all-homeworks").removeClass("showing");
     $("#sheetwindow .sheetmodal.new-page").addClass("showing");
   },
   "submit #newHomeworkForm"(event) {
